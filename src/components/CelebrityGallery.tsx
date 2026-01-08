@@ -68,10 +68,10 @@ export function CelebrityGallery() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="relative py-16 bg-white overflow-hidden">
-      <FloatingValentineHearts count={30} variant="red" />
+    <section ref={containerRef} className="relative py-16 bg-dark-red overflow-hidden">
+      <FloatingValentineHearts count={30} variant="white" />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-grey-50 to-white opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-crimson to-dark-red opacity-30" />
 
       <motion.div className="relative z-10" style={{ opacity }}>
         <div className="max-w-7xl mx-auto px-6 mb-10">
@@ -82,13 +82,13 @@ export function CelebrityGallery() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <p className="text-vibrant-red text-sm tracking-[0.4em] uppercase mb-3">
+            <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3">
               Live Performances
             </p>
-            <h2 className="font-display text-headline-xl text-near-black mb-4 uppercase">
+            <h2 className="font-display text-headline-xl text-white mb-4 uppercase">
               Global Music Icons
             </h2>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-vibrant-red to-transparent mx-auto" />
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
           </motion.div>
         </div>
 
@@ -142,10 +142,10 @@ export function CelebrityGallery() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <p className="text-vibrant-red text-sm tracking-[0.4em] uppercase mb-4">
+            <p className="text-gold text-sm tracking-[0.4em] uppercase mb-4">
               Award Winning
             </p>
-            <h2 className="font-display text-display-md text-near-black">
+            <h2 className="font-display text-display-md text-white">
               Celebrity Guests
             </h2>
           </motion.div>
@@ -167,17 +167,17 @@ export function CelebrityGallery() {
                     className="relative group text-center"
                     data-cursor="hover"
                   >
-                    <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-vibrant-red/20 group-hover:border-vibrant-red/50 transition-colors duration-500">
+                    <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gold/30 group-hover:border-gold/60 transition-colors duration-500">
                       <img
                         src={celebrity.image}
                         alt={celebrity.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
-                    <h3 className="text-near-black text-sm font-medium mb-1">
+                    <h3 className="text-white text-sm font-medium mb-1">
                       {celebrity.name}
                     </h3>
-                    <p className="text-vibrant-red text-xs uppercase tracking-wider">
+                    <p className="text-gold text-xs uppercase tracking-wider">
                       {celebrity.role}
                     </p>
                   </div>

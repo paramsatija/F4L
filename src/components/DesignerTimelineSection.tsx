@@ -17,6 +17,7 @@ const timelineEvents = [
     title: 'VIP Red Carpet & Champagne Reception',
     description: 'Live violinist & saxophone ambience',
     icon: Wine,
+    image: 'https://images.pexels.com/photos/2306277/pexels-photo-2306277.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     time: '8:00 PM',
@@ -24,6 +25,7 @@ const timelineEvents = [
     title: 'Live Performances by Global Music Icons',
     description: '25Band, Deborah Cox, Maya Diab, Akon',
     icon: Music,
+    image: 'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     time: '10:00 PM',
@@ -31,6 +33,7 @@ const timelineEvents = [
     title: 'For The Stars Couture Runway Show',
     description: "Jacob Meir's collections on 80+ international models",
     icon: Sparkles,
+    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     time: '11:00 PM',
@@ -38,6 +41,7 @@ const timelineEvents = [
     title: 'Exclusive VIP After Party',
     description: 'Museum collection display, celebrity DJ, curated cocktails',
     icon: PartyPopper,
+    image: 'https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ];
 
@@ -46,8 +50,8 @@ export function DesignerTimelineSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={containerRef} className="relative bg-dark-red overflow-hidden">
-      <FloatingValentineHearts count={20} variant="white" />
+    <section ref={containerRef} className="relative bg-black overflow-hidden">
+      <FloatingValentineHearts count={20} variant="red" />
 
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-gradient-to-l from-vibrant-red/5 to-transparent" />
@@ -77,46 +81,46 @@ export function DesignerTimelineSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <div className="glass-dark p-6 rounded-lg mb-6">
-              <p className="text-gold text-base font-display italic leading-relaxed">
+            <div className="glass-dark p-8 rounded-lg mb-8">
+              <p className="text-gold text-2xl font-display italic leading-relaxed font-semibold">
                 "Fashion is not about clothes. It's about making people feel like the star they were born to be."
               </p>
             </div>
 
-            <div className="space-y-4 text-white/80 text-sm leading-relaxed">
-              <p>
+            <div className="space-y-6 text-white/90 text-lg leading-relaxed">
+              <p className="font-medium">
                 Born in Jerusalem, Jacob Meir served in the Israeli military before
                 following his dream to Los Angeles. In 1986, he founded For The Stars Fashion House on
                 Melrose Avenue, building what would become Hollywood's go-to destination for celebrity couture.
               </p>
 
-              <p>
+              <p className="font-medium">
                 Over four decades, Meir has dressed entertainment's greatest icons: Prince. Madonna.
                 Michael Jackson. Cher. Beyonce. Jennifer Lopez. Lady Gaga. Whitney Houston. Britney Spears.
                 Nicki Minaj. His designs have graced world tours, red carpets, music videos, and the most
                 photographed moments in pop culture history.
               </p>
 
-              <p>
+              <p className="font-medium">
                 A self-taught visionary, Meir employs 11 designers creating thousands of handmade,
                 one-of-a-kind pieces. Each For The Stars creation is a work of art.
               </p>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-3">
+            <div className="mt-8 grid grid-cols-3 gap-4">
               {awards.map((award, index) => (
                 <motion.div
                   key={award.year}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
-                  className="glass-gold p-3 rounded-lg text-center"
+                  className="glass-gold p-4 rounded-lg text-center"
                 >
-                  <Award className="w-5 h-5 text-gold mx-auto mb-2" />
-                  <p className="text-white text-xs font-headline tracking-wider mb-1">
+                  <Award className="w-6 h-6 text-gold mx-auto mb-2" />
+                  <p className="text-white text-sm font-headline tracking-wider mb-2 font-bold">
                     {award.year}
                   </p>
-                  <p className="text-white/70 text-xs leading-tight">
+                  <p className="text-white/80 text-xs leading-tight font-medium">
                     {award.title}
                   </p>
                 </motion.div>
@@ -137,7 +141,7 @@ export function DesignerTimelineSection() {
                 alt="Jacob Meir"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-red/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
@@ -198,10 +202,18 @@ export function DesignerTimelineSection() {
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
-                <div className="relative flex items-start gap-6 glass-dark p-8 rounded-2xl border border-gold/20 hover:border-gold/40 transition-all duration-300">
-                  <div className="flex-shrink-0">
+                <div className="relative flex items-start gap-6 glass-dark p-8 rounded-2xl border border-gold/20 hover:border-gold/40 transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 opacity-10">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="relative z-10 flex-shrink-0">
                     <motion.div
-                      className="w-16 h-16 rounded-xl bg-gradient-to-br from-gold/20 to-vibrant-red/20 border-2 border-gold/40 flex items-center justify-center relative overflow-hidden"
+                      className="w-16 h-16 rounded-xl bg-gradient-to-br from-gold/30 to-vibrant-red/30 border-2 border-gold/50 flex items-center justify-center backdrop-blur-sm relative overflow-hidden"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     >
@@ -210,7 +222,7 @@ export function DesignerTimelineSection() {
                     </motion.div>
                   </div>
 
-                  <div className="flex-1">
+                  <div className="flex-1 relative z-10">
                     <div className="flex items-center gap-4 mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-gold font-headline text-xl font-bold">

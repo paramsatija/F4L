@@ -113,10 +113,13 @@ export function TicketsValentineSection() {
                 )}
 
                 <motion.div
-                  className={`relative rounded-2xl overflow-hidden border-3 ${colors.border} ${colors.bg} h-full ${colors.glow}`}
-                  whileHover={{ scale: 1.03, y: -8 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                  className={`relative rounded-2xl overflow-hidden border-4 ${colors.border} ${colors.bg} h-full ${colors.glow} shadow-2xl`}
+                  whileHover={{ scale: 1.05, y: -12 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                 >
+                  <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-gold/30 rounded-tl-2xl" />
+                  <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-gold/30 rounded-br-2xl" />
+
                   <div className={`absolute inset-0 bg-gradient-to-br ${colors.accent} to-transparent opacity-60`} />
 
                   {isHighlight && (
@@ -148,37 +151,37 @@ export function TicketsValentineSection() {
                     <div className="flex items-center justify-between mb-6">
                       <div>
                         <motion.div
-                          className={`w-14 h-14 rounded-xl ${
+                          className={`w-16 h-16 rounded-xl ${
                             isHighlight
-                              ? 'bg-gradient-to-br from-gold/30 to-amber-500/20'
+                              ? 'bg-gradient-to-br from-gold/40 to-amber-500/30 shadow-[0_0_20px_rgba(212,165,116,0.4)]'
                               : tier.id === 'gold'
-                              ? 'bg-gradient-to-br from-gold-champagne/20 to-yellow-600/10'
-                              : 'bg-slate-700/50'
-                          } flex items-center justify-center mb-4 backdrop-blur-sm border ${
-                            isHighlight ? 'border-gold/40' : tier.id === 'gold' ? 'border-gold-champagne/30' : 'border-slate-500/30'
+                              ? 'bg-gradient-to-br from-gold-champagne/30 to-yellow-600/20 shadow-[0_0_15px_rgba(212,165,116,0.3)]'
+                              : 'bg-slate-700/60 shadow-[0_0_10px_rgba(0,0,0,0.3)]'
+                          } flex items-center justify-center mb-4 backdrop-blur-sm border-2 ${
+                            isHighlight ? 'border-gold/60' : tier.id === 'gold' ? 'border-gold-champagne/50' : 'border-slate-500/40'
                           }`}
-                          whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                          transition={{ duration: 0.5 }}
+                          whileHover={{ rotate: [0, -15, 15, -15, 0], scale: 1.15 }}
+                          transition={{ duration: 0.6 }}
                         >
-                          <Icon className={`w-7 h-7 ${colors.text}`} />
+                          <Icon className={`w-8 h-8 ${colors.text}`} />
                         </motion.div>
-                        <h3 className={`font-headline text-2xl tracking-wide ${isHighlight ? 'text-white' : 'text-white/90'} mb-1`}>
+                        <h3 className={`font-headline text-3xl tracking-wide ${isHighlight ? 'text-white' : 'text-white/90'} mb-1 font-bold`}>
                           {tier.name.toUpperCase()}
                         </h3>
                       </div>
                     </div>
 
                     <div className="mb-8">
-                      <div className="flex items-baseline gap-2 mb-2">
-                        <span className={`text-sm font-medium ${isHighlight ? 'text-gold/80' : 'text-white/60'}`}>
+                      <div className="flex items-baseline gap-3 mb-3">
+                        <span className={`text-base font-bold ${isHighlight ? 'text-gold/90' : 'text-white/70'}`}>
                           {tier.currency}
                         </span>
                         <span
-                          className={`font-headline text-5xl font-bold bg-gradient-to-br ${
+                          className={`font-headline text-6xl font-extrabold bg-gradient-to-br ${
                             isHighlight
-                              ? 'from-gold via-amber-300 to-gold-champagne'
+                              ? 'from-gold via-amber-300 to-gold-champagne drop-shadow-[0_2px_10px_rgba(212,165,116,0.5)]'
                               : tier.id === 'gold'
-                              ? 'from-gold-champagne via-yellow-400 to-gold'
+                              ? 'from-gold-champagne via-yellow-400 to-gold drop-shadow-[0_2px_8px_rgba(212,165,116,0.3)]'
                               : 'from-slate-200 to-slate-400'
                           } bg-clip-text text-transparent`}
                         >
@@ -187,8 +190,8 @@ export function TicketsValentineSection() {
                       </div>
                       {isHighlight && (
                         <motion.div
-                          className="h-1 bg-gradient-to-r from-transparent via-gold to-transparent rounded-full"
-                          animate={{ opacity: [0.5, 1, 0.5] }}
+                          className="h-1.5 bg-gradient-to-r from-transparent via-gold to-transparent rounded-full shadow-[0_0_10px_rgba(212,165,116,0.5)]"
+                          animate={{ opacity: [0.6, 1, 0.6] }}
                           transition={{ duration: 2, repeat: Infinity }}
                         />
                       )}
@@ -222,24 +225,29 @@ export function TicketsValentineSection() {
                     </ul>
 
                     <motion.button
-                      className={`w-full py-4 rounded-xl font-headline text-base tracking-wider transition-all relative overflow-hidden group ${
+                      className={`w-full py-5 rounded-xl font-headline text-lg tracking-wider transition-all relative overflow-hidden group border-2 ${
                         isHighlight
-                          ? 'bg-gradient-to-r from-gold via-amber-400 to-gold text-grey-900 shadow-[0_8px_30px_rgba(212,165,116,0.4)]'
+                          ? 'bg-gradient-to-r from-gold via-amber-400 to-gold text-grey-900 shadow-[0_12px_40px_rgba(212,165,116,0.5)] border-gold hover:shadow-[0_16px_50px_rgba(212,165,116,0.7)]'
                           : tier.id === 'gold'
-                          ? 'bg-gradient-to-r from-gold-champagne to-gold text-grey-900'
-                          : 'bg-gradient-to-r from-slate-600 to-slate-700 text-white'
+                          ? 'bg-gradient-to-r from-gold-champagne to-gold text-grey-900 border-gold-champagne shadow-[0_8px_30px_rgba(212,165,116,0.3)]'
+                          : 'bg-gradient-to-r from-slate-600 to-slate-700 text-white border-slate-500 shadow-[0_8px_20px_rgba(0,0,0,0.3)]'
                       }`}
-                      whileHover={{ scale: 1.03, y: -2 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={{ scale: 1.05, y: -4 }}
+                      whileTap={{ scale: 0.96 }}
                     >
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                         animate={{ x: ['-100%', '100%'] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
                       />
-                      <span className="relative z-10 flex items-center justify-center gap-2">
-                        <Crown className="w-4 h-4" />
+                      <motion.div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-white to-transparent"
+                        transition={{ duration: 0.3 }}
+                      />
+                      <span className="relative z-10 flex items-center justify-center gap-3 font-bold">
+                        <Crown className="w-5 h-5" />
                         RESERVE {tier.name.split(' ')[0].toUpperCase()}
+                        <Sparkles className="w-4 h-4" />
                       </span>
                     </motion.button>
                   </div>
@@ -250,7 +258,12 @@ export function TicketsValentineSection() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                     >
-                      <div className={`absolute inset-0 border-4 ${colors.border} rounded-2xl animate-pulse`} />
+                      <div className={`absolute inset-0 border-4 ${colors.border} rounded-2xl`} />
+                      <motion.div
+                        className={`absolute inset-0 border-2 ${colors.border} rounded-2xl`}
+                        animate={{ scale: [1, 1.02, 1], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
                     </motion.div>
                   )}
                 </motion.div>

@@ -16,16 +16,19 @@ const features = [
     icon: Building2,
     title: "World's Tallest Stage",
     description: '160 floors of architectural wonder',
+    image: 'https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     icon: Star,
     title: "Armani's Crown Jewel",
     description: 'The only hotel designed by Giorgio Armani',
+    image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     icon: MapPin,
     title: "Dubai's Golden Mile",
     description: 'Epicenter of global luxury',
+    image: 'https://images.pexels.com/photos/1470502/pexels-photo-1470502.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ];
 
@@ -37,9 +40,9 @@ export function VisionDestinationSection() {
     <section
       id="vision"
       ref={containerRef}
-      className="relative py-16 bg-white overflow-hidden"
+      className="relative py-16 bg-dark-red overflow-hidden"
     >
-      <FloatingValentineHearts count={25} variant="red" />
+      <FloatingValentineHearts count={25} variant="white" />
 
       <div className="absolute inset-0">
         <img
@@ -47,7 +50,7 @@ export function VisionDestinationSection() {
           alt="Burj Khalifa"
           className="w-full h-full object-cover opacity-[0.08]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-transparent to-dark-red" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -57,13 +60,13 @@ export function VisionDestinationSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-vibrant-red text-sm tracking-[0.4em] uppercase mb-3 font-sans">
+          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
             The Vision
           </p>
-          <h2 className="font-display text-headline-xl text-near-black mb-4 uppercase">
+          <h2 className="font-display text-headline-xl text-white mb-4 uppercase">
             One Night. One Legacy. One Love.
           </h2>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-vibrant-red to-transparent mx-auto mb-6" />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
         </motion.div>
 
         <motion.div
@@ -72,13 +75,13 @@ export function VisionDestinationSection() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
-          <p className="text-grey-800 text-lg leading-relaxed mb-4">
+          <p className="text-white/90 text-lg leading-relaxed mb-4">
             On Valentine's Eve 2026, the world's tallest tower becomes fashion's most romantic stage.
-            <span className="text-vibrant-red font-semibold"> Fashions for Love </span>
+            <span className="text-gold font-semibold"> Fashions for Love </span>
             unites Hollywood's brightest stars with Dubai's elite for an unforgettable celebration
             of couture, music, and the universal language of love.
           </p>
-          <p className="text-grey-700 text-base leading-relaxed">
+          <p className="text-white/80 text-base leading-relaxed">
             Standing 828 meters above the Arabian desert, this is where four decades of dressing
             the world's greatest icons culminates in a single, spectacular evening. This is Jacob Meir's masterpiece.
           </p>
@@ -97,21 +100,21 @@ export function VisionDestinationSection() {
               >
                 <div className="relative mb-3">
                   <motion.div
-                    className="w-14 h-14 mx-auto rounded-full bg-white shadow-soft flex items-center justify-center group-hover:shadow-crimson transition-shadow duration-300"
+                    className="w-14 h-14 mx-auto rounded-full bg-white/10 backdrop-blur-sm shadow-soft flex items-center justify-center group-hover:shadow-gold transition-shadow duration-300 border border-white/20"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <Icon className="w-6 h-6 text-vibrant-red" />
+                    <Icon className="w-6 h-6 text-gold" />
                   </motion.div>
                 </div>
                 <motion.p
-                  className="font-headline text-4xl text-near-black mb-1"
+                  className="font-headline text-4xl text-white mb-1"
                   initial={{ scale: 0.5 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: 0.4 + index * 0.1, type: 'spring', stiffness: 200 }}
                 >
                   {stat.value}
                 </motion.p>
-                <p className="text-grey-600 text-xs uppercase tracking-wider font-sans">
+                <p className="text-white/70 text-xs uppercase tracking-wider font-sans">
                   {stat.label}
                 </p>
               </motion.div>
@@ -128,12 +131,12 @@ export function VisionDestinationSection() {
           <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
             The Destination
           </p>
-          <h3 className="font-display text-display-md text-near-black mb-6 uppercase">
+          <h3 className="font-display text-display-md text-white mb-6 uppercase">
             Where Dreams Touch the Sky
           </h3>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -142,16 +145,25 @@ export function VisionDestinationSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                className="group bg-white/80 backdrop-blur-sm rounded-lg p-6 hover:bg-white hover:shadow-medium transition-all duration-300"
+                className="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold/60 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(212,165,116,0.4)] hover:scale-105"
+                whileHover={{ y: -8 }}
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-lg bg-vibrant-red/10 flex items-center justify-center group-hover:bg-vibrant-red/20 transition-colors mb-4">
-                    <Icon className="w-6 h-6 text-vibrant-red" />
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90" />
+                  <div className="absolute top-4 right-4 w-12 h-12 rounded-lg bg-gold/30 backdrop-blur-sm flex items-center justify-center border border-gold/50">
+                    <Icon className="w-6 h-6 text-gold" />
                   </div>
-                  <h4 className="text-near-black font-semibold text-sm mb-2">
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h4 className="text-white font-bold text-lg mb-2">
                     {feature.title}
                   </h4>
-                  <p className="text-grey-600 text-sm leading-relaxed">
+                  <p className="text-gold-champagne text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

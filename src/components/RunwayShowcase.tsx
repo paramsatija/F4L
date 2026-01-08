@@ -55,11 +55,11 @@ const museumPieces = [
 
 export function RunwayShowcase() {
   return (
-    <section className="relative py-16 bg-white overflow-hidden">
+    <section className="relative py-16 bg-black overflow-hidden">
       <FloatingValentineHearts count={25} variant="red" />
 
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
       </div>
 
       <div className="relative z-10">
@@ -70,13 +70,13 @@ export function RunwayShowcase() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 px-6"
         >
-          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3">
+          <p className="text-crimson text-sm tracking-[0.4em] uppercase mb-3">
             Spectacular
           </p>
-          <h2 className="font-display text-headline-xl text-near-black mb-3 uppercase">
+          <h2 className="font-display text-headline-xl text-white mb-3 uppercase">
             Runway Show
           </h2>
-          <p className="text-grey-700 text-base max-w-2xl mx-auto">
+          <p className="text-white/80 text-base max-w-2xl mx-auto">
             For The Stars Couture by Jacob Meir - 80+ international models
             showcasing breathtaking designs
           </p>
@@ -125,13 +125,13 @@ export function RunwayShowcase() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 px-6"
         >
-          <p className="text-vibrant-red text-sm tracking-[0.4em] uppercase mb-3">
+          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3">
             Museum Collection
           </p>
-          <h2 className="font-display text-display-md text-near-black mb-3 uppercase">
+          <h2 className="font-display text-display-md text-white mb-3 uppercase">
             Iconic Pieces Worn by the Stars
           </h2>
-          <p className="text-grey-700 text-base max-w-2xl mx-auto">
+          <p className="text-white/80 text-base max-w-2xl mx-auto">
             Exclusive display and access for VIP and private buyers
           </p>
         </motion.div>

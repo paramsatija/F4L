@@ -10,7 +10,7 @@ function BackgroundHearts() {
       size: 10 + Math.random() * 20,
       duration: 15 + Math.random() * 25,
       delay: Math.random() * 15,
-      opacity: 0.05 + Math.random() * 0.10,
+      opacity: 0.2 + Math.random() * 0.25,
     }));
   }, []);
 
@@ -41,6 +41,7 @@ function BackgroundHearts() {
               width: heart.size,
               height: heart.size,
               opacity: heart.opacity,
+              filter: 'drop-shadow(0 0 8px rgba(220, 20, 60, 0.6))',
             }}
             className="text-crimson fill-crimson"
           />

@@ -35,7 +35,7 @@ export function FAQPressFooterSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={containerRef} className="relative bg-white overflow-hidden">
+    <section ref={containerRef} className="relative bg-black overflow-hidden">
       <FloatingValentineHearts count={20} variant="red" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
@@ -45,13 +45,13 @@ export function FAQPressFooterSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <p className="text-grey-500 text-sm tracking-[0.4em] uppercase mb-3 font-sans">
+          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
             Questions
           </p>
-          <h2 className="font-display text-display-md text-near-black mb-4 uppercase">
+          <h2 className="font-display text-display-md text-white mb-4 uppercase">
             Everything You Need to Know
           </h2>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-vibrant-red to-transparent mx-auto" />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-4 mb-16 max-w-5xl mx-auto">
@@ -66,15 +66,15 @@ export function FAQPressFooterSection() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full text-left"
               >
-                <div className={`bg-white p-4 rounded-lg transition-all duration-300 ${
-                  openIndex === index ? 'shadow-medium border-l-4 border-vibrant-red' : 'hover:shadow-soft'
+                <div className={`glass-dark p-4 rounded-lg transition-all duration-300 ${
+                  openIndex === index ? 'shadow-medium border-l-4 border-crimson' : 'hover:shadow-soft'
                 }`}>
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <Heart className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                        openIndex === index ? 'text-vibrant-red fill-vibrant-red' : 'text-grey-400'
+                        openIndex === index ? 'text-crimson fill-crimson' : 'text-white/40'
                       }`} />
-                      <h3 className="text-near-black font-semibold text-sm">
+                      <h3 className="text-white font-semibold text-sm">
                         {faq.question}
                       </h3>
                     </div>
@@ -83,7 +83,7 @@ export function FAQPressFooterSection() {
                       transition={{ duration: 0.3 }}
                     >
                       <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                        openIndex === index ? 'text-vibrant-red' : 'text-grey-400'
+                        openIndex === index ? 'text-crimson' : 'text-white/40'
                       }`} />
                     </motion.div>
                   </div>
@@ -97,7 +97,7 @@ export function FAQPressFooterSection() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="text-grey-600 text-sm leading-relaxed mt-3 pl-7">
+                        <p className="text-white/70 text-sm leading-relaxed mt-3 pl-7">
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -115,12 +115,12 @@ export function FAQPressFooterSection() {
           transition={{ delay: 0.3, duration: 0.4 }}
           className="text-center mb-4"
         >
-          <p className="text-grey-600 text-sm mb-2">
+          <p className="text-white/70 text-sm mb-2">
             Still have questions?
           </p>
           <a
             href="mailto:info@fashionsforlove.com"
-            className="text-vibrant-red hover:underline transition-colors font-medium text-sm"
+            className="text-crimson hover:underline transition-colors font-medium text-sm"
           >
             info@fashionsforlove.com
           </a>
@@ -134,7 +134,7 @@ export function FAQPressFooterSection() {
           transition={{ delay: 0.4, duration: 0.4 }}
           className="text-center mb-8"
         >
-          <p className="text-grey-500 text-sm tracking-[0.4em] uppercase mb-3 font-sans">
+          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
             As Featured In
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8">
@@ -144,7 +144,7 @@ export function FAQPressFooterSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.5 + index * 0.05, duration: 0.3 }}
-                className="text-grey-400 hover:text-grey-900 transition-colors duration-300"
+                className="text-white/60 hover:text-white transition-colors duration-300"
               >
                 <span className="font-display text-lg italic tracking-wide">
                   {logo}
@@ -163,16 +163,16 @@ export function FAQPressFooterSection() {
             transition={{ delay: 0.6, duration: 0.4 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <Heart className="w-6 h-6 text-vibrant-red fill-vibrant-red" />
+              <Heart className="w-6 h-6 text-crimson fill-crimson" />
               <div>
-                <p className="text-near-black text-base font-display">For The Stars</p>
-                <p className="text-vibrant-red text-xs italic">By Jacob</p>
+                <p className="text-white text-base font-display">For The Stars</p>
+                <p className="text-crimson text-xs italic">By Jacob</p>
               </div>
             </div>
-            <p className="text-grey-600 text-sm leading-relaxed mb-3">
+            <p className="text-white/70 text-sm leading-relaxed mb-3">
               For The Stars Fashion and Entertainment LLC - FZ
             </p>
-            <p className="text-grey-500 text-xs">
+            <p className="text-white/50 text-xs">
               Hollywood's Premier Fashion House bringing glamour to Dubai
             </p>
           </motion.div>
@@ -182,20 +182,20 @@ export function FAQPressFooterSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.7, duration: 0.4 }}
           >
-            <h3 className="text-vibrant-red text-sm uppercase tracking-wider mb-4 font-headline">
+            <h3 className="text-crimson text-sm uppercase tracking-wider mb-4 font-headline">
               Contact
             </h3>
             <div className="space-y-3">
               <a
                 href="mailto:operations@forthestarsfashion.com"
-                className="flex items-center gap-2 text-grey-600 hover:text-vibrant-red transition-colors group"
+                className="flex items-center gap-2 text-white/70 hover:text-crimson transition-colors group"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">operations@forthestarsfashion.com</span>
               </a>
               <a
                 href="tel:+971506528691"
-                className="flex items-center gap-2 text-grey-600 hover:text-vibrant-red transition-colors group"
+                className="flex items-center gap-2 text-white/70 hover:text-crimson transition-colors group"
               >
                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">+971 50 652 8691</span>
@@ -208,7 +208,7 @@ export function FAQPressFooterSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.4 }}
           >
-            <h3 className="text-vibrant-red text-sm uppercase tracking-wider mb-4 font-headline">
+            <h3 className="text-crimson text-sm uppercase tracking-wider mb-4 font-headline">
               Follow Us
             </h3>
             <div className="flex gap-3 mb-6">
@@ -216,18 +216,18 @@ export function FAQPressFooterSection() {
                 <a
                   key={index}
                   href="#"
-                  className="w-9 h-9 rounded-full border border-vibrant-red/30 flex items-center justify-center text-grey-600 hover:text-vibrant-red hover:border-vibrant-red hover:bg-vibrant-red/10 transition-all"
+                  className="w-9 h-9 rounded-full border border-crimson/30 flex items-center justify-center text-white/60 hover:text-crimson hover:border-crimson hover:bg-crimson/10 transition-all"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
             <div>
-              <p className="text-grey-500 text-xs uppercase tracking-wider mb-1">
+              <p className="text-white/50 text-xs uppercase tracking-wider mb-1">
                 Event Venue
               </p>
-              <p className="text-grey-700 text-sm">Armani Hotel, Dubai</p>
-              <p className="text-vibrant-red text-sm font-semibold">
+              <p className="text-white/80 text-sm">Armani Hotel, Dubai</p>
+              <p className="text-crimson text-sm font-semibold">
                 13 February 2026
               </p>
             </div>
@@ -237,10 +237,10 @@ export function FAQPressFooterSection() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-grey-300 to-transparent my-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-grey-500 text-xs">
+          <p className="text-white/50 text-xs">
             &copy; 2026 For The Stars Fashion and Entertainment LLC - FZ. All rights reserved.
           </p>
-          <p className="text-grey-600 text-xs">
+          <p className="text-white/60 text-xs">
             Fashions for Love 2026 - Hollywood Meets Dubai
           </p>
         </div>
