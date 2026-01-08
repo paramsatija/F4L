@@ -84,7 +84,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen overflow-hidden bg-[#FDFBF7]">
+    <section ref={containerRef} className="relative h-screen overflow-hidden bg-black">
       <BackgroundHearts />
 
       <motion.div
@@ -94,7 +94,7 @@ export function Hero() {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         <div className="flex items-center gap-2 mb-4">
-          <span className="font-headline text-4xl md:text-5xl tracking-wider text-grey-800">FFL</span>
+          <span className="font-headline text-4xl md:text-5xl tracking-wider text-white">FFL</span>
           <Heart className="w-9 h-9 md:w-10 md:h-10 text-crimson fill-crimson" />
         </div>
         <motion.div
@@ -102,11 +102,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <p className="text-sm md:text-base lg:text-lg tracking-[0.15em] uppercase text-grey-700 font-sans leading-tight">
+          <p className="text-sm md:text-base lg:text-lg tracking-[0.15em] uppercase text-white font-sans leading-tight">
             Where Hollywood Glamour
           </p>
           <p className="text-sm md:text-base lg:text-lg tracking-[0.15em] uppercase font-sans leading-tight">
-            <span className="text-grey-700">Meets </span>
+            <span className="text-white">Meets </span>
             <span className="text-crimson font-semibold">ARABIAN NIGHTS</span>
           </p>
         </motion.div>
@@ -148,7 +148,7 @@ export function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-playfair text-xl italic text-grey-600 leading-[1.6]">
+        <p className="font-playfair text-xl italic text-white/80 leading-[1.6]">
           "The go-to designer for A-list performers worldwide"
         </p>
         <p className="mt-2 text-sm tracking-[0.2em] uppercase text-gold font-sans font-medium">— Forbes</p>
@@ -161,9 +161,9 @@ export function Hero() {
         transition={{ delay: 1.5, duration: 0.5 }}
       >
         <p className="font-headline text-8xl text-crimson leading-none font-light">40</p>
-        <p className="text-sm tracking-[0.25em] uppercase text-grey-600 mt-2 font-sans">Years of</p>
-        <p className="font-headline text-2xl tracking-[0.08em] text-grey-800 font-normal mt-1">HOLLYWOOD</p>
-        <p className="font-headline text-2xl tracking-[0.08em] text-grey-800 font-normal">GLAMOUR</p>
+        <p className="text-sm tracking-[0.25em] uppercase text-white/80 mt-2 font-sans">Years of</p>
+        <p className="font-headline text-2xl tracking-[0.08em] text-white font-normal mt-1">HOLLYWOOD</p>
+        <p className="font-headline text-2xl tracking-[0.08em] text-white font-normal">GLAMOUR</p>
       </motion.div>
 
       <div className="container mx-auto px-4 pt-20 md:pt-24 relative z-10 h-full flex flex-col">
@@ -174,7 +174,7 @@ export function Hero() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <motion.p
-            className="font-playfair text-base md:text-lg lg:text-xl italic text-grey-600 mb-4 tracking-wide"
+            className="font-playfair text-base md:text-lg lg:text-xl italic text-white/80 mb-4 tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
@@ -182,8 +182,8 @@ export function Hero() {
             For the Stars By Jacob Meir presents
           </motion.p>
           <h1 className="font-headline text-[clamp(2.8rem,9vw,7rem)] leading-[1.05] tracking-[0.02em]">
-            <span className="text-grey-800 font-light">FASHIONS </span>
-            <span className="font-playfair text-[clamp(1.4rem,4.5vw,3rem)] italic text-grey-600 font-normal">for </span>
+            <span className="text-white font-light">FASHIONS </span>
+            <span className="font-playfair text-[clamp(1.4rem,4.5vw,3rem)] italic text-white/80 font-normal">for </span>
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent font-medium">
                 LOVE
@@ -219,7 +219,7 @@ export function Hero() {
         >
           <div className="flex items-center justify-center gap-4 mb-2">
             <div className="w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
-            <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-grey-600 font-sans">
+            <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-white/80 font-sans">
               Valentine's Eve
             </p>
             <div className="w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
@@ -227,7 +227,7 @@ export function Hero() {
           <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider text-crimson">
             13 FEBRUARY 2026
           </p>
-          <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-grey-500 mt-2 font-sans">
+          <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mt-2 font-sans">
             Armani Hotel | Burj Khalifa | Dubai
           </p>
         </motion.div>
@@ -241,7 +241,7 @@ export function Hero() {
           <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-8 md:px-12 py-4 md:py-5 text-white font-headline text-base md:text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense">
             SECURE YOUR INVITATION
           </button>
-          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 text-grey-700 font-sans text-sm md:text-base tracking-wider hover:text-crimson border-2 border-grey-300 hover:border-crimson/60 transition-all duration-300 bg-white/50 backdrop-blur-sm">
+          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 text-white font-sans text-sm md:text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm">
             <Play className="w-5 h-5 md:w-6 md:h-6" />
             Watch Teaser
           </button>
@@ -255,7 +255,7 @@ export function Hero() {
         transition={{ delay: 2, duration: 0.5 }}
       >
         <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson" />
-        <span className="font-headline text-2xl md:text-3xl tracking-wider text-grey-700">DUBAI</span>
+        <span className="font-headline text-2xl md:text-3xl tracking-wider text-white">DUBAI</span>
       </motion.div>
 
       <motion.div
@@ -267,9 +267,9 @@ export function Hero() {
           y: { delay: 2.2, duration: 1.5, repeat: Infinity },
         }}
       >
-        <div className="flex flex-col items-center gap-1.5 text-grey-400">
+        <div className="flex flex-col items-center gap-1.5 text-white/60">
           <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-sans">Scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-grey-400 to-transparent" />
+          <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
       </motion.div>
     </section>
