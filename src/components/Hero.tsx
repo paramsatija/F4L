@@ -260,7 +260,7 @@ export function Hero() {
             >
               <div className="absolute inset-0 bg-near-black">
                 <img
-                  src="https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=1920"
+                  src="/generated-1767903493472-n4rp1.png"
                   alt="Burj Khalifa"
                   className="w-full h-full object-cover opacity-70"
                   style={{ objectPosition: 'center 30%' }}
@@ -278,7 +278,7 @@ export function Hero() {
           >
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=400"
+                src="/generated-1767903493472-n4rp1.png"
                 alt="Burj Khalifa Tower"
                 className="w-full h-auto object-contain"
                 style={{
