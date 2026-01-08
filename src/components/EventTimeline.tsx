@@ -134,7 +134,7 @@ export function EventTimeline() {
                   <div className="relative z-10 flex-shrink-0">
                     <motion.div
                       className="w-14 h-14 rounded-full bg-white border-2 border-crimson/50 flex items-center justify-center shadow-soft"
-                      whileHover={{ scale: 1.2, borderColor: 'rgba(220, 20, 60, 1)' }}
+                      whileHover={{ scale: 1.2, borderColor: 'rgba(207, 15, 15, 1)' }}
                     >
                       <Icon className="w-6 h-6 text-crimson" />
                     </motion.div>

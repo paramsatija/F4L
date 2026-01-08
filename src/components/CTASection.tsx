@@ -25,7 +25,7 @@ export function CTASection() {
             className="absolute inset-0 rounded-full"
             style={{
               background:
-                'radial-gradient(circle, rgba(220, 20, 60, 0.05) 0%, transparent 70%)',
+                'radial-gradient(circle, rgba(207, 15, 15, 0.05) 0%, transparent 70%)',
             }}
             animate={{
               scale: [1, 1.2, 1],
@@ -104,9 +104,9 @@ export function CTASection() {
               className="absolute inset-0 rounded-full"
               animate={{
                 boxShadow: [
-                  '0 4px 20px rgba(220, 20, 60, 0.3)',
-                  '0 8px 40px rgba(220, 20, 60, 0.4)',
-                  '0 4px 20px rgba(220, 20, 60, 0.3)',
+                  '0 4px 20px rgba(207, 15, 15, 0.3)',
+                  '0 8px 40px rgba(207, 15, 15, 0.4)',
+                  '0 4px 20px rgba(207, 15, 15, 0.3)',
                 ],
               }}
               transition={{ duration: 2, repeat: Infinity }}

@@ -9,7 +9,7 @@ export default {
         'near-black': '#141414',
         'subtle-gray': '#f7f7f7',
         crimson: {
-          DEFAULT: '#DC143C',
+          DEFAULT: '#CF0F0F',
           light: '#FF1744',
           dark: '#A8324E',
           muted: '#B8475F',
@@ -119,19 +119,19 @@ export default {
         },
       },
       backgroundImage: {
-        'crimson-gradient': 'linear-gradient(135deg, #DC143C 0%, #FF1744 50%, #DC143C 100%)',
+        'crimson-gradient': 'linear-gradient(135deg, #CF0F0F 0%, #FF1744 50%, #CF0F0F 100%)',
         'dark-red-gradient': 'linear-gradient(180deg, #ab0d0d 0%, #141414 100%)',
         'red-black-gradient': 'linear-gradient(135deg, #ab0d0d 0%, #141414 100%)',
         'spotlight': 'radial-gradient(circle at center bottom, rgba(206, 0, 0, 0.3) 0%, transparent 70%)',
         'grey-gradient': 'linear-gradient(180deg, #F5F5F5 0%, #E8E8E8 100%)',
-        'shimmer': 'linear-gradient(90deg, transparent 0%, rgba(220, 20, 60, 0.1) 50%, transparent 100%)',
+        'shimmer': 'linear-gradient(90deg, transparent 0%, rgba(207, 15, 15, 0.1) 50%, transparent 100%)',
       },
       boxShadow: {
         'soft': '0 2px 8px rgba(0, 0, 0, 0.08)',
         'medium': '0 4px 16px rgba(0, 0, 0, 0.12)',
         'large': '0 8px 32px rgba(0, 0, 0, 0.16)',
-        'crimson': '0 4px 16px rgba(220, 20, 60, 0.2)',
-        'crimson-intense': '0 8px 32px rgba(220, 20, 60, 0.3)',
+        'crimson': '0 4px 16px rgba(207, 15, 15, 0.2)',
+        'crimson-intense': '0 8px 32px rgba(207, 15, 15, 0.3)',
       },
       backdropBlur: {
         'glass': '20px',

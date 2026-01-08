@@ -26,7 +26,7 @@ export function RosePetals({ count = 20, className = '' }: RosePetalsProps) {
           style={{
             left: petal.left,
             top: '-5%',
-            background: 'radial-gradient(ellipse at center, rgba(220, 20, 60, 0.4) 0%, rgba(220, 20, 60, 0.1) 100%)',
+            background: 'radial-gradient(ellipse at center, rgba(207, 15, 15, 0.4) 0%, rgba(207, 15, 15, 0.1) 100%)',
             filter: 'blur(2px)',
           }}
           animate={{

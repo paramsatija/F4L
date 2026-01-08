@@ -7,7 +7,7 @@
 :root {
   --color-vibrant-red: #ce0000;
   --color-dark-red: #ab0d0d;
-  --color-crimson: #DC143C;
+  --color-crimson: #CF0F0F;
   --color-near-black: #141414;
   --color-grey: #2D2D2D;
   --color-grey-light: #6B6B6B;
@@ -39,7 +39,7 @@
   }
 
   ::selection {
-    background: rgba(220, 20, 60, 0.2);
+    background: rgba(207, 15, 15, 0.2);
     color: #2D2D2D;
   }
 
@@ -52,12 +52,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #DC143C, #A8324E);
+    background: linear-gradient(180deg, #CF0F0F, #A8324E);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #FF1744, #DC143C);
+    background: linear-gradient(180deg, #FF1744, #CF0F0F);
   }
 }
 
@@ -77,10 +77,10 @@
   }
 
   .glass-crimson {
-    background: rgba(220, 20, 60, 0.05);
+    background: rgba(207, 15, 15, 0.05);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(207, 15, 15, 0.1);
   }
 
   .glass-dark {
@@ -100,11 +100,11 @@
   .text-crimson-shimmer {
     background: linear-gradient(
       90deg,
-      #DC143C 0%,
+      #CF0F0F 0%,
       #FF1744 25%,
-      #DC143C 50%,
+      #CF0F0F 50%,
       #FF1744 75%,
-      #DC143C 100%
+      #CF0F0F 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -127,26 +127,26 @@
   }
 
   .text-outline {
-    -webkit-text-stroke: 1px rgba(220, 20, 60, 0.3);
+    -webkit-text-stroke: 1px rgba(207, 15, 15, 0.3);
     color: transparent;
   }
 
   .text-stroke-crimson {
-    -webkit-text-stroke: 2px #DC143C;
+    -webkit-text-stroke: 2px #CF0F0F;
     color: transparent;
     paint-order: stroke fill;
   }
 
   .text-stroke-crimson-fill {
-    -webkit-text-stroke: 2px #DC143C;
-    color: #DC143C;
+    -webkit-text-stroke: 2px #CF0F0F;
+    color: #CF0F0F;
     paint-order: stroke fill;
   }
 
   .text-crimson-glow {
     text-shadow:
-      0 0 20px rgba(220, 20, 60, 0.3),
-      0 0 40px rgba(220, 20, 60, 0.15);
+      0 0 20px rgba(207, 15, 15, 0.3),
+      0 0 40px rgba(207, 15, 15, 0.15);
   }
 
   .text-shadow-glow {
@@ -171,7 +171,7 @@
 
   .fluid-button {
     position: relative;
-    background: linear-gradient(135deg, #DC143C, #FF1744, #DC143C);
+    background: linear-gradient(135deg, #CF0F0F, #FF1744, #CF0F0F);
     background-size: 200% 200%;
     border-radius: 8px;
     overflow: hidden;
@@ -193,7 +193,7 @@
 
   .fluid-button:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.3);
+    box-shadow: 0 8px 32px rgba(207, 15, 15, 0.3);
   }
 
   .grain-overlay {
@@ -207,7 +207,7 @@
 
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(207, 15, 15, 0.2), transparent);
   }
 
   .parallax-layer {
@@ -247,7 +247,7 @@
   }
 
   .blush-overlay {
-    background: rgba(220, 20, 60, 0.03);
+    background: rgba(207, 15, 15, 0.03);
   }
 }
 

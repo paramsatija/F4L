@@ -32,12 +32,12 @@ export default function ModelReveal() {
       >
         <defs>
           <linearGradient id="dressGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#DC143C" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#CF0F0F" stopOpacity="0.9" />
             <stop offset="50%" stopColor="#C41E3A" stopOpacity="1" />
             <stop offset="100%" stopColor="#8B0000" stopOpacity="0.95" />
           </linearGradient>
           <linearGradient id="capeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#DC143C" stopOpacity="0.7" />
+            <stop offset="0%" stopColor="#CF0F0F" stopOpacity="0.7" />
             <stop offset="100%" stopColor="#C41E3A" stopOpacity="0.85" />
           </linearGradient>
           <filter id="glow">
@@ -171,8 +171,8 @@ export default function ModelReveal() {
         >
           <circle cx="90" cy="120" r="2" fill="#FFD700" opacity="0.6" />
           <circle cx="110" cy="140" r="1.5" fill="#FFD700" opacity="0.6" />
-          <circle cx="95" cy="160" r="2" fill="#DC143C" opacity="0.4" />
-          <circle cx="105" cy="180" r="1.5" fill="#DC143C" opacity="0.4" />
+          <circle cx="95" cy="160" r="2" fill="#CF0F0F" opacity="0.4" />
+          <circle cx="105" cy="180" r="1.5" fill="#CF0F0F" opacity="0.4" />
         </motion.g>
       </motion.svg>
     </motion.div>

@@ -82,7 +82,7 @@ export function CustomCursor() {
         style={{
           x: cursorX,
           y: cursorY,
-          background: `radial-gradient(circle 120px at center, rgba(220, 20, 60, 0.02) 0%, transparent 70%)`,
+          background: `radial-gradient(circle 120px at center, rgba(207, 15, 15, 0.02) 0%, transparent 70%)`,
           width: 240,
           height: 240,
           marginLeft: -120,

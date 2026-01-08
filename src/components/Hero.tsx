@@ -41,7 +41,7 @@ function BackgroundHearts() {
               width: heart.size,
               height: heart.size,
               opacity: heart.opacity,
-              filter: 'drop-shadow(0 0 8px rgba(220, 20, 60, 0.6))',
+              filter: 'drop-shadow(0 0 8px rgba(207, 15, 15, 0.6))',
             }}
             className="text-crimson fill-crimson"
           />
@@ -174,7 +174,7 @@ export function Hero() {
             </p>
             <div className="w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
           </div>
-          <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#DC143C' }}>
+          <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#CF0F0F' }}>
             13 FEBRUARY 2026
           </p>
           <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mt-2 font-sans">
