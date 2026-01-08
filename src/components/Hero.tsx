@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Heart, Play } from 'lucide-react';
 import { useRef, useEffect, useState, useMemo } from 'react';
+import ModelReveal from './ModelReveal';
 
 function BackgroundHearts() {
   const hearts = useMemo(() => {
@@ -252,6 +253,8 @@ export function Hero() {
               transition={{ duration: 2, ease: 'easeInOut', delay: 0.5 }}
             />
           </svg>
+
+          <ModelReveal />
         </motion.div>
 
         <motion.div
