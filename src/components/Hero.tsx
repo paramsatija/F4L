@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Heart, Play } from 'lucide-react';
 import { useRef, useEffect, useState, useMemo } from 'react';
-import ModelReveal from './ModelReveal';
 
 function BackgroundHearts() {
   const hearts = useMemo(() => {
@@ -199,7 +198,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative mx-auto w-full max-w-[340px] md:max-w-[440px] lg:max-w-[520px] flex-1 min-h-0 my-4 md:my-6"
+          className="relative mx-auto w-full max-w-[510px] md:max-w-[660px] lg:max-w-[780px] flex-1 min-h-0 my-4 md:my-6"
           style={{ scale: heartScale, y: heartY }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -210,8 +209,6 @@ export function Hero() {
             alt="Fashions for Love Heart"
             className="absolute inset-0 w-full h-full object-contain"
           />
-
-          <ModelReveal />
         </motion.div>
 
         <motion.div
