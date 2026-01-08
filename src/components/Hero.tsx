@@ -1,225 +1,112 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Heart, Play } from 'lucide-react';
-import { useRef, useMemo } from 'react';
-
-function BackgroundHearts() {
-  const hearts = useMemo(() => {
-    return [...Array(60)].map((_, i) => ({
-      id: i,
-      left: Math.random() * 100,
-      size: 12 + Math.random() * 24,
-      duration: 15 + Math.random() * 25,
-      delay: Math.random() * 15,
-      opacity: 0.2 + Math.random() * 0.25,
-    }));
-  }, []);
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {hearts.map((heart) => (
-        <motion.div
-          key={heart.id}
-          className="absolute"
-          style={{
-            left: `${heart.left}%`,
-            bottom: '-50px',
-          }}
-          animate={{
-            y: [0, -window.innerHeight - 100],
-            x: [0, Math.sin(heart.id) * 30, 0],
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: heart.duration,
-            repeat: Infinity,
-            delay: heart.delay,
-            ease: 'linear',
-          }}
-        >
-          <Heart
-            style={{
-              width: heart.size,
-              height: heart.size,
-              opacity: heart.opacity,
-              filter: 'drop-shadow(0 0 8px rgba(220, 20, 60, 0.6))',
-            }}
-            className="text-crimson fill-crimson"
-          />
-        </motion.div>
-      ))}
-    </div>
-  );
-}
+import { Heart } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showDate, setShowDate] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   });
 
-  const heartScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const heartY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const heartRotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
+  const heartScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowDate(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section ref={containerRef} className="relative h-screen overflow-hidden bg-black">
-      <BackgroundHearts />
-
       <motion.div
-        className="absolute top-4 left-4 md:top-6 md:left-6 z-20"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ opacity: textOpacity }}
       >
-        <div className="flex items-center gap-3 mb-4">
-          <span className="font-headline text-6xl md:text-7xl lg:text-8xl tracking-wider text-white">FFL</span>
-          <Heart className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-crimson fill-crimson" />
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-        >
-          <p className="text-base md:text-lg lg:text-xl tracking-[0.15em] uppercase text-white font-sans leading-tight">
-            Where Hollywood Glamour
-          </p>
-          <p className="text-base md:text-lg lg:text-xl tracking-[0.15em] uppercase font-sans leading-tight">
-            <span className="text-white">Meets </span>
-            <span className="text-crimson font-semibold">ARABIAN NIGHTS</span>
-          </p>
-        </motion.div>
-      </motion.div>
-
-
-      <motion.div
-        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[320px]"
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <p className="font-playfair text-2xl md:text-3xl italic text-white/80 leading-[1.6]">
-          "The go-to designer for A-list performers worldwide"
-        </p>
-        <p className="mt-3 text-base md:text-lg tracking-[0.2em] uppercase text-gold font-sans font-medium">— Forbes</p>
-      </motion.div>
-
-      <motion.div
-        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[320px]"
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <p className="font-headline text-[10rem] md:text-[12rem] lg:text-[14rem] text-crimson leading-none font-light">40</p>
-        <p className="text-base md:text-lg tracking-[0.25em] uppercase text-white/80 mt-3 font-sans">Years of</p>
-        <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal mt-2">HOLLYWOOD</p>
-        <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal">GLAMOUR</p>
-      </motion.div>
-
-      <div className="container mx-auto px-4 pt-20 md:pt-24 relative z-10 h-full flex flex-col">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <motion.p
-            className="font-playfair text-base md:text-lg lg:text-xl italic text-white/80 mb-4 tracking-wide"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
+        <div className="text-center">
+          <motion.h1
+            className="font-headline text-[clamp(8rem,25vw,28rem)] leading-none tracking-tight text-white font-light"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            For the Stars By Jacob Meir presents
-          </motion.p>
-          <h1 className="font-headline text-[clamp(2.8rem,9vw,7rem)] leading-[1.05] tracking-[0.02em]">
-            <span className="text-white font-light">FASHIONS </span>
-            <span className="font-playfair text-[clamp(1.4rem,4.5vw,3rem)] italic text-white/80 font-normal">for </span>
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent font-medium">
-                LOVE
-              </span>
-              <motion.div
-                className="absolute -inset-4 bg-crimson/20 rounded-full blur-2xl -z-10"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              />
-            </span>
-          </h1>
-        </motion.div>
+            LOVE
+          </motion.h1>
 
-        <motion.div
-          className="relative mx-auto w-full max-w-[510px] md:max-w-[660px] lg:max-w-[780px] flex-1 min-h-0 my-4 md:my-6"
-          style={{ scale: heartScale, y: heartY }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
-        >
-          <img
-            src="/gemini_generated_image_7.png"
-            alt="Fashions for Love Heart"
-            className="absolute inset-0 w-full h-full object-contain"
-          />
-        </motion.div>
-
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.6, duration: 0.5 }}
-        >
-          <div className="flex items-center justify-center gap-4 mb-2">
-            <div className="w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
-            <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-white/80 font-sans">
-              Valentine's Eve
-            </p>
-            <div className="w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
-          </div>
-          <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#DC143C' }}>
-            13 FEBRUARY 2026
-          </p>
-          <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mt-2 font-sans">
-            Armani Hotel | Burj Khalifa | Dubai
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-5 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.5 }}
-        >
-          <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-8 md:px-12 py-4 md:py-5 text-white font-headline text-base md:text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense">
-            SECURE YOUR INVITATION
-          </button>
-          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 text-white font-sans text-sm md:text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm">
-            <Play className="w-5 h-5 md:w-6 md:h-6" />
-            Watch Teaser
-          </button>
-        </motion.div>
-      </div>
-
-      <motion.div
-        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.5 }}
-      >
-        <Heart className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-crimson fill-crimson" />
-        <span className="font-headline text-4xl md:text-5xl lg:text-6xl tracking-wider text-white">DUBAI</span>
+          <motion.div
+            className="mt-12 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showDate ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="text-center">
+              <p className="text-white/60 text-sm tracking-[0.3em] uppercase mb-2">
+                One night
+              </p>
+              <p className="text-crimson text-2xl md:text-3xl font-headline tracking-wider">
+                February 13, 2026
+              </p>
+              <p className="text-white/60 text-sm tracking-[0.3em] uppercase mt-2">
+                Dubai
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 6, 0] }}
-        transition={{
-          opacity: { delay: 2.2, duration: 0.4 },
-          y: { delay: 2.2, duration: 1.5, repeat: Infinity },
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          rotateY: heartRotate,
+          scale: heartScale,
         }}
       >
-        <div className="flex flex-col items-center gap-1.5 text-white/60">
-          <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-sans">Scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent" />
+        <motion.div
+          animate={{
+            rotateY: [0, 360],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          <Heart
+            className="w-64 h-64 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem] text-crimson fill-crimson"
+            style={{
+              filter: 'drop-shadow(0 0 80px rgba(220, 20, 60, 0.6))',
+            }}
+          />
+        </motion.div>
+      </motion.div>
+
+      <motion.button
+        className="absolute bottom-24 left-1/2 -translate-x-1/2 px-12 py-5 text-white text-lg tracking-wider font-headline bg-crimson hover:bg-crimson/90 transition-all duration-300"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: showDate ? 1 : 0, y: showDate ? 0 : 20 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Be There
+      </motion.button>
+
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{
+          opacity: { delay: 2, duration: 0.5 },
+          y: { delay: 2, duration: 2, repeat: Infinity },
+        }}
+      >
+        <div className="flex flex-col items-center gap-2 text-white/40">
+          <span className="text-xs tracking-[0.3em] uppercase">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
         </div>
       </motion.div>
     </section>

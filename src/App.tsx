@@ -1,29 +1,22 @@
-import { CustomCursor } from './components/CustomCursor';
-import { StickyNavigation } from './components/StickyNavigation';
 import { Hero } from './components/Hero';
-import { VisionDestinationSection } from './components/VisionDestinationSection';
-import { DesignerTimelineSection } from './components/DesignerTimelineSection';
-import { CelebrityGallery } from './components/CelebrityGallery';
+import { VisionSection } from './components/VisionSection';
 import { PerformersHostsSection } from './components/PerformersHostsSection';
-import { RunwayShowcase } from './components/RunwayShowcase';
+import { CelebrityGallery } from './components/CelebrityGallery';
+import { ValentineExperience } from './components/ValentineExperience';
 import { TicketsValentineSection } from './components/TicketsValentineSection';
-import { FAQPressFooterSection } from './components/FAQPressFooterSection';
+import { FinalCTA } from './components/FinalCTA';
 
 function App() {
   return (
-    <div className="relative">
-      <div className="grain-overlay" />
-      <CustomCursor />
-      <StickyNavigation />
+    <div className="relative bg-black">
       <main>
         <Hero />
-        <VisionDestinationSection />
-        <DesignerTimelineSection />
-        <CelebrityGallery />
+        <VisionSection />
         <PerformersHostsSection />
-        <RunwayShowcase />
+        <CelebrityGallery />
+        <ValentineExperience />
         <TicketsValentineSection />
-        <FAQPressFooterSection />
+        <FinalCTA />
       </main>
     </div>
   );
