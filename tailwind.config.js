@@ -30,6 +30,16 @@ export default {
           DEFAULT: '#D4A574',
           champagne: '#C9A87C',
         },
+        cream: {
+          DEFAULT: '#FAF8F3',
+          light: '#FEFDFB',
+          dark: '#F5F1E8',
+        },
+        champagne: {
+          DEFAULT: '#FFF9ED',
+          light: '#FFFCF5',
+          dark: '#F7EFE2',
+        },
         stark: '#FFFFFF',
       },
       fontFamily: {

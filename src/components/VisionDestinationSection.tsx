@@ -49,18 +49,18 @@ export function VisionDestinationSection() {
     <section
       id="vision"
       ref={containerRef}
-      className="relative py-16 bg-crimson overflow-hidden"
+      className="relative py-24 bg-cream overflow-hidden"
     >
-      <FloatingValentineHearts count={25} variant="white" />
-      <FashionSketches variant="light" />
+      <FloatingValentineHearts count={25} variant="red" />
+      <FashionSketches variant="dark" />
 
       <motion.div className="absolute inset-0" style={{ y: backgroundY, opacity }}>
         <img
           src={PLACEHOLDERS.venue.burjKhalifa}
           alt="Burj Khalifa"
-          className="w-full h-full object-cover opacity-[0.08]"
+          className="w-full h-full object-cover opacity-[0.03]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-crimson via-transparent to-crimson" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
       </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -68,36 +68,36 @@ export function VisionDestinationSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
+          <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
             The Vision
           </p>
-          <h2 className="font-display text-headline-xl text-white mb-4 uppercase">
+          <h2 className="font-display text-headline-xl text-grey-900 mb-6 uppercase leading-none">
             One Night. One Legacy. One Love.
           </h2>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6" />
+          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto" />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-20"
         >
-          <p className="text-white/90 text-lg leading-relaxed mb-4">
+          <p className="text-grey-800 text-xl leading-relaxed mb-6 font-light">
             On Valentine's Eve 2026, the world's tallest tower becomes fashion's most romantic stage.
-            <span className="text-gold font-semibold"> Fashions for Love </span>
+            <span className="text-crimson font-semibold"> Fashions for Love </span>
             unites Hollywood's brightest stars with Dubai's elite for an unforgettable celebration
             of couture, music, and the universal language of love.
           </p>
-          <p className="text-white/80 text-base leading-relaxed">
+          <p className="text-grey-600 text-lg leading-relaxed">
             Standing 828 meters above the Arabian desert, this is where four decades of dressing
             the world's greatest icons culminates in a single, spectacular evening. This is Jacob Meir's masterpiece.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 max-w-5xl mx-auto">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -108,23 +108,23 @@ export function VisionDestinationSection() {
                 transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
                 className="text-center group"
               >
-                <div className="relative mb-3">
+                <div className="relative mb-5">
                   <motion.div
-                    className="w-14 h-14 mx-auto rounded-full bg-white/10 backdrop-blur-sm shadow-soft flex items-center justify-center group-hover:shadow-gold transition-shadow duration-300 border border-white/20"
-                    whileHover={{ scale: 1.1 }}
+                    className="w-16 h-16 mx-auto rounded-2xl bg-white shadow-medium flex items-center justify-center group-hover:shadow-large transition-all duration-300 border border-grey-200"
+                    whileHover={{ scale: 1.1, y: -4 }}
                   >
-                    <Icon className="w-6 h-6 text-gold" />
+                    <Icon className="w-7 h-7 text-crimson" />
                   </motion.div>
                 </div>
                 <motion.p
-                  className="font-headline text-4xl text-white mb-1"
+                  className="font-headline text-5xl text-grey-900 mb-2 tracking-tight"
                   initial={{ scale: 0.5 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: 0.4 + index * 0.1, type: 'spring', stiffness: 200 }}
                 >
                   {stat.value}
                 </motion.p>
-                <p className="text-white/70 text-xs uppercase tracking-wider font-sans">
+                <p className="text-grey-600 text-sm uppercase tracking-wider font-sans font-medium">
                   {stat.label}
                 </p>
               </motion.div>
@@ -136,17 +136,17 @@ export function VisionDestinationSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="text-center mb-8"
+          className="text-center mb-12"
         >
-          <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
+          <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
             The Destination
           </p>
-          <h3 className="font-display text-display-md text-white mb-6 uppercase">
+          <h3 className="font-display text-display-md text-grey-900 mb-6 uppercase leading-none">
             Where Dreams Touch the Sky
           </h3>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -155,8 +155,8 @@ export function VisionDestinationSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                className="group relative overflow-hidden rounded-xl border border-gold/30 hover:border-gold/60 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(212,165,116,0.4)] hover:scale-105"
-                whileHover={{ y: -8 }}
+                className="group relative overflow-hidden rounded-2xl bg-white border border-grey-200 hover:border-crimson/40 transition-all duration-500 shadow-medium hover:shadow-large"
+                whileHover={{ y: -12 }}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -164,16 +164,16 @@ export function VisionDestinationSection() {
                     alt={feature.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90" />
-                  <div className="absolute top-4 right-4 w-12 h-12 rounded-lg bg-gold/30 backdrop-blur-sm flex items-center justify-center border border-gold/50">
-                    <Icon className="w-6 h-6 text-gold" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-grey-900 via-grey-900/50 to-transparent opacity-80" />
+                  <div className="absolute top-6 right-6 w-14 h-14 rounded-xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-large">
+                    <Icon className="w-7 h-7 text-crimson" />
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h4 className="text-white font-bold text-lg mb-2">
+                <div className="p-8">
+                  <h4 className="text-grey-900 font-bold text-xl mb-3 font-display">
                     {feature.title}
                   </h4>
-                  <p className="text-gold-champagne text-sm leading-relaxed">
+                  <p className="text-grey-600 text-base leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
