@@ -95,8 +95,8 @@ export function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
       >
-        <span className="font-headline text-3xl md:text-4xl tracking-wider text-grey-800">FFL</span>
-        <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson" />
+        <span className="font-headline text-4xl md:text-5xl tracking-wider text-grey-800">FFL</span>
+        <Heart className="w-9 h-9 md:w-10 md:h-10 text-crimson fill-crimson" />
       </motion.div>
 
       <motion.div
@@ -105,9 +105,9 @@ export function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
       >
-        <p className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-grey-500">Presented By</p>
-        <p className="font-playfair text-sm md:text-base text-grey-800 italic">For The Stars</p>
-        <p className="font-headline text-base md:text-lg tracking-wider text-gold">FASHION HOUSE</p>
+        <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-grey-500">Presented By</p>
+        <p className="font-playfair text-lg md:text-xl text-grey-800 italic">For The Stars</p>
+        <p className="font-headline text-xl md:text-2xl tracking-wider text-gold">FASHION HOUSE</p>
       </motion.div>
 
       <motion.div
@@ -138,27 +138,27 @@ export function Hero() {
       </motion.div>
 
       <motion.div
-        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[180px]"
+        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[225px]"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-playfair text-sm italic text-grey-600 leading-relaxed">
+        <p className="font-playfair text-lg italic text-grey-600 leading-relaxed">
           "The go-to designer for A-list performers worldwide"
         </p>
-        <p className="mt-1.5 text-xs tracking-[0.15em] uppercase text-gold font-sans">- Forbes</p>
+        <p className="mt-1.5 text-sm tracking-[0.15em] uppercase text-gold font-sans">- Forbes</p>
       </motion.div>
 
       <motion.div
-        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[180px]"
+        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[225px]"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-headline text-5xl text-crimson leading-none">40</p>
-        <p className="text-xs tracking-[0.2em] uppercase text-grey-600 mt-1">Years of</p>
-        <p className="font-headline text-lg tracking-wider text-grey-800">HOLLYWOOD</p>
-        <p className="font-headline text-lg tracking-wider text-grey-800">GLAMOUR</p>
+        <p className="font-headline text-7xl text-crimson leading-none">40</p>
+        <p className="text-sm tracking-[0.2em] uppercase text-grey-600 mt-1">Years of</p>
+        <p className="font-headline text-2xl tracking-wider text-grey-800">HOLLYWOOD</p>
+        <p className="font-headline text-2xl tracking-wider text-grey-800">GLAMOUR</p>
       </motion.div>
 
       <div className="container mx-auto px-4 pt-16 md:pt-20 relative z-10 h-full flex flex-col">
@@ -168,12 +168,18 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <h1 className="font-headline text-[clamp(3.5rem,12vw,9rem)] leading-[0.85] tracking-wider">
-            <span className="text-grey-800">FASHIONS</span>
-          </h1>
-          <div className="flex items-center justify-center gap-3 md:gap-4 mt-2">
-            <span className="font-playfair text-[clamp(1.5rem,5vw,3.5rem)] italic text-grey-600">for</span>
-            <span className="font-headline text-[clamp(2rem,7vw,5rem)] tracking-wider relative">
+          <motion.p
+            className="font-playfair text-sm md:text-base italic text-grey-500 mb-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
+            For the Stars By Jacob Meir presents
+          </motion.p>
+          <h1 className="font-headline text-[clamp(2.5rem,8vw,6rem)] leading-[1.1] tracking-wider">
+            <span className="text-grey-800">FASHIONS </span>
+            <span className="font-playfair text-[clamp(1.2rem,4vw,2.5rem)] italic text-grey-600">for </span>
+            <span className="relative inline-block">
               <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent">
                 LOVE
               </span>
@@ -183,15 +189,7 @@ export function Hero() {
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               />
             </span>
-          </div>
-          <motion.p
-            className="font-playfair text-sm md:text-base italic text-grey-500 mt-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            Jacob Meir presents
-          </motion.p>
+          </h1>
         </motion.div>
 
         <motion.div
@@ -247,61 +245,6 @@ export function Hero() {
               transition={{ duration: 2, ease: 'easeInOut', delay: 0.5 }}
             />
           </svg>
-
-          <motion.div
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-          >
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ clipPath: 'url(#heroHeartClip)' }}
-            >
-              <div className="absolute inset-0 bg-near-black">
-                <img
-                  src="/generated-1767903493472-n4rp1.png"
-                  alt="Burj Khalifa"
-                  className="w-full h-full object-cover opacity-70"
-                  style={{ objectPosition: 'center 30%' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-near-black/30 via-transparent to-near-black/70" />
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="absolute left-1/2 -translate-x-1/2 bottom-[2%] w-[12%] z-20"
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 1.5, duration: 0.6, ease: 'easeOut' }}
-          >
-            <div className="relative">
-              <img
-                src="/generated-1767903493472-n4rp1.png"
-                alt="Burj Khalifa Tower"
-                className="w-full h-auto object-contain"
-                style={{
-                  clipPath: 'polygon(35% 0, 65% 0, 75% 100%, 25% 100%)',
-                  filter: 'brightness(1.2) contrast(1.1)',
-                }}
-              />
-              <motion.div
-                className="absolute -inset-2 bg-crimson/30 blur-xl -z-10"
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="absolute bottom-[22%] left-1/2 -translate-x-1/2 z-10"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.3, duration: 0.5 }}
-          >
-            <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson drop-shadow-lg" />
-          </motion.div>
         </motion.div>
 
         <motion.div
@@ -347,10 +290,10 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <p className="text-[11px] md:text-xs tracking-[0.15em] uppercase text-grey-500 font-sans">
+        <p className="text-sm md:text-base tracking-[0.15em] uppercase text-grey-500 font-sans">
           Where Hollywood Glamour
         </p>
-        <p className="text-[11px] md:text-xs tracking-[0.15em] uppercase text-grey-500 font-sans">
+        <p className="text-sm md:text-base tracking-[0.15em] uppercase text-grey-500 font-sans">
           Meets Arabian Nights
         </p>
       </motion.div>
@@ -361,8 +304,8 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <Heart className="w-5 h-5 md:w-6 md:h-6 text-crimson fill-crimson" />
-        <span className="font-headline text-lg md:text-xl tracking-wider text-grey-700">DUBAI</span>
+        <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson" />
+        <span className="font-headline text-2xl md:text-3xl tracking-wider text-grey-700">DUBAI</span>
       </motion.div>
 
       <motion.div
