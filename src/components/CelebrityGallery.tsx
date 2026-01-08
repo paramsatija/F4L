@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MagneticCard } from './MagneticCard';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
+import { FashionSketches } from './particles/FashionSketches';
 
 const performers = [
   {
@@ -70,6 +71,7 @@ export function CelebrityGallery() {
   return (
     <section ref={containerRef} className="relative py-16 bg-dark-red overflow-hidden">
       <FloatingValentineHearts count={30} variant="white" />
+      <FashionSketches variant="light" />
 
       <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-crimson to-dark-red opacity-30" />
 

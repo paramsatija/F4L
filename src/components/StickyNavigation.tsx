@@ -13,12 +13,18 @@ const navLinks = [
 export function StickyNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOnHero, setIsOnHero] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight;
+
+      setIsScrolled(scrollPosition > 100);
+      setIsOnHero(scrollPosition < heroHeight * 0.8);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -50,8 +56,8 @@ export function StickyNavigation() {
           >
             <Heart className="w-8 h-8 text-crimson fill-crimson" />
             <div className="hidden sm:block">
-              <p className={`text-sm font-display font-semibold transition-colors ${
-                isScrolled ? 'text-grey-900' : 'text-grey-900'
+              <p className={`text-sm font-display font-semibold transition-colors duration-500 ${
+                isOnHero ? 'text-white' : 'text-grey-900'
               }`}>
                 For The Stars
               </p>
@@ -64,7 +70,9 @@ export function StickyNavigation() {
               <motion.button
                 key={link.label}
                 onClick={() => scrollToSection(link.href)}
-                className="text-sm font-sans tracking-wide transition-colors relative group text-grey-600 hover:text-grey-900"
+                className={`text-sm font-sans tracking-wide transition-colors duration-500 relative group ${
+                  isOnHero ? 'text-white/80 hover:text-white' : 'text-grey-600 hover:text-grey-900'
+                }`}
                 whileHover={{ y: -2 }}
                 data-cursor="hover"
               >
@@ -91,7 +99,7 @@ export function StickyNavigation() {
               whileTap={{ scale: 0.95 }}
               data-cursor="hover"
             >
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-grey-900' : 'text-grey-900'}`} />
+              <Menu className={`w-6 h-6 transition-colors duration-500 ${isOnHero ? 'text-white' : 'text-grey-900'}`} />
             </motion.button>
           </div>
         </div>

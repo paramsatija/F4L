@@ -4,6 +4,7 @@ import { Check, Sparkles, Crown, Star, Heart } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
 import { TICKET_TIERS, VALENTINE_EXPERIENCES } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
+import { FashionSketches } from './particles/FashionSketches';
 
 export function TicketsValentineSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,7 @@ export function TicketsValentineSection() {
   return (
     <section id="tickets" ref={containerRef} className="relative py-16 bg-dark-red overflow-hidden">
       <FloatingValentineHearts count={25} variant="gold" />
+      <FashionSketches variant="light" />
 
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-vibrant-red/20 rounded-full blur-3xl" />

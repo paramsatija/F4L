@@ -1,13 +1,13 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Heart, Play } from 'lucide-react';
-import { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 
 function BackgroundHearts() {
   const hearts = useMemo(() => {
     return [...Array(60)].map((_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 10 + Math.random() * 20,
+      size: 12 + Math.random() * 24,
       duration: 15 + Math.random() * 25,
       delay: Math.random() * 15,
       opacity: 0.2 + Math.random() * 0.25,
@@ -53,7 +53,6 @@ function BackgroundHearts() {
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -62,27 +61,6 @@ export function Hero() {
 
   const heartScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const heartY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
-
-  useEffect(() => {
-    const eventDate = new Date('2026-02-13T19:00:00+04:00');
-
-    const updateCountdown = () => {
-      const now = new Date();
-      const diff = eventDate.getTime() - now.getTime();
-
-      if (diff > 0) {
-        setTimeLeft({
-          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 60000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section ref={containerRef} className="relative h-screen overflow-hidden bg-black">
@@ -94,77 +72,48 @@ export function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        <div className="flex items-center gap-2 mb-4">
-          <span className="font-headline text-4xl md:text-5xl tracking-wider text-white">FFL</span>
-          <Heart className="w-9 h-9 md:w-10 md:h-10 text-crimson fill-crimson" />
+        <div className="flex items-center gap-3 mb-4">
+          <span className="font-headline text-6xl md:text-7xl lg:text-8xl tracking-wider text-white">FFL</span>
+          <Heart className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-crimson fill-crimson" />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <p className="text-sm md:text-base lg:text-lg tracking-[0.15em] uppercase text-white font-sans leading-tight">
+          <p className="text-base md:text-lg lg:text-xl tracking-[0.15em] uppercase text-white font-sans leading-tight">
             Where Hollywood Glamour
           </p>
-          <p className="text-sm md:text-base lg:text-lg tracking-[0.15em] uppercase font-sans leading-tight">
+          <p className="text-base md:text-lg lg:text-xl tracking-[0.15em] uppercase font-sans leading-tight">
             <span className="text-white">Meets </span>
             <span className="text-crimson font-semibold">ARABIAN NIGHTS</span>
           </p>
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="absolute top-4 right-4 md:top-6 md:right-6 z-20 flex items-center gap-3 md:gap-4"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      >
-        <div className="glass-dark px-3 py-2 md:px-4 md:py-2.5 rounded-full flex items-center gap-2 md:gap-3">
-          <span className="text-[10px] md:text-xs text-white/60 uppercase tracking-wider">Event In</span>
-          <div className="flex gap-1.5 md:gap-2">
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-xl font-bold text-gold font-headline">{timeLeft.days}</span>
-              <span className="text-[7px] md:text-[8px] text-white/50 uppercase">Days</span>
-            </div>
-            <span className="text-lg md:text-xl text-white/30">:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-xl font-bold text-gold font-headline">{timeLeft.hours}</span>
-              <span className="text-[7px] md:text-[8px] text-white/50 uppercase">Hrs</span>
-            </div>
-            <span className="text-lg md:text-xl text-white/30">:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-lg md:text-xl font-bold text-gold font-headline">{timeLeft.minutes}</span>
-              <span className="text-[7px] md:text-[8px] text-white/50 uppercase">Min</span>
-            </div>
-          </div>
-        </div>
-        <button className="hidden md:block bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-5 py-2.5 text-white font-headline text-sm tracking-wider transition-all duration-300 hover:scale-105 shadow-lg">
-          RESERVE SEAT
-        </button>
-      </motion.div>
 
       <motion.div
-        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[240px]"
+        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[320px]"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-playfair text-xl italic text-white/80 leading-[1.6]">
+        <p className="font-playfair text-2xl md:text-3xl italic text-white/80 leading-[1.6]">
           "The go-to designer for A-list performers worldwide"
         </p>
-        <p className="mt-2 text-sm tracking-[0.2em] uppercase text-gold font-sans font-medium">— Forbes</p>
+        <p className="mt-3 text-base md:text-lg tracking-[0.2em] uppercase text-gold font-sans font-medium">— Forbes</p>
       </motion.div>
 
       <motion.div
-        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[240px]"
+        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[320px]"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-headline text-8xl text-crimson leading-none font-light">40</p>
-        <p className="text-sm tracking-[0.25em] uppercase text-white/80 mt-2 font-sans">Years of</p>
-        <p className="font-headline text-2xl tracking-[0.08em] text-white font-normal mt-1">HOLLYWOOD</p>
-        <p className="font-headline text-2xl tracking-[0.08em] text-white font-normal">GLAMOUR</p>
+        <p className="font-headline text-[10rem] md:text-[12rem] lg:text-[14rem] text-crimson leading-none font-light">40</p>
+        <p className="text-base md:text-lg tracking-[0.25em] uppercase text-white/80 mt-3 font-sans">Years of</p>
+        <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal mt-2">HOLLYWOOD</p>
+        <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal">GLAMOUR</p>
       </motion.div>
 
       <div className="container mx-auto px-4 pt-20 md:pt-24 relative z-10 h-full flex flex-col">
@@ -225,7 +174,7 @@ export function Hero() {
             </p>
             <div className="w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
           </div>
-          <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider text-crimson">
+          <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#DC143C' }}>
             13 FEBRUARY 2026
           </p>
           <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-white/70 mt-2 font-sans">
@@ -250,13 +199,13 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-2"
+        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson" />
-        <span className="font-headline text-2xl md:text-3xl tracking-wider text-white">DUBAI</span>
+        <Heart className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-crimson fill-crimson" />
+        <span className="font-headline text-4xl md:text-5xl lg:text-6xl tracking-wider text-white">DUBAI</span>
       </motion.div>
 
       <motion.div

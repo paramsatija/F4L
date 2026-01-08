@@ -1,8 +1,9 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Users, Globe, Music, Award, Building2, Star, MapPin } from 'lucide-react';
 import { PLACEHOLDERS } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
+import { FashionSketches } from './particles/FashionSketches';
 
 const stats = [
   { value: '600+', label: 'VIP Guests', icon: Users },
@@ -36,6 +37,14 @@ export function VisionDestinationSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
+
   return (
     <section
       id="vision"
@@ -43,15 +52,16 @@ export function VisionDestinationSection() {
       className="relative py-16 bg-dark-red overflow-hidden"
     >
       <FloatingValentineHearts count={25} variant="white" />
+      <FashionSketches variant="light" />
 
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" style={{ y: backgroundY, opacity }}>
         <img
           src={PLACEHOLDERS.venue.burjKhalifa}
           alt="Burj Khalifa"
           className="w-full h-full object-cover opacity-[0.08]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-transparent to-dark-red" />
-      </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <motion.div

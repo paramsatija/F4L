@@ -1,8 +1,9 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Award, Clock, Music, Sparkles, Wine, PartyPopper, Users, Star } from 'lucide-react';
 import { PLACEHOLDERS } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
+import { FashionSketches } from './particles/FashionSketches';
 
 const awards = [
   { year: '2023', title: 'California State Proclamation' },
@@ -49,13 +50,22 @@ export function DesignerTimelineSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+
   return (
     <section ref={containerRef} className="relative bg-black overflow-hidden">
       <FloatingValentineHearts count={20} variant="red" />
+      <FashionSketches variant="dark" />
 
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" style={{ y: backgroundY }}>
         <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-gradient-to-l from-vibrant-red/5 to-transparent" />
-      </div>
+        <div className="absolute bottom-1/4 left-0 w-1/2 h-1/2 bg-gradient-to-r from-crimson/5 to-transparent" />
+      </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <motion.div

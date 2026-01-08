@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { MagneticCard } from './MagneticCard';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
+import { FashionSketches } from './particles/FashionSketches';
 
 const runwayImages = [
   {
@@ -54,9 +56,27 @@ const museumPieces = [
 ];
 
 export function RunwayShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+
   return (
-    <section className="relative py-16 bg-black overflow-hidden">
+    <section ref={containerRef} className="relative py-16 bg-black overflow-hidden">
       <FloatingValentineHearts count={25} variant="red" />
+      <FashionSketches variant="dark" />
+
+      <motion.div
+        className="absolute inset-0 opacity-30"
+        style={{ y: backgroundY }}
+      >
+        <div className="absolute top-0 left-1/4 w-1/2 h-1/3 bg-gradient-radial from-crimson/10 to-transparent blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-1/2 h-1/3 bg-gradient-radial from-gold/10 to-transparent blur-3xl" />
+      </motion.div>
 
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
