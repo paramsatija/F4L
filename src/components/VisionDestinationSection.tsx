@@ -49,7 +49,7 @@ export function VisionDestinationSection() {
     <section
       id="vision"
       ref={containerRef}
-      className="relative py-16 bg-dark-red overflow-hidden"
+      className="relative py-16 bg-crimson overflow-hidden"
     >
       <FloatingValentineHearts count={25} variant="white" />
       <FashionSketches variant="light" />
@@ -60,7 +60,7 @@ export function VisionDestinationSection() {
           alt="Burj Khalifa"
           className="w-full h-full object-cover opacity-[0.08]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-transparent to-dark-red" />
+        <div className="absolute inset-0 bg-gradient-to-b from-crimson via-transparent to-crimson" />
       </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">

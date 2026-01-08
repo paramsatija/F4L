@@ -42,7 +42,7 @@ export function TicketsValentineSection() {
   };
 
   return (
-    <section id="tickets" ref={containerRef} className="relative py-16 bg-dark-red overflow-hidden">
+    <section id="tickets" ref={containerRef} className="relative py-16 bg-crimson overflow-hidden">
       <FloatingValentineHearts count={25} variant="gold" />
       <FashionSketches variant="light" />
 

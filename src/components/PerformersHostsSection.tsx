@@ -8,8 +8,8 @@ export function PerformersHostsSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={containerRef} className="relative py-16 bg-dark-red overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-[#8b0a0a] to-dark-red opacity-60" />
+    <section ref={containerRef} className="relative py-16 bg-crimson overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-crimson via-crimson-dark to-crimson opacity-60" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -45,7 +45,7 @@ export function PerformersHostsSection() {
                   alt={performer.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-red via-dark-red/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-crimson via-crimson/60 to-transparent" />
 
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
                   <motion.div
@@ -129,7 +129,7 @@ export function PerformersHostsSection() {
                     alt={host.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-red/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-crimson/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 <div className="text-center">

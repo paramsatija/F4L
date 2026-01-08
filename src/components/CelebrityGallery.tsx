@@ -69,11 +69,11 @@ export function CelebrityGallery() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="relative py-16 bg-dark-red overflow-hidden">
+    <section ref={containerRef} className="relative py-16 bg-crimson overflow-hidden">
       <FloatingValentineHearts count={30} variant="white" />
       <FashionSketches variant="light" />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-red via-crimson to-dark-red opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-crimson via-crimson-light to-crimson opacity-30" />
 
       <motion.div className="relative z-10" style={{ opacity }}>
         <div className="max-w-7xl mx-auto px-6 mb-10">
