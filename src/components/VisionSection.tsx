@@ -1,121 +1,106 @@
-import { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { Users, Globe, Music, Award } from 'lucide-react';
 
-const slides = [
-  {
-    title: '40 years. 828 meters. One legacy.',
-    description: 'Four decades of dressing Hollywood\'s greatest icons culminates in a single spectacular evening at the world\'s tallest tower.',
-    stat: '40',
-    statLabel: 'Years of Legacy',
-  },
-  {
-    title: 'The venue transforms.',
-    description: 'The Armani Hotel at Burj Khalifa becomes fashion\'s most romantic stage, elevated 828 meters above the desert.',
-    stat: '828m',
-    statLabel: 'Above Dubai',
-  },
-  {
-    title: 'Imagine yourself there.',
-    description: 'An evening where Hollywood glamour meets Arabian nights. Where music, fashion, and love unite under the stars.',
-    stat: '600+',
-    statLabel: 'Elite Guests',
-  },
+const stats = [
+  { value: '600+', label: 'VIP Guests', icon: Users },
+  { value: '80+', label: 'International Models', icon: Globe },
+  { value: '4', label: 'Grammy Winners', icon: Music },
+  { value: '40', label: 'Years of Legacy', icon: Award },
 ];
 
 export function VisionSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const isInView = useInView(containerRef, { once: true, margin: '-100px' });
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const y = useTransform(scrollYProgress, [0, 1], ['5%', '-5%']);
 
   return (
     <section
       id="vision"
       ref={containerRef}
-      className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden"
+      className="relative py-32 bg-beige-light overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-radial from-crimson/10 via-black to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-beige-light to-white" />
 
-      <motion.div style={{ opacity }} className="relative z-10 w-full h-screen flex items-center justify-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center px-6 max-w-5xl"
-          >
-            <motion.div
-              className="mb-12"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <div className="text-[clamp(5rem,15vw,12rem)] font-headline font-light text-white/10 leading-none">
-                {slides[currentSlide].stat}
-              </div>
-              <p className="text-white/60 text-sm tracking-[0.3em] uppercase mt-2">
-                {slides[currentSlide].statLabel}
-              </p>
-            </motion.div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-30">
+        <motion.div className="absolute inset-0 rounded-full border border-crimson/10" style={{ y }} />
+        <motion.div className="absolute inset-8 rounded-full border border-gold/10" style={{ y }} />
+      </div>
 
-            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-headline font-light text-white leading-tight mb-8">
-              {slides[currentSlide].title}
-            </h2>
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <p className="text-crimson text-sm tracking-[0.4em] uppercase mb-4 font-sans">
+            The Vision
+          </p>
+          <h2 className="font-display text-display-lg text-grey-900 mb-6">
+            One Night. One Legacy. One Love.
+          </h2>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto mb-8" />
+        </motion.div>
 
-            <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              {slides[currentSlide].description}
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center mb-20"
+        >
+          <p className="text-grey-700 text-lg md:text-xl leading-relaxed mb-6">
+            On Valentine's Eve 2026, the world's tallest tower becomes fashion's most romantic stage.
+            <span className="text-crimson font-medium"> Fashions for Love </span>
+            unites Hollywood's brightest stars with Dubai's elite for an unforgettable celebration
+            of couture, music, and the universal language of love.
+          </p>
+          <p className="text-grey-600 text-lg leading-relaxed">
+            This is where four decades of dressing the world's greatest icons culminates
+            in a single, spectacular evening. This is Jacob Meir's masterpiece.
+          </p>
+        </motion.div>
 
-            <div className="flex items-center justify-center gap-3 mt-16">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className="group relative"
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
+                className="text-center group"
+              >
+                <div className="relative mb-4">
+                  <motion.div
+                    className="w-16 h-16 mx-auto rounded-full bg-white shadow-soft flex items-center justify-center group-hover:shadow-crimson transition-shadow duration-500"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Icon className="w-7 h-7 text-crimson" />
+                  </motion.div>
+                </div>
+                <motion.p
+                  className="font-headline text-4xl md:text-5xl text-grey-900 mb-2"
+                  initial={{ scale: 0.5 }}
+                  animate={isInView ? { scale: 1 } : {}}
+                  transition={{ delay: 0.4 + index * 0.1, type: 'spring', stiffness: 200 }}
                 >
-                  <div
-                    className={`h-0.5 transition-all duration-300 ${
-                      index === currentSlide
-                        ? 'w-12 bg-crimson'
-                        : 'w-8 bg-white/30 group-hover:bg-white/50'
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        <button
-          onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 p-3 text-white/60 hover:text-white transition-colors"
-        >
-          <ChevronLeft className="w-8 h-8" />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 p-3 text-white/60 hover:text-white transition-colors"
-        >
-          <ChevronRight className="w-8 h-8" />
-        </button>
-      </motion.div>
+                  {stat.value}
+                </motion.p>
+                <p className="text-grey-600 text-sm uppercase tracking-wider font-sans">
+                  {stat.label}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
