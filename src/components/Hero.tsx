@@ -95,8 +95,8 @@ export function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
       >
-        <span className="font-headline text-2xl md:text-3xl tracking-wider text-grey-800">FFL</span>
-        <Heart className="w-5 h-5 md:w-6 md:h-6 text-crimson fill-crimson" />
+        <span className="font-headline text-3xl md:text-4xl tracking-wider text-grey-800">FFL</span>
+        <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson" />
       </motion.div>
 
       <motion.div
@@ -105,9 +105,9 @@ export function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
       >
-        <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-grey-500">Presented By</p>
-        <p className="font-playfair text-xs md:text-sm text-grey-800 italic">For The Stars</p>
-        <p className="font-headline text-sm md:text-base tracking-wider text-gold">FASHION HOUSE</p>
+        <p className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-grey-500">Presented By</p>
+        <p className="font-playfair text-sm md:text-base text-grey-800 italic">For The Stars</p>
+        <p className="font-headline text-base md:text-lg tracking-wider text-gold">FASHION HOUSE</p>
       </motion.div>
 
       <motion.div
@@ -116,49 +116,49 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <div className="glass-dark px-3 py-1.5 md:px-5 md:py-2 rounded-full flex items-center gap-2 md:gap-3">
-          <span className="text-[9px] md:text-[10px] text-white/60 uppercase tracking-wider">Event In</span>
-          <div className="flex gap-1.5 md:gap-2">
+        <div className="glass-dark px-4 py-2 md:px-6 md:py-3 rounded-full flex items-center gap-3 md:gap-4">
+          <span className="text-xs md:text-sm text-white/60 uppercase tracking-wider">Event In</span>
+          <div className="flex gap-2 md:gap-3">
             <div className="flex flex-col items-center">
-              <span className="text-base md:text-xl font-bold text-gold font-headline">{timeLeft.days}</span>
-              <span className="text-[7px] md:text-[8px] text-white/50 uppercase">Days</span>
+              <span className="text-xl md:text-2xl font-bold text-gold font-headline">{timeLeft.days}</span>
+              <span className="text-[8px] md:text-[9px] text-white/50 uppercase">Days</span>
             </div>
-            <span className="text-base md:text-xl text-white/30">:</span>
+            <span className="text-xl md:text-2xl text-white/30">:</span>
             <div className="flex flex-col items-center">
-              <span className="text-base md:text-xl font-bold text-gold font-headline">{timeLeft.hours}</span>
-              <span className="text-[7px] md:text-[8px] text-white/50 uppercase">Hrs</span>
+              <span className="text-xl md:text-2xl font-bold text-gold font-headline">{timeLeft.hours}</span>
+              <span className="text-[8px] md:text-[9px] text-white/50 uppercase">Hrs</span>
             </div>
-            <span className="text-base md:text-xl text-white/30">:</span>
+            <span className="text-xl md:text-2xl text-white/30">:</span>
             <div className="flex flex-col items-center">
-              <span className="text-base md:text-xl font-bold text-gold font-headline">{timeLeft.minutes}</span>
-              <span className="text-[7px] md:text-[8px] text-white/50 uppercase">Min</span>
+              <span className="text-xl md:text-2xl font-bold text-gold font-headline">{timeLeft.minutes}</span>
+              <span className="text-[8px] md:text-[9px] text-white/50 uppercase">Min</span>
             </div>
           </div>
         </div>
       </motion.div>
 
       <motion.div
-        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[160px]"
+        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[180px]"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-playfair text-xs italic text-grey-600 leading-relaxed">
+        <p className="font-playfair text-sm italic text-grey-600 leading-relaxed">
           "The go-to designer for A-list performers worldwide"
         </p>
-        <p className="mt-1.5 text-[10px] tracking-[0.15em] uppercase text-gold font-sans">- Forbes</p>
+        <p className="mt-1.5 text-xs tracking-[0.15em] uppercase text-gold font-sans">- Forbes</p>
       </motion.div>
 
       <motion.div
-        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[160px]"
+        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[180px]"
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <p className="font-headline text-3xl text-crimson leading-none">40</p>
-        <p className="text-[10px] tracking-[0.2em] uppercase text-grey-600 mt-0.5">Years of</p>
-        <p className="font-headline text-base tracking-wider text-grey-800">HOLLYWOOD</p>
-        <p className="font-headline text-base tracking-wider text-grey-800">GLAMOUR</p>
+        <p className="font-headline text-5xl text-crimson leading-none">40</p>
+        <p className="text-xs tracking-[0.2em] uppercase text-grey-600 mt-1">Years of</p>
+        <p className="font-headline text-lg tracking-wider text-grey-800">HOLLYWOOD</p>
+        <p className="font-headline text-lg tracking-wider text-grey-800">GLAMOUR</p>
       </motion.div>
 
       <div className="container mx-auto px-4 pt-16 md:pt-20 relative z-10 h-full flex flex-col">
@@ -168,24 +168,24 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <h1 className="font-headline text-[clamp(2.5rem,10vw,7rem)] leading-[0.85] tracking-wider">
+          <h1 className="font-headline text-[clamp(3.5rem,12vw,9rem)] leading-[0.85] tracking-wider">
             <span className="text-grey-800">FASHIONS</span>
           </h1>
-          <div className="flex items-center justify-center gap-2 md:gap-3 mt-1">
-            <span className="font-playfair text-[clamp(1.2rem,4vw,2.5rem)] italic text-grey-600">for</span>
-            <span className="font-headline text-[clamp(1.5rem,5vw,3.5rem)] tracking-wider relative">
+          <div className="flex items-center justify-center gap-3 md:gap-4 mt-2">
+            <span className="font-playfair text-[clamp(1.5rem,5vw,3.5rem)] italic text-grey-600">for</span>
+            <span className="font-headline text-[clamp(2rem,7vw,5rem)] tracking-wider relative">
               <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent">
                 LOVE
               </span>
               <motion.div
-                className="absolute -inset-3 bg-crimson/20 rounded-full blur-2xl -z-10"
+                className="absolute -inset-4 bg-crimson/20 rounded-full blur-2xl -z-10"
                 animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               />
             </span>
           </div>
           <motion.p
-            className="font-playfair text-xs md:text-sm italic text-grey-500 mt-1"
+            className="font-playfair text-sm md:text-base italic text-grey-500 mt-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
@@ -300,7 +300,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.3, duration: 0.5 }}
           >
-            <Heart className="w-5 h-5 md:w-6 md:h-6 text-crimson fill-crimson drop-shadow-lg" />
+            <Heart className="w-7 h-7 md:w-8 md:h-8 text-crimson fill-crimson drop-shadow-lg" />
           </motion.div>
         </motion.div>
 
@@ -310,32 +310,32 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.5 }}
         >
-          <div className="flex items-center justify-center gap-3 mb-1">
-            <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent to-crimson" />
-            <p className="text-[10px] md:text-xs tracking-[0.25em] uppercase text-grey-600 font-sans">
+          <div className="flex items-center justify-center gap-4 mb-2">
+            <div className="w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
+            <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-grey-600 font-sans">
               Valentine's Eve
             </p>
-            <div className="w-8 md:w-12 h-px bg-gradient-to-l from-transparent to-crimson" />
+            <div className="w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
           </div>
-          <p className="font-headline text-xl md:text-2xl lg:text-3xl tracking-wider text-crimson">
+          <p className="font-headline text-3xl md:text-4xl lg:text-5xl tracking-wider text-crimson">
             13 FEBRUARY 2026
           </p>
-          <p className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-grey-500 mt-1 font-sans">
+          <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-grey-500 mt-2 font-sans">
             Armani Hotel | Burj Khalifa | Dubai
           </p>
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4 mb-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-5 mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.5 }}
         >
-          <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-6 md:px-10 py-3 md:py-4 text-white font-headline text-sm md:text-base tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense">
+          <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-8 md:px-12 py-4 md:py-5 text-white font-headline text-base md:text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense">
             SECURE YOUR INVITATION
           </button>
-          <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 text-grey-700 font-sans text-xs md:text-sm tracking-wider hover:text-crimson border-2 border-grey-300 hover:border-crimson/60 transition-all duration-300 bg-white/50 backdrop-blur-sm">
-            <Play className="w-4 h-4" />
+          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 md:px-10 py-4 md:py-5 text-grey-700 font-sans text-sm md:text-base tracking-wider hover:text-crimson border-2 border-grey-300 hover:border-crimson/60 transition-all duration-300 bg-white/50 backdrop-blur-sm">
+            <Play className="w-5 h-5 md:w-6 md:h-6" />
             Watch Teaser
           </button>
         </motion.div>
@@ -347,22 +347,22 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <p className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-grey-500 font-sans">
+        <p className="text-[11px] md:text-xs tracking-[0.15em] uppercase text-grey-500 font-sans">
           Where Hollywood Glamour
         </p>
-        <p className="text-[9px] md:text-[10px] tracking-[0.15em] uppercase text-grey-500 font-sans">
+        <p className="text-[11px] md:text-xs tracking-[0.15em] uppercase text-grey-500 font-sans">
           Meets Arabian Nights
         </p>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-1.5"
+        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <Heart className="w-4 h-4 md:w-5 md:h-5 text-crimson fill-crimson" />
-        <span className="font-headline text-base md:text-lg tracking-wider text-grey-700">DUBAI</span>
+        <Heart className="w-5 h-5 md:w-6 md:h-6 text-crimson fill-crimson" />
+        <span className="font-headline text-lg md:text-xl tracking-wider text-grey-700">DUBAI</span>
       </motion.div>
 
       <motion.div
@@ -374,9 +374,9 @@ export function Hero() {
           y: { delay: 2.2, duration: 1.5, repeat: Infinity },
         }}
       >
-        <div className="flex flex-col items-center gap-1 text-grey-400">
-          <span className="text-[9px] tracking-[0.3em] uppercase font-sans">Scroll</span>
-          <div className="w-px h-6 bg-gradient-to-b from-grey-400 to-transparent" />
+        <div className="flex flex-col items-center gap-1.5 text-grey-400">
+          <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-sans">Scroll</span>
+          <div className="w-px h-8 bg-gradient-to-b from-grey-400 to-transparent" />
         </div>
       </motion.div>
     </section>
