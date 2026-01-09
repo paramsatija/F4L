@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Award, TrendingUp } from 'lucide-react';
 import { JACOB_MEIR_TIMELINE } from '../constants/placeholders';
 import { PLACEHOLDERS } from '../constants/placeholders';
-import { HeartCard } from './utility/HeartCard';
 
 const awards = [
   { year: '2023', title: 'California State Proclamation' },
@@ -86,23 +85,23 @@ export function DesignerSection() {
               </p>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-6 md:gap-8">
+            <div className="mt-8 grid grid-cols-3 gap-4">
               {awards.map((award, index) => (
-                <HeartCard
+                <motion.div
                   key={award.year}
-                  backgroundColor="#D4A574"
-                  textColor="white"
-                  size="medium"
-                  delay={0.4 + index * 0.1}
-                  glowColor="rgba(212, 165, 116, 0.4)"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                  className="glass-gold p-4 rounded-lg text-center"
                 >
-                  <div className="flex flex-col items-center justify-center">
-                    <p className="font-headline text-3xl md:text-4xl font-bold mb-2">{award.year}</p>
-                    <p className="text-xs md:text-sm uppercase tracking-wide font-sans opacity-90 leading-tight text-center px-3">
-                      {award.title}
-                    </p>
-                  </div>
-                </HeartCard>
+                  <Award className="w-6 h-6 text-gold mx-auto mb-2" />
+                  <p className="text-white text-xs font-headline tracking-wider mb-1">
+                    {award.year}
+                  </p>
+                  <p className="text-white/70 text-xs leading-tight">
+                    {award.title}
+                  </p>
+                </motion.div>
               ))}
             </div>
           </motion.div>

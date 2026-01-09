@@ -4,19 +4,12 @@ import { Users, Globe, Music, Award, Building2, Star, MapPin } from 'lucide-reac
 import { PLACEHOLDERS } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
 import { FashionSketches } from './particles/FashionSketches';
-import { StatHeartCard, TextHeartCard } from './utility/HeartCard';
 
 const stats = [
   { value: '600+', label: 'VIP Guests', icon: Users },
   { value: '80+', label: 'International Models', icon: Globe },
   { value: '4', label: 'Grammy Winners', icon: Music },
   { value: '40', label: 'Years of Legacy', icon: Award },
-];
-
-const visionPhases = [
-  'One Night',
-  'One Legacy',
-  'One Love',
 ];
 
 const features = [
@@ -77,21 +70,13 @@ export function VisionDestinationSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-8 font-sans font-semibold">
+          <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
             The Vision
           </p>
-
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 mb-12">
-            {visionPhases.map((phase, index) => (
-              <TextHeartCard
-                key={phase}
-                text={phase}
-                delay={index * 0.15}
-                backgroundColor="#CF0F0F"
-                textColor="white"
-              />
-            ))}
-          </div>
+          <h2 className="font-display text-headline-xl text-grey-900 mb-6 uppercase leading-none">
+            One Night. One Legacy. One Love.
+          </h2>
+          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto" />
         </motion.div>
 
         <motion.div
@@ -112,17 +97,39 @@ export function VisionDestinationSection() {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-20">
-          {stats.map((stat, index) => (
-            <StatHeartCard
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              delay={0.5 + index * 0.1}
-              backgroundColor="#CF0F0F"
-              textColor="white"
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 max-w-5xl mx-auto">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
+                className="text-center group"
+              >
+                <div className="relative mb-5">
+                  <motion.div
+                    className="w-16 h-16 mx-auto rounded-2xl bg-white shadow-medium flex items-center justify-center group-hover:shadow-large transition-all duration-300 border border-grey-200"
+                    whileHover={{ scale: 1.1, y: -4 }}
+                  >
+                    <Icon className="w-7 h-7 text-crimson" />
+                  </motion.div>
+                </div>
+                <motion.p
+                  className="font-headline text-5xl text-grey-900 mb-2 tracking-tight"
+                  initial={{ scale: 0.5 }}
+                  animate={isInView ? { scale: 1 } : {}}
+                  transition={{ delay: 0.4 + index * 0.1, type: 'spring', stiffness: 200 }}
+                >
+                  {stat.value}
+                </motion.p>
+                <p className="text-grey-600 text-sm uppercase tracking-wider font-sans font-medium">
+                  {stat.label}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
 
         <motion.div
