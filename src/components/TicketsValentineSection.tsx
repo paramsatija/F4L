@@ -5,9 +5,6 @@ import { CountdownTimer } from './CountdownTimer';
 import { TICKET_TIERS, VALENTINE_EXPERIENCES } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
 import { FashionSketches } from './particles/FashionSketches';
-import { TrustBadges } from './TrustBadges';
-import { UrgencyIndicators } from './UrgencyIndicators';
-import { EmailWaitlist } from './EmailWaitlist';
 
 export function TicketsValentineSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -91,15 +88,6 @@ export function TicketsValentineSection() {
               />
             </div>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.4, duration: 0.4 }}
-          className="max-w-2xl mx-auto mb-12"
-        >
-          <UrgencyIndicators />
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12 mb-16">
@@ -290,21 +278,14 @@ export function TicketsValentineSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.4 }}
-          className="max-w-3xl mx-auto mb-12"
+          className="text-center mb-12"
         >
-          <TrustBadges />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.7, duration: 0.4 }}
-          className="max-w-2xl mx-auto mb-12"
-        >
-          <EmailWaitlist
-            title="Sold Out Tier? Join the Waitlist"
-            description="Be notified if tickets become available or when we announce next year's event"
-          />
+          <p className="text-white/60 text-sm mb-2">
+            Payment plans available | All major cards accepted
+          </p>
+          <p className="text-vibrant-red text-sm font-medium">
+            Limited to 600 guests. Previous editions sold out in 72 hours.
+          </p>
         </motion.div>
 
         <motion.div
