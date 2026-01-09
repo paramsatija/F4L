@@ -50,19 +50,16 @@ export function StickyNavigation() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <motion.a
             href="#"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 group"
             whileHover={{ scale: 1.02 }}
             data-cursor="hover"
           >
-            <Heart className="w-8 h-8 text-crimson fill-crimson" />
-            <div className="hidden sm:block">
-              <p className={`text-sm font-display font-semibold transition-colors duration-500 ${
-                isOnHero ? 'text-white' : 'text-grey-900'
-              }`}>
-                For The Stars
-              </p>
-              <p className="text-xs text-crimson italic">by Jacob Meir</p>
-            </div>
+            <span className={`font-headline text-3xl tracking-wider transition-colors duration-500 ${
+              isOnHero ? 'text-white' : 'text-grey-900'
+            }`}>
+              FFL
+            </span>
+            <Heart className="w-7 h-7 text-crimson fill-crimson" />
           </motion.a>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -127,14 +124,9 @@ export function StickyNavigation() {
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-3">
-                    <Heart className="w-8 h-8 text-crimson fill-crimson" />
-                    <div>
-                      <p className="text-sm font-display font-semibold text-grey-900">
-                        For The Stars
-                      </p>
-                      <p className="text-xs text-crimson italic">by Jacob Meir</p>
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-headline text-3xl tracking-wider text-grey-900">FFL</span>
+                    <Heart className="w-7 h-7 text-crimson fill-crimson" />
                   </div>
                   <motion.button
                     onClick={() => setIsMobileMenuOpen(false)}
