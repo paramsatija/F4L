@@ -18,7 +18,7 @@ function BackgroundHearts() {
       id: i,
       left: Math.random() * 100,
       size: isMobile ? 10 + Math.random() * 16 : 12 + Math.random() * 24,
-      duration: 15 + Math.random() * 25,
+      duration: (15 + Math.random() * 25) * 0.8,
       delay: Math.random() * 15,
       opacity: 0.15 + Math.random() * 0.2,
     }));
@@ -77,25 +77,25 @@ export function Hero() {
       <BackgroundHearts />
 
       <motion.div
-        className="absolute top-5 left-5 md:top-6 md:left-6 z-20"
+        className="absolute top-4 left-4 md:top-6 md:left-6 z-20"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-          <span className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-wider text-white">FFL</span>
-          <Heart className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 text-crimson fill-crimson" />
+        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+          <span className="font-headline text-4xl md:text-7xl lg:text-8xl tracking-wider text-white">FFL</span>
+          <Heart className="w-8 h-8 md:w-14 md:h-14 lg:w-16 lg:h-16 text-crimson fill-crimson" />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="max-w-[280px] md:max-w-none"
+          className="max-w-[240px] md:max-w-none"
         >
-          <p className="text-sm md:text-lg lg:text-xl tracking-[0.1em] md:tracking-[0.15em] uppercase text-white font-sans leading-tight">
+          <p className="text-[11px] md:text-lg lg:text-xl tracking-[0.08em] md:tracking-[0.15em] uppercase text-white font-sans leading-tight">
             Where Hollywood Glamour
           </p>
-          <p className="text-sm md:text-lg lg:text-xl tracking-[0.1em] md:tracking-[0.15em] uppercase font-sans leading-tight">
+          <p className="text-[11px] md:text-lg lg:text-xl tracking-[0.08em] md:tracking-[0.15em] uppercase font-sans leading-tight">
             <span className="text-white">Meets </span>
             <span className="text-crimson font-semibold">ARABIAN NIGHTS</span>
           </p>
@@ -127,7 +127,7 @@ export function Hero() {
         <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal">GLAMOUR</p>
       </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-24 relative z-10 min-h-screen flex flex-col pb-20 sm:pb-24">
+      <div className="container mx-auto px-4 sm:px-6 pt-32 sm:pt-36 md:pt-24 relative z-10 min-h-screen flex flex-col pb-20 sm:pb-24">
         <motion.div
           className="text-center px-2"
           initial={{ opacity: 0, y: 20 }}
@@ -135,16 +135,16 @@ export function Hero() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <motion.p
-            className="font-playfair text-sm sm:text-base md:text-lg lg:text-xl italic text-white/80 mb-3 sm:mb-4 tracking-wide"
+            className="font-playfair text-xs sm:text-sm md:text-lg lg:text-xl italic text-white/80 mb-2 sm:mb-3 md:mb-4 tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             For the Stars By Jacob Meir presents
           </motion.p>
-          <h1 className="font-headline text-[clamp(2.2rem,8vw,7rem)] leading-[1.05] tracking-[0.02em] px-2">
+          <h1 className="font-headline text-[clamp(2rem,8vw,7rem)] leading-[1.05] tracking-[0.02em] px-2">
             <span className="text-white font-light">FASHIONS </span>
-            <span className="font-playfair text-[clamp(1.1rem,4vw,3rem)] italic text-white/80 font-normal">for </span>
+            <span className="font-playfair text-[clamp(1rem,4vw,3rem)] italic text-white/80 font-normal">for </span>
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent font-medium">
                 LOVE
@@ -159,7 +159,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative mx-auto w-full max-w-[420px] sm:max-w-[510px] md:max-w-[660px] lg:max-w-[780px] flex-1 min-h-[200px] max-h-[400px] sm:max-h-[500px] md:max-h-none my-6 sm:my-8 md:my-6"
+          className="relative mx-auto w-full max-w-[380px] sm:max-w-[510px] md:max-w-[660px] lg:max-w-[780px] flex-1 min-h-[180px] max-h-[350px] sm:max-h-[500px] md:max-h-none my-4 sm:my-8 md:my-6"
           style={{ scale: heartScale, y: heartY }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -178,31 +178,31 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.5 }}
         >
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-2 sm:mb-3">
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
-            <p className="text-[10px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/80 font-sans whitespace-nowrap">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-1.5 sm:mb-3">
+            <div className="w-6 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
+            <p className="text-[9px] sm:text-xs md:text-sm tracking-[0.15em] sm:tracking-[0.25em] uppercase text-white/80 font-sans whitespace-nowrap">
               Valentine's Eve
             </p>
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
+            <div className="w-6 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
           </div>
-          <p className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#CF0F0F' }}>
+          <p className="font-headline text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#CF0F0F' }}>
             13 FEBRUARY 2026
           </p>
-          <p className="text-[10px] sm:text-xs md:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase text-white/70 mt-2 font-sans px-2">
+          <p className="text-[9px] sm:text-xs md:text-sm tracking-[0.12em] sm:tracking-[0.2em] uppercase text-white/70 mt-1.5 sm:mt-2 font-sans px-2">
             Armani Hotel | Burj Khalifa | Dubai
           </p>
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 mb-4 sm:mb-6 px-4"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4 mt-4 sm:mt-8 mb-3 sm:mb-6 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.5 }}
         >
-          <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-6 sm:px-8 md:px-12 py-4 md:py-5 text-white font-headline text-sm sm:text-base md:text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense active:scale-95">
+          <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-5 sm:px-8 md:px-12 py-3.5 sm:py-4 md:py-5 text-white font-headline text-xs sm:text-base md:text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense active:scale-95">
             SECURE YOUR INVITATION
           </button>
-          <button className="w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-4 md:py-5 text-white font-sans text-xs sm:text-sm md:text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95">
+          <button className="w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 text-white font-sans text-[11px] sm:text-sm md:text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95">
             <Play className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             Watch Teaser
           </button>
@@ -210,17 +210,17 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-5 right-5 md:bottom-6 md:right-6 z-10 flex items-center gap-2 md:gap-3"
+        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-1.5 md:gap-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.5 }}
       >
-        <Heart className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 text-crimson fill-crimson" />
-        <span className="font-headline text-3xl md:text-5xl lg:text-6xl tracking-wider text-white">DUBAI</span>
+        <Heart className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-crimson fill-crimson" />
+        <span className="font-headline text-2xl md:text-5xl lg:text-6xl tracking-wider text-white">DUBAI</span>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-14 sm:bottom-20 left-1/2 -translate-x-1/2 z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 6, 0] }}
         transition={{
@@ -230,7 +230,7 @@ export function Hero() {
       >
         <div className="flex flex-col items-center gap-1.5 text-white/60">
           <span className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.3em] uppercase font-sans">Scroll</span>
-          <div className="w-px h-6 sm:h-8 bg-gradient-to-b from-white/60 to-transparent" />
+          <div className="w-px h-5 sm:h-8 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
       </motion.div>
     </section>
