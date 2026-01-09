@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Music, Clock, Star, Users } from 'lucide-react';
 import { PERFORMERS, HOSTS, FEATURED_GUESTS } from '../constants/placeholders';
+import { PersonHeartCard } from './utility/HeartCard';
 
 export function PerformersHostsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,60 +34,18 @@ export function PerformersHostsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-20">
           {PERFORMERS.map((performer, index) => (
-            <motion.div
+            <PersonHeartCard
               key={performer.name}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
-              className="relative group"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white border border-grey-200 shadow-medium hover:shadow-large transition-all duration-500">
-                <img
-                  src={performer.image}
-                  alt={performer.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-grey-900 via-grey-900/60 to-transparent" />
-
-                <div className="absolute inset-0 flex flex-col justify-end p-8">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.4 + index * 0.1 }}
-                  >
-                    <div className="flex items-center gap-2 mb-3">
-                      <Music className="w-5 h-5 text-gold" />
-                      <span className="text-gold text-sm uppercase tracking-wider font-sans font-medium">
-                        {performer.description}
-                      </span>
-                    </div>
-
-                    <h3 className="font-headline text-4xl md:text-5xl text-white mb-3 tracking-wide">
-                      {performer.name}
-                    </h3>
-
-                    <p className="text-gold-champagne text-lg font-display italic mb-4">
-                      {performer.title}
-                    </p>
-
-                    <p className="text-white/90 text-sm italic mb-4 leading-relaxed">
-                      "{performer.quote}"
-                    </p>
-
-                    <div className="flex items-center gap-2 text-white">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm font-headline tracking-wider">
-                        {performer.time}
-                      </span>
-                    </div>
-                  </motion.div>
-                </div>
-
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </div>
-            </motion.div>
+              name={performer.name}
+              title={performer.title}
+              image={performer.image}
+              delay={0.2 + index * 0.15}
+              backgroundColor="#8B0000"
+              textColor="white"
+              size="large"
+            />
           ))}
         </div>
 
@@ -117,36 +76,18 @@ export function PerformersHostsSection() {
             </h4>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {HOSTS.map((host, index) => (
-              <motion.div
+              <PersonHeartCard
                 key={host.name}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.8 + index * 0.1, duration: 0.4 }}
-                className="relative group"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl mb-6 bg-white border border-grey-200 shadow-medium hover:shadow-large transition-all duration-500">
-                  <img
-                    src={host.image}
-                    alt={host.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-grey-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-
-                <div className="text-center">
-                  <h5 className="font-headline text-2xl text-grey-900 tracking-wide mb-2">
-                    {host.name}
-                  </h5>
-                  <p className="text-crimson text-sm uppercase tracking-wider font-sans mb-3 font-semibold">
-                    {host.title}
-                  </p>
-                  <p className="text-grey-600 text-base leading-relaxed">
-                    {host.description}
-                  </p>
-                </div>
-              </motion.div>
+                name={host.name}
+                title={host.title}
+                image={host.image}
+                delay={0.8 + index * 0.15}
+                backgroundColor="#D4A574"
+                textColor="white"
+                size="large"
+              />
             ))}
           </div>
         </div>
@@ -164,33 +105,18 @@ export function PerformersHostsSection() {
             </h4>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {FEATURED_GUESTS.map((guest, index) => (
-              <motion.div
+              <PersonHeartCard
                 key={guest.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 1.1 + index * 0.08, duration: 0.4 }}
-                className="text-center group"
-              >
-                <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full bg-white border-4 border-grey-200 group-hover:border-gold transition-colors duration-300 shadow-medium">
-                  <img
-                    src={guest.image}
-                    alt={guest.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                <h5 className="font-headline text-xl text-grey-900 tracking-wide mb-2">
-                  {guest.name}
-                </h5>
-                <p className="text-crimson text-xs uppercase tracking-wider font-sans mb-3 font-semibold">
-                  {guest.title}
-                </p>
-                <p className="text-grey-600 text-sm leading-relaxed">
-                  {guest.description}
-                </p>
-              </motion.div>
+                name={guest.name}
+                title={guest.title}
+                image={guest.image}
+                delay={1.1 + index * 0.1}
+                backgroundColor="#CF0F0F"
+                textColor="white"
+                size="large"
+              />
             ))}
           </div>
         </div>

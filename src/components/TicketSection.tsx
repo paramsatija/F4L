@@ -15,24 +15,27 @@ export function TicketSection() {
     silver: Star,
   };
 
-  const tierColors: Record<string, { bg: string; border: string; text: string; accent: string }> = {
+  const tierColors: Record<string, { bg: string; border: string; text: string; accent: string; image: string }> = {
     platinum: {
       bg: 'bg-gradient-to-br from-grey-900 via-grey-800 to-grey-900',
       border: 'border-gold',
       text: 'text-gold',
       accent: 'from-gold/20',
+      image: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     gold: {
       bg: 'bg-gradient-to-br from-gold/10 via-gold/5 to-gold/10',
       border: 'border-gold/50',
       text: 'text-gold',
       accent: 'from-gold/10',
+      image: 'https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     silver: {
       bg: 'bg-white',
       border: 'border-grey-200',
       text: 'text-grey-600',
       accent: 'from-grey-100',
+      image: 'https://images.pexels.com/photos/1306248/pexels-photo-1306248.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   };
 
@@ -105,11 +108,19 @@ export function TicketSection() {
                 )}
 
                 <motion.div
-                  className={`relative rounded-2xl overflow-hidden border-2 ${colors.border} ${colors.bg} h-full`}
+                  className={`relative rounded-2xl overflow-hidden border-2 ${colors.border} h-full shadow-large`}
                   whileHover={{ scale: 1.02, y: -5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-b ${colors.accent} to-transparent opacity-50`} />
+                  <div className="absolute inset-0">
+                    <img
+                      src={colors.image}
+                      alt={tier.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 ${colors.bg} ${isHighlight ? 'bg-opacity-95' : 'bg-opacity-90'}`} />
+                    <div className={`absolute inset-0 bg-gradient-to-b ${colors.accent} to-transparent opacity-50`} />
+                  </div>
 
                   <div className="relative p-8">
                     <div className="flex items-center justify-between mb-6">
