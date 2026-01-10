@@ -1,9 +1,10 @@
 import { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Users, Globe, Music, Award, Building2, Star, MapPin } from 'lucide-react';
 import { PLACEHOLDERS } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
 import { FashionSketches } from './particles/FashionSketches';
+import { SectionDecorations } from './SectionDecorations';
 
 const stats = [
   { value: '600+', label: 'VIP Guests', icon: Users },
@@ -37,31 +38,24 @@ export function VisionDestinationSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
-
   return (
     <section
       id="vision"
       ref={containerRef}
       className="relative py-24 bg-cream overflow-hidden"
     >
+      <SectionDecorations variant="light" />
       <FloatingValentineHearts count={25} variant="red" />
       <FashionSketches variant="dark" />
 
-      <motion.div className="absolute inset-0" style={{ y: backgroundY, opacity }}>
+      <div className="absolute inset-0">
         <img
           src={PLACEHOLDERS.venue.burjKhalifa}
           alt="Burj Khalifa"
           className="w-full h-full object-cover opacity-[0.03]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
-      </motion.div>
+      </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <motion.div
@@ -73,7 +67,7 @@ export function VisionDestinationSection() {
           <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
             The Vision
           </p>
-          <h2 className="font-display text-headline-xl text-grey-900 mb-6 uppercase leading-none">
+          <h2 className="font-display text-headline-xl text-grey-900 mb-6 uppercase leading-none font-bold">
             One Night. One Legacy. One Love.
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto" />
@@ -141,7 +135,7 @@ export function VisionDestinationSection() {
           <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
             The Destination
           </p>
-          <h3 className="font-display text-display-md text-grey-900 mb-6 uppercase leading-none">
+          <h3 className="font-display text-display-md text-grey-900 mb-6 uppercase leading-none font-bold">
             Where Dreams Touch the Sky
           </h3>
         </motion.div>

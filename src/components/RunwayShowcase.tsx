@@ -1,82 +1,66 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { MagneticCard } from './MagneticCard';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
 import { FashionSketches } from './particles/FashionSketches';
+import { SectionDecorations } from './SectionDecorations';
 
 const runwayImages = [
-  {
-    src: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Couture Piece 1',
-  },
-  {
-    src: 'https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Couture Piece 2',
-  },
-  {
-    src: 'https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Couture Piece 3',
-  },
-  {
-    src: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Couture Piece 4',
-  },
-  {
-    src: 'https://images.pexels.com/photos/3622614/pexels-photo-3622614.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Couture Piece 5',
-  },
+  { src: '/runway/IMG_8125.jpg', alt: 'Couture Piece 1' },
+  { src: '/runway/IMG_8126.jpg', alt: 'Couture Piece 2' },
+  { src: '/runway/IMG_8127.jpg', alt: 'Couture Piece 3' },
+  { src: '/runway/IMG_8128.jpg', alt: 'Couture Piece 4' },
+  { src: '/runway/IMG_8129.jpg', alt: 'Couture Piece 5' },
+  { src: '/runway/IMG_8130.jpg', alt: 'Couture Piece 6' },
+  { src: '/runway/IMG_8131.jpg', alt: 'Couture Piece 7' },
+  { src: '/runway/IMG_8132.jpg', alt: 'Couture Piece 8' },
+  { src: '/runway/IMG_8133.jpg', alt: 'Couture Piece 9' },
+  { src: '/runway/IMG_8134.jpg', alt: 'Couture Piece 10' },
+  { src: '/runway/IMG_8135.jpg', alt: 'Couture Piece 11' },
+  { src: '/runway/IMG_8136.jpg', alt: 'Couture Piece 12' },
+  { src: '/runway/IMG_8137.jpg', alt: 'Couture Piece 13' },
+  { src: '/runway/IMG_8138.jpg', alt: 'Couture Piece 14' },
+  { src: '/runway/IMG_8139.jpg', alt: 'Couture Piece 15' },
+  { src: '/runway/IMG_8140.jpg', alt: 'Couture Piece 16' },
+  { src: '/runway/IMG_8141.jpg', alt: 'Couture Piece 17' },
+  { src: '/runway/IMG_8142.jpg', alt: 'Couture Piece 18' },
+  { src: '/runway/IMG_8143.jpg', alt: 'Couture Piece 19' },
+  { src: '/runway/IMG_8144.jpg', alt: 'Couture Piece 20' },
+  { src: '/runway/IMG_8145.jpg', alt: 'Couture Piece 21' },
+  { src: '/runway/IMG_8146.jpg', alt: 'Couture Piece 22' },
+  { src: '/runway/IMG_8147.jpg', alt: 'Couture Piece 23' },
+  { src: '/runway/IMG_8148.jpg', alt: 'Couture Piece 24' },
+  { src: '/runway/IMG_8149.jpg', alt: 'Couture Piece 25' },
+  { src: '/runway/IMG_8150.jpg', alt: 'Couture Piece 26' },
+  { src: '/runway/IMG_8151.jpg', alt: 'Couture Piece 27' },
+  { src: '/runway/IMG_8152.jpg', alt: 'Couture Piece 28' },
+  { src: '/runway/IMG_8153.jpg', alt: 'Couture Piece 29' },
+  { src: '/runway/IMG_8154.jpg', alt: 'Couture Piece 30' },
+  { src: '/runway/IMG_8155.jpg', alt: 'Couture Piece 31' },
+  { src: '/runway/IMG_8156.jpg', alt: 'Couture Piece 32' },
 ];
 
 const museumPieces = [
-  {
-    src: 'https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=600',
-    title: 'Beyonce - Renaissance Tour',
-    year: '2023',
-  },
-  {
-    src: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600',
-    title: 'Jennifer Lopez - Vegas Residency',
-    year: '2022',
-  },
-  {
-    src: 'https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=600',
-    title: 'Britney Spears - Piece of Me',
-    year: '2018',
-  },
-  {
-    src: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=600',
-    title: 'Lady Gaga - Chromatica Ball',
-    year: '2022',
-  },
-  {
-    src: 'https://images.pexels.com/photos/3622614/pexels-photo-3622614.jpeg?auto=compress&cs=tinysrgb&w=600',
-    title: 'Nicki Minaj - World Tour',
-    year: '2024',
-  },
+  { src: '/runway/IMG_8125.jpg', title: 'Beyonce - Renaissance Tour', year: '2023' },
+  { src: '/runway/IMG_8130.jpg', title: 'Jennifer Lopez - Vegas Residency', year: '2022' },
+  { src: '/runway/IMG_8135.jpg', title: 'Britney Spears - Piece of Me', year: '2018' },
+  { src: '/runway/IMG_8140.jpg', title: 'Lady Gaga - Chromatica Ball', year: '2022' },
+  { src: '/runway/IMG_8145.jpg', title: 'Nicki Minaj - World Tour', year: '2024' },
 ];
 
 export function RunwayShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
-
   return (
     <section ref={containerRef} className="relative py-16 bg-black overflow-hidden">
+      <SectionDecorations variant="dark" />
       <FloatingValentineHearts count={25} variant="red" />
       <FashionSketches variant="dark" />
 
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        style={{ y: backgroundY }}
-      >
+      <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-1/4 w-1/2 h-1/3 bg-gradient-radial from-crimson/10 to-transparent blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-1/2 h-1/3 bg-gradient-radial from-gold/10 to-transparent blur-3xl" />
-      </motion.div>
+      </div>
 
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
@@ -93,7 +77,7 @@ export function RunwayShowcase() {
           <p className="text-crimson text-sm tracking-[0.4em] uppercase mb-3">
             Spectacular
           </p>
-          <h2 className="font-display text-headline-xl text-white mb-3 uppercase">
+          <h2 className="font-display text-headline-xl text-white mb-3 uppercase font-bold">
             Runway Show
           </h2>
           <p className="text-white/80 text-base max-w-2xl mx-auto">
@@ -105,16 +89,16 @@ export function RunwayShowcase() {
         <div className="relative overflow-hidden py-8">
           <motion.div
             className="flex gap-6 px-6"
-            animate={{ x: [0, -1500] }}
+            animate={{ x: [0, -4800] }}
             transition={{
               x: {
-                duration: 30,
+                duration: 80,
                 repeat: Infinity,
                 ease: 'linear',
               },
             }}
           >
-            {[...runwayImages, ...runwayImages, ...runwayImages].map(
+            {[...runwayImages, ...runwayImages].map(
               (image, index) => (
                 <motion.div
                   key={index}
@@ -122,7 +106,7 @@ export function RunwayShowcase() {
                   whileHover={{ scale: 1.05, zIndex: 10 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
+                  <div className="relative aspect-[2/3] rounded-lg overflow-hidden shadow-large">
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -148,7 +132,7 @@ export function RunwayShowcase() {
           <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3">
             Museum Collection
           </p>
-          <h2 className="font-display text-display-md text-white mb-3 uppercase">
+          <h2 className="font-display text-display-md text-white mb-3 uppercase font-bold">
             Iconic Pieces Worn by the Stars
           </h2>
           <p className="text-white/80 text-base max-w-2xl mx-auto">
@@ -171,7 +155,7 @@ export function RunwayShowcase() {
                     className="relative group rounded-lg overflow-hidden"
                     data-cursor="hover"
                   >
-                    <div className="aspect-[3/4] overflow-hidden">
+                    <div className="aspect-[2/3] overflow-hidden">
                       <img
                         src={piece.src}
                         alt={piece.title}

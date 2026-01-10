@@ -46,7 +46,7 @@ export default {
         serif: ['Cormorant Garamond', 'Georgia', 'Times New Roman', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        headline: ['Bebas Neue', 'Impact', 'sans-serif'],
+        headline: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
         playfair: ['Playfair Display', 'Georgia', 'serif'],
       },
       fontSize: {

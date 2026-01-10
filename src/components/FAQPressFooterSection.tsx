@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ChevronDown, Heart, Mail, Phone, Instagram, Youtube, Facebook } from 'lucide-react';
 import { PRESS_QUOTES } from '../constants/placeholders';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
+import { SectionDecorations } from './SectionDecorations';
 
 const faqs = [
   {
@@ -36,6 +37,7 @@ export function FAQPressFooterSection() {
 
   return (
     <section ref={containerRef} className="relative bg-black overflow-hidden">
+      <SectionDecorations variant="dark" />
       <FloatingValentineHearts count={20} variant="red" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-16">
@@ -48,7 +50,7 @@ export function FAQPressFooterSection() {
           <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans">
             Questions
           </p>
-          <h2 className="font-display text-display-md text-white mb-4 uppercase">
+          <h2 className="font-display text-display-md text-white mb-4 uppercase font-bold">
             Everything You Need to Know
           </h2>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />

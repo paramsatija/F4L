@@ -6,10 +6,24 @@ export function CustomCursor() {
   const { x, y } = useMousePosition();
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const springConfig = { damping: 25, stiffness: 400 };
   const cursorX = useSpring(x, springConfig);
   const cursorY = useSpring(y, springConfig);
+
+  // Check if device is mobile/touch device
+  useEffect(() => {
+    const checkMobile = () => {
+      const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isMobileWidth = window.innerWidth < 1024;
+      setIsMobile(hasTouchScreen || isMobileWidth);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     cursorX.set(x);
@@ -45,6 +59,11 @@ export function CustomCursor() {
       document.removeEventListener('mouseup', handleMouseUp);
     };
   }, []);
+
+  // Don't render custom cursor on mobile/touch devices
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>

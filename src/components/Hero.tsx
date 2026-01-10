@@ -1,6 +1,95 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Heart, Play } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Heart, Play, X } from 'lucide-react';
 import { useRef, useMemo, useState, useEffect } from 'react';
+
+function VideoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8"
+      >
+        <motion.button
+          onClick={onClose}
+          className="absolute top-6 right-6 text-white hover:text-crimson transition-colors p-2 z-[110]"
+          whileHover={{ scale: 1.1, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <X className="w-8 h-8 md:w-10 h-10" />
+        </motion.button>
+
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.9, opacity: 0, y: 20 }}
+          className="relative h-[85vh] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+        >
+          <video
+            src="/videos/For the Stars-video.mp4"
+            className="w-full h-full object-contain bg-black"
+            controls
+            autoPlay
+            playsInline
+          />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+function BackgroundStars() {
+  const stars = useMemo(() => {
+    return [...Array(100)].map((_, i) => ({
+      id: i,
+      size: Math.random() * 2 + 1,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: 2 + Math.random() * 3,
+      delay: Math.random() * 5,
+    }));
+  }, []);
+
+  return (
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* Deep Space Gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,20,20,1)_0%,rgba(0,0,0,1)_100%)]" />
+      <div className="absolute bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-crimson/10 via-transparent to-transparent opacity-40" />
+      
+      {/* Stars */}
+      {stars.map((star) => (
+        <motion.div
+          key={star.id}
+          className="absolute bg-white rounded-full"
+          style={{
+            width: star.size,
+            height: star.size,
+            left: `${star.left}%`,
+            top: `${star.top}%`,
+            boxShadow: '0 0 4px rgba(255, 255, 255, 0.8)',
+          }}
+          animate={{
+            opacity: [0.2, 0.8, 0.2],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: star.duration,
+            repeat: Infinity,
+            delay: star.delay,
+            ease: 'easeInOut',
+          }}
+        />
+      ))}
+      
+      {/* Nebular Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[60vw] h-[60vw] bg-crimson/5 rounded-full blur-[120px] mix-blend-screen" />
+      <div className="absolute bottom-1/4 right-1/4 w-[50vw] h-[50vw] bg-gold/5 rounded-full blur-[100px] mix-blend-screen" />
+    </div>
+  );
+}
 
 function BackgroundHearts() {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,10 +106,10 @@ function BackgroundHearts() {
     return [...Array(count)].map((_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: isMobile ? 10 + Math.random() * 16 : 12 + Math.random() * 24,
-      duration: (15 + Math.random() * 25) * 0.8,
-      delay: Math.random() * 15,
-      opacity: 0.15 + Math.random() * 0.2,
+      size: isMobile ? 14 + Math.random() * 22 : 16 + Math.random() * 32,
+      duration: (15 + Math.random() * 25) * 0.5,
+      delay: Math.random() * 10,
+      opacity: 0.3 + Math.random() * 0.4,
     }));
   }, [isMobile]);
 
@@ -63,174 +152,182 @@ function BackgroundHearts() {
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
-
-  const heartScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const heartY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden bg-black">
+    <section ref={containerRef} className="relative min-h-screen lg:h-screen overflow-hidden bg-black flex flex-col">
+      <BackgroundStars />
       <BackgroundHearts />
 
-      <motion.div
-        className="absolute top-4 left-4 md:top-6 md:left-6 z-20"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
-          <span className="font-headline text-4xl md:text-7xl lg:text-8xl tracking-wider text-white">FFL</span>
-          <Heart className="w-8 h-8 md:w-14 md:h-14 lg:w-16 lg:h-16 text-crimson fill-crimson" />
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className="max-w-[240px] md:max-w-none"
-        >
-          <p className="text-[11px] md:text-lg lg:text-xl tracking-[0.08em] md:tracking-[0.15em] uppercase text-white font-sans leading-tight">
-            Where Hollywood Glamour
-          </p>
-          <p className="text-[11px] md:text-lg lg:text-xl tracking-[0.08em] md:tracking-[0.15em] uppercase font-sans leading-tight">
-            <span className="text-white">Meets </span>
-            <span className="text-crimson font-semibold">ARABIAN NIGHTS</span>
-          </p>
-        </motion.div>
-      </motion.div>
-
-
-      <motion.div
-        className="hidden xl:block absolute left-6 top-1/2 -translate-y-1/2 z-10 max-w-[320px]"
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <p className="font-playfair text-2xl md:text-3xl italic text-white/80 leading-[1.6]">
-          "The go-to designer for A-list performers worldwide"
-        </p>
-        <p className="mt-3 text-base md:text-lg tracking-[0.2em] uppercase text-gold font-sans font-medium">— Forbes</p>
-      </motion.div>
-
-      <motion.div
-        className="hidden xl:block absolute right-6 top-1/2 -translate-y-1/2 z-10 text-right max-w-[320px]"
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <p className="font-headline text-[10rem] md:text-[12rem] lg:text-[14rem] text-crimson leading-none font-light">40</p>
-        <p className="text-base md:text-lg tracking-[0.25em] uppercase text-white/80 mt-3 font-sans">Years of</p>
-        <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal mt-2">HOLLYWOOD</p>
-        <p className="font-headline text-3xl md:text-4xl tracking-[0.08em] text-white font-normal">GLAMOUR</p>
-      </motion.div>
-
-      <div className="container mx-auto px-4 sm:px-6 pt-32 sm:pt-36 md:pt-24 relative z-10 min-h-screen flex flex-col pb-20 sm:pb-24">
-        <motion.div
-          className="text-center px-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <motion.p
-            className="font-playfair text-xs sm:text-sm md:text-lg lg:text-xl italic text-white/80 mb-2 sm:mb-3 md:mb-4 tracking-wide"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
+      {/* Main Content Container */}
+      <div className="relative z-10 flex-1 flex flex-col lg:grid lg:grid-cols-2 lg:items-center h-full">
+        
+        {/* LEFT SIDE - TEXT CONTENT */}
+        <div className="w-full px-6 lg:px-12 pt-28 lg:pt-0 flex flex-col justify-center lg:h-screen">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-center lg:text-left"
           >
-            For the Stars By Jacob Meir presents
-          </motion.p>
-          <h1 className="font-headline text-[clamp(2rem,8vw,7rem)] leading-[1.05] tracking-[0.02em] px-2">
-            <span className="text-white font-light">FASHIONS </span>
-            <span className="font-playfair text-[clamp(1rem,4vw,3rem)] italic text-white/80 font-normal">for </span>
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent font-medium">
-                LOVE
+            <motion.p
+              className="font-playfair text-base lg:text-3xl italic text-white/90 mb-3 lg:mb-8 tracking-widest font-semibold"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              For the Stars By Jacob Meir presents
+            </motion.p>
+            <h1 className="font-headline text-[clamp(2.25rem,8vw,5rem)] lg:text-[clamp(5rem,8vw,8rem)] leading-[1.05] tracking-[0.02em]">
+              <span className="text-white font-normal">FASHIONS </span>
+              <span className="font-playfair text-[clamp(1.125rem,4vw,2.5rem)] lg:text-[clamp(2.5rem,4vw,4rem)] italic text-white/80 font-normal">for </span>
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent font-semibold">
+                  LOVE
+                </span>
+                <motion.div
+                  className="absolute -inset-6 bg-crimson/20 rounded-full blur-3xl -z-10"
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                />
               </span>
-              <motion.div
-                className="absolute -inset-4 bg-crimson/20 rounded-full blur-2xl -z-10"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              />
-            </span>
-          </h1>
-        </motion.div>
+            </h1>
+            
+            <motion.p
+              className="text-sm lg:text-xl tracking-[0.15em] uppercase text-white/90 font-sans leading-tight mt-4 lg:mt-8 font-medium"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <span className="text-white">Where Hollywood Glamour </span>
+              <span className="text-white/70">Meets </span>
+              <span className="text-crimson font-semibold">Arabian Nights</span>
+            </motion.p>
+          </motion.div>
 
-        <motion.div
-          className="relative mx-auto w-full max-w-[380px] sm:max-w-[510px] md:max-w-[660px] lg:max-w-[780px] flex-1 min-h-[180px] max-h-[350px] sm:max-h-[500px] md:max-h-none my-4 sm:my-8 md:my-6"
-          style={{ scale: heartScale, y: heartY }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
-        >
-          <img
-            src="/gemini_generated_image_7.png"
-            alt="Fashions for Love Heart"
-            className="absolute inset-0 w-full h-full object-contain"
-          />
-        </motion.div>
+          {/* Forbes Quote - Desktop Only */}
+          <motion.div
+            className="hidden lg:block mt-8 lg:mt-10"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            <div className="inline-block bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-6 py-4 max-w-lg">
+              <p className="font-playfair text-base lg:text-lg italic text-white/85 leading-relaxed mb-1.5 font-medium">
+                "The go-to designer for A-list performers worldwide"
+              </p>
+              <p className="text-xs lg:text-sm tracking-[0.2em] uppercase text-gold font-sans font-semibold">— Forbes</p>
+            </div>
+          </motion.div>
 
-        <motion.div
-          className="text-center mt-auto px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.6, duration: 0.5 }}
-        >
-          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-1.5 sm:mb-3">
-            <div className="w-6 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
-            <p className="text-[9px] sm:text-xs md:text-sm tracking-[0.15em] sm:tracking-[0.25em] uppercase text-white/80 font-sans whitespace-nowrap">
-              Valentine's Eve
+          {/* Event Details */}
+          <motion.div
+            className="mt-6 lg:mt-10 text-center lg:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+          >
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-2 lg:mb-3">
+              <div className="w-8 lg:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
+              <p className="text-[10px] lg:text-sm tracking-[0.25em] uppercase text-white/80 font-sans whitespace-nowrap font-medium">
+                Valentine's Eve
+              </p>
+              <div className="w-8 lg:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
+            </div>
+            <p className="font-headline text-2xl lg:text-5xl tracking-wider font-bold mb-1.5 lg:mb-2.5" style={{ color: '#CF0F0F' }}>
+              13 FEBRUARY 2026
             </p>
-            <div className="w-6 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
+            <p className="text-[10px] lg:text-base tracking-[0.2em] uppercase text-white/75 font-sans font-medium">
+              Armani Hotel | Burj Khalifa | Dubai
+            </p>
+            
+            {/* 40 Years Badge */}
+            <div className="hidden lg:flex justify-center lg:justify-start">
+              <div className="inline-flex items-center gap-2 lg:gap-3 bg-crimson/10 border border-crimson/30 rounded-full px-4 py-2 lg:px-5 lg:py-2.5 mt-4 lg:mt-6">
+                <span className="font-headline text-xl lg:text-4xl text-crimson font-bold">40</span>
+                <span className="text-[9px] lg:text-sm uppercase tracking-wider text-white/85 font-sans font-medium">Years of Hollywood Glamour</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA Buttons - Desktop Only */}
+          <motion.div
+            className="hidden lg:flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+          >
+            <button className="bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-12 py-5 text-white font-headline text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense active:scale-95 font-bold">
+              SECURE YOUR INVITATION
+            </button>
+            <button 
+              onClick={() => setIsVideoOpen(true)}
+              className="flex items-center justify-center gap-4 px-10 py-5 text-white font-sans text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95 font-medium"
+            >
+              <Play className="w-6 h-6" />
+              Watch Teaser
+            </button>
+          </motion.div>
+        </div>
+
+        {/* RIGHT SIDE - HERO IMAGE */}
+        <motion.div
+          className="relative flex-1 flex items-center justify-center px-6 lg:px-0 py-4 lg:py-0"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="relative w-full max-w-xs lg:max-w-none lg:h-screen flex items-center justify-center h-full">
+            {/* Main Image */}
+            <motion.div
+              className="relative w-full h-full flex items-center justify-center"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <img
+                src="/main-hero.png"
+                alt="Fashions for Love 2026 - Hollywood meets Dubai"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </div>
-          <p className="font-headline text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wider" style={{ color: '#CF0F0F' }}>
-            13 FEBRUARY 2026
-          </p>
-          <p className="text-[9px] sm:text-xs md:text-sm tracking-[0.12em] sm:tracking-[0.2em] uppercase text-white/70 mt-1.5 sm:mt-2 font-sans px-2">
-            Armani Hotel | Burj Khalifa | Dubai
-          </p>
         </motion.div>
 
+        {/* CTA Buttons - Mobile Only */}
         <motion.div
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-4 mt-4 sm:mt-8 mb-3 sm:mb-6 px-4"
+          className="lg:hidden relative z-10 flex flex-col items-stretch gap-3 px-6 pb-10 mt-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.5 }}
+          transition={{ delay: 1.4, duration: 0.5 }}
         >
-          <button className="w-full sm:w-auto bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-5 sm:px-8 md:px-12 py-3.5 sm:py-4 md:py-5 text-white font-headline text-xs sm:text-base md:text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense active:scale-95">
+          <button className="w-full bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-6 py-4 text-white font-headline text-sm tracking-wider transition-all duration-300 shadow-crimson-intense active:scale-95 font-bold">
             SECURE YOUR INVITATION
           </button>
-          <button className="w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 text-white font-sans text-[11px] sm:text-sm md:text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95">
-            <Play className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+          <button 
+            onClick={() => setIsVideoOpen(true)}
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white font-sans text-sm tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95 font-medium"
+          >
+            <Play className="w-4 h-4" />
             Watch Teaser
           </button>
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-10 flex items-center gap-1.5 md:gap-3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.5 }}
-      >
-        <Heart className="w-7 h-7 md:w-12 md:h-12 lg:w-14 lg:h-14 text-crimson fill-crimson" />
-        <span className="font-headline text-2xl md:text-5xl lg:text-6xl tracking-wider text-white">DUBAI</span>
-      </motion.div>
+      <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
 
+      {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-14 sm:bottom-20 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-2 lg:bottom-6 left-1/2 -translate-x-1/2 z-20"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 6, 0] }}
+        animate={{ opacity: 1, y: [0, 4, 0] }}
         transition={{
-          opacity: { delay: 2.2, duration: 0.4 },
-          y: { delay: 2.2, duration: 1.5, repeat: Infinity },
+          opacity: { delay: 1.8, duration: 0.4 },
+          y: { delay: 1.8, duration: 1.5, repeat: Infinity },
         }}
       >
-        <div className="flex flex-col items-center gap-1.5 text-white/60">
-          <span className="text-[9px] sm:text-[10px] md:text-xs tracking-[0.3em] uppercase font-sans">Scroll</span>
-          <div className="w-px h-5 sm:h-8 bg-gradient-to-b from-white/60 to-transparent" />
+        <div className="flex flex-col items-center gap-1 text-white/60">
+          <span className="text-[8px] lg:text-[10px] tracking-[0.3em] uppercase font-sans">Scroll</span>
+          <div className="w-px h-4 lg:h-6 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
       </motion.div>
     </section>

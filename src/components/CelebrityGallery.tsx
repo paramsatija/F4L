@@ -1,8 +1,9 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MagneticCard } from './MagneticCard';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
 import { FashionSketches } from './particles/FashionSketches';
+import { SectionDecorations } from './SectionDecorations';
 
 const performers = [
   {
@@ -61,21 +62,16 @@ const celebrities = [
 
 export function CelebrityGallery() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <section ref={containerRef} className="relative py-16 bg-crimson overflow-hidden">
+      <SectionDecorations variant="dark" />
       <FloatingValentineHearts count={30} variant="white" />
       <FashionSketches variant="light" />
 
       <div className="absolute inset-0 bg-gradient-to-b from-crimson via-crimson-light to-crimson opacity-30" />
 
-      <motion.div className="relative z-10" style={{ opacity }}>
+      <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-6 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -87,46 +83,46 @@ export function CelebrityGallery() {
             <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3">
               Live Performances
             </p>
-            <h2 className="font-display text-headline-xl text-white mb-4 uppercase">
-              Global Music Icons
-            </h2>
+                  <h2 className="font-display text-headline-xl text-white mb-4 uppercase font-bold">
+                    Global Music Icons
+                  </h2>
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
           </motion.div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {performers.map((performer, index) => (
               <motion.div
                 key={performer.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
               >
                 <MagneticCard>
                   <div
-                    className="relative group rounded-lg overflow-hidden bg-night-light"
+                    className="relative group rounded-xl overflow-hidden bg-night-light shadow-large"
                     data-cursor="hover"
                   >
-                    <div className="aspect-[3/4] overflow-hidden">
+                    <div className="aspect-[4/5] overflow-hidden">
                       <img
                         src={performer.image}
                         alt={performer.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-near-black via-near-black/50 to-transparent opacity-80" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="text-vibrant-red text-xs tracking-wider uppercase mb-1">
+                    <div className="absolute inset-0 bg-gradient-to-t from-near-black via-near-black/60 to-transparent opacity-85" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                      <p className="text-vibrant-red text-sm md:text-base tracking-wider uppercase mb-2 font-semibold">
                         {performer.role}
                       </p>
-                      <h3 className="text-white text-lg font-display font-semibold">
+                      <h3 className="text-white text-2xl md:text-3xl font-display font-bold mb-2">
                         {performer.name}
                       </h3>
-                      <p className="text-white/60 text-sm">{performer.subtitle}</p>
+                      <p className="text-white/70 text-base md:text-lg">{performer.subtitle}</p>
                     </div>
-                    <div className="absolute inset-0 border border-vibrant-red/0 group-hover:border-vibrant-red/30 transition-colors duration-500 rounded-lg" />
+                    <div className="absolute inset-0 border-2 border-vibrant-red/0 group-hover:border-vibrant-red/40 transition-colors duration-500 rounded-xl" />
                   </div>
                 </MagneticCard>
               </motion.div>
@@ -134,9 +130,9 @@ export function CelebrityGallery() {
           </div>
         </div>
 
-        <div className="section-divider mt-32 mb-20 max-w-4xl mx-auto" />
+        <div className="section-divider mt-16 mb-12 max-w-4xl mx-auto" />
 
-        <div className="max-w-7xl mx-auto px-6 mb-16">
+        <div className="max-w-7xl mx-auto px-6 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -147,14 +143,14 @@ export function CelebrityGallery() {
             <p className="text-gold text-sm tracking-[0.4em] uppercase mb-4">
               Award Winning
             </p>
-            <h2 className="font-display text-display-md text-white">
-              Celebrity Guests
-            </h2>
+                  <h2 className="font-display text-display-md text-white font-bold">
+                    Celebrity Guests
+                  </h2>
           </motion.div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-6">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-wrap justify-center gap-10 md:gap-12 lg:gap-16">
             {celebrities.map((celebrity, index) => (
               <motion.div
                 key={celebrity.name}
@@ -162,24 +158,50 @@ export function CelebrityGallery() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="w-40 md:w-48"
+                className="w-60 md:w-80 lg:w-[22rem]"
               >
                 <MagneticCard>
                   <div
                     className="relative group text-center"
                     data-cursor="hover"
                   >
-                    <div className="w-24 h-24 md:w-28 md:h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gold/30 group-hover:border-gold/60 transition-colors duration-500">
-                      <img
-                        src={celebrity.image}
-                        alt={celebrity.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
+                    <div className="relative w-56 h-56 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] mx-auto mb-6">
+                      <svg className="absolute inset-0 w-0 h-0">
+                        <defs>
+                          <clipPath id={`heart-clip-${index}`} clipPathUnits="objectBoundingBox">
+                            <path d="M 0.5,0.9 C 0.5,0.9 0.05,0.65 0.05,0.35 C 0.05,0.15 0.15,0.05 0.3,0.05 C 0.4,0.05 0.45,0.1 0.5,0.2 C 0.55,0.1 0.6,0.05 0.7,0.05 C 0.85,0.05 0.95,0.15 0.95,0.35 C 0.95,0.65 0.5,0.9 0.5,0.9 Z" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <div 
+                        className="relative w-full h-full transition-all duration-500 group-hover:scale-110"
+                        style={{
+                          clipPath: `url(#heart-clip-${index})`,
+                          filter: 'drop-shadow(0 10px 30px rgba(212, 165, 116, 0.5)) drop-shadow(0 0 20px rgba(212, 165, 116, 0.35))',
+                        }}
+                      >
+                        <img
+                          src={celebrity.image}
+                          alt={celebrity.name}
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-115"
+                        />
+                        {/* Subtle overlay for depth */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      </div>
+                      {/* Animated pulse ring on hover */}
+                      <div 
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{
+                          clipPath: `url(#heart-clip-${index})`,
+                        }}
+                      >
+                        <div className="absolute inset-0 border-2 border-gold/60 animate-ping" style={{ animationDuration: '2s' }} />
+                      </div>
                     </div>
-                    <h3 className="text-white text-sm font-medium mb-1">
+                    <h3 className="text-white text-base md:text-lg font-semibold mb-2">
                       {celebrity.name}
                     </h3>
-                    <p className="text-gold text-xs uppercase tracking-wider">
+                    <p className="text-gold text-xs md:text-sm uppercase tracking-wider font-medium">
                       {celebrity.role}
                     </p>
                   </div>
@@ -188,7 +210,7 @@ export function CelebrityGallery() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
