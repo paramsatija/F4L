@@ -9,25 +9,25 @@ const performers = [
   {
     name: '25Band',
     subtitle: 'Tamin & A-Del',
-    image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/performing/25band.png',
     role: 'Live Performance',
   },
   {
     name: 'Akon',
     subtitle: 'Grammy Winner',
-    image: 'https://images.pexels.com/photos/2531728/pexels-photo-2531728.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/performing/akon.avif',
     role: 'Headline Performance',
   },
   {
     name: 'Deborah Cox',
     subtitle: 'R&B Icon',
-    image: 'https://images.pexels.com/photos/1699161/pexels-photo-1699161.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/performing/deborah-cox.png',
     role: 'Live Performance',
   },
   {
     name: 'Maya Diab',
     subtitle: 'Middle East Star',
-    image: 'https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/performing/maya-diab.png',
     role: 'Live Performance',
   },
 ];
@@ -65,11 +65,36 @@ export function CelebrityGallery() {
 
   return (
     <section ref={containerRef} className="relative py-16 bg-crimson overflow-hidden">
-      <SectionDecorations variant="dark" />
-      <FloatingValentineHearts count={30} variant="white" />
+      <SectionDecorations variant="red" />
+      <FloatingValentineHearts count={120} variant="white" />
       <FashionSketches variant="light" />
 
+      {/* Enhanced gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-crimson via-crimson-light to-crimson opacity-30" />
+      
+      {/* Gold shimmer particles */}
+      <div className="absolute inset-0 opacity-50">
+        {[...Array(40)].map((_, i) => (
+          <motion.div
+            key={`shimmer-${i}`}
+            className="absolute w-1.5 h-1.5 bg-gold rounded-full shadow-lg shadow-gold/50"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -100, -200],
+              opacity: [0, 1, 0],
+              scale: [0, 2, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-6 mb-10">

@@ -110,6 +110,7 @@ function BackgroundHearts() {
       duration: (15 + Math.random() * 25) * 0.5,
       delay: Math.random() * 10,
       opacity: 0.3 + Math.random() * 0.4,
+      zIndex: Math.random() > 0.6 ? 20 : 5, // 40% of hearts go over the image
     }));
   }, [isMobile]);
 
@@ -122,6 +123,7 @@ function BackgroundHearts() {
           style={{
             left: `${heart.left}%`,
             bottom: '-50px',
+            zIndex: heart.zIndex,
           }}
           animate={{
             y: [0, -window.innerHeight - 100],
@@ -176,11 +178,11 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              For the Stars By Jacob Meir presents
+              For the Stars By Jacob presents
             </motion.p>
             <h1 className="font-headline text-[clamp(2.25rem,8vw,5rem)] lg:text-[clamp(5rem,8vw,8rem)] leading-[1.05] tracking-[0.02em]">
               <span className="text-white font-normal">FASHIONS </span>
-              <span className="font-playfair text-[clamp(1.125rem,4vw,2.5rem)] lg:text-[clamp(2.5rem,4vw,4rem)] italic text-white/80 font-normal">for </span>
+              <span className="text-white/90 font-normal">FOR </span>
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-crimson via-crimson-light to-crimson bg-clip-text text-transparent font-semibold">
                   LOVE
@@ -192,17 +194,6 @@ export function Hero() {
                 />
               </span>
             </h1>
-            
-            <motion.p
-              className="text-sm lg:text-xl tracking-[0.15em] uppercase text-white/90 font-sans leading-tight mt-4 lg:mt-8 font-medium"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              <span className="text-white">Where Hollywood Glamour </span>
-              <span className="text-white/70">Meets </span>
-              <span className="text-crimson font-semibold">Arabian Nights</span>
-            </motion.p>
           </motion.div>
 
           {/* Forbes Quote - Desktop Only */}
@@ -287,7 +278,7 @@ export function Hero() {
               <img
                 src="/main-hero.png"
                 alt="Fashions for Love 2026 - Hollywood meets Dubai"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </motion.div>
           </div>

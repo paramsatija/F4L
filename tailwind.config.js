@@ -43,11 +43,12 @@ export default {
         stark: '#FFFFFF',
       },
       fontFamily: {
-        serif: ['Cormorant Garamond', 'Georgia', 'Times New Roman', 'serif'],
+        serif: ['Atteron', 'Cormorant Garamond', 'Georgia', 'Times New Roman', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        headline: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
+        display: ['Atteron', 'Cormorant Garamond', 'Georgia', 'serif'],
+        headline: ['Atteron', 'Cinzel', 'Georgia', 'serif'],
         playfair: ['Playfair Display', 'Georgia', 'serif'],
+        quote: ['Playfair Display', 'Georgia', 'serif'], // Temporary until Breathing is added
       },
       fontSize: {
         'display-2xl': ['clamp(8rem, 18vw, 18rem)', { lineHeight: '0.8', letterSpacing: '-0.03em' }],

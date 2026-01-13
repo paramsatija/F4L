@@ -6,7 +6,7 @@ interface FashionSketchesProps {
 }
 
 export function FashionSketches({ variant = 'light' }: FashionSketchesProps) {
-  const iconColor = variant === 'light' ? 'text-white/5' : 'text-black/5';
+  const iconColor = variant === 'light' ? 'text-white/15' : 'text-black/5';
 
   const sketches = [
     { Icon: Scissors, x: '10%', y: '15%', rotate: -15, delay: 0 },
@@ -28,7 +28,7 @@ export function FashionSketches({ variant = 'light' }: FashionSketchesProps) {
           }}
           initial={{ opacity: 0, rotate: sketch.rotate, scale: 0.8 }}
           animate={{
-            opacity: [0.3, 0.5, 0.3],
+            opacity: variant === 'light' ? [0.5, 0.8, 0.5] : [0.3, 0.5, 0.3],
             rotate: [sketch.rotate, sketch.rotate + 5, sketch.rotate],
             scale: [1, 1.1, 1],
           }}
@@ -46,10 +46,10 @@ export function FashionSketches({ variant = 'light' }: FashionSketchesProps) {
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="diagonal-lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-            <line x1="0" y1="0" x2="40" y2="40" stroke={variant === 'light' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'} strokeWidth="1" />
+            <line x1="0" y1="0" x2="40" y2="40" stroke={variant === 'light' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.03)'} strokeWidth="1" />
           </pattern>
           <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-            <circle cx="10" cy="10" r="1" fill={variant === 'light' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'} />
+            <circle cx="10" cy="10" r="1" fill={variant === 'light' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.05)'} />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#diagonal-lines)" />

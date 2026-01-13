@@ -2,28 +2,30 @@ import { Heart } from 'lucide-react';
 import { useRef, useMemo } from 'react';
 
 interface SectionDecorationsProps {
-  variant: 'light' | 'dark';
+  variant: 'light' | 'dark' | 'red';
 }
 
 export function SectionDecorations({ variant }: SectionDecorationsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isLight = variant === 'light';
+  const isRed = variant === 'red';
 
-  const heartColor = isLight ? 'text-crimson' : 'text-crimson-dark';
-  const outlineColor = isLight ? 'text-gold/20' : 'text-gold/10';
-  const glowColor = isLight ? 'rgba(207, 15, 15, 0.15)' : 'rgba(207, 15, 15, 0.25)';
+  const heartColor = isRed ? 'text-white' : isLight ? 'text-crimson' : 'text-crimson-dark';
+  const outlineColor = isRed ? 'text-white/40' : isLight ? 'text-gold/20' : 'text-gold/10';
+  const glowColor = isRed ? 'rgba(255, 255, 255, 0.6)' : isLight ? 'rgba(207, 15, 15, 0.15)' : 'rgba(207, 15, 15, 0.25)';
 
-  // Generate 216 scattered hearts (3x current density)
+  // Generate scattered hearts (more for red variant)
+  const heartCount = isRed ? 300 : 216;
   const scatteredHearts = useMemo(() => {
-    return [...Array(216)].map((_, i) => ({
+    return [...Array(heartCount)].map((_, i) => ({
       id: i,
       size: 4 + Math.random() * 20,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
       rotate: Math.random() * 360,
-      opacity: 0.02 + Math.random() * 0.35,
+      opacity: isRed ? 0.1 + Math.random() * 0.3 : 0.02 + Math.random() * 0.35,
     }));
-  }, []);
+  }, [heartCount, isRed]);
 
   const words = [
     'COUTURE', 'ROMANCE', 'LEGACY', 'LOVE', 'FASHION', 'HOLLYWOOD', 'DUBAI', 'STARS', 'GLAMOUR',
@@ -51,7 +53,7 @@ export function SectionDecorations({ variant }: SectionDecorationsProps) {
             left: `${(i * 11) % 120 - 10}%`,
             top: `${(i * 13) % 120 - 10}%`,
             zIndex: -1,
-            opacity: isLight ? 0.004 + (i * 0.0008) : 0.008 + (i * 0.0008)
+            opacity: isRed ? 0.02 + (i * 0.003) : isLight ? 0.004 + (i * 0.0008) : 0.008 + (i * 0.0008)
           }}
           className="absolute"
         >
@@ -80,18 +82,18 @@ export function SectionDecorations({ variant }: SectionDecorationsProps) {
       ))}
 
       {/* Complex Multi-Layered Decorative Fashion Lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.35]">
+      <svg className={`absolute inset-0 w-full h-full ${isRed ? 'opacity-[0.5]' : 'opacity-[0.35]'}`}>
         <pattern id="stitch-pattern-1" width="30" height="30" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="15" x2="5" y2="15" stroke={isLight ? "#D4A574" : "#D4A574"} strokeWidth="0.1" strokeDasharray="1,2" />
-          <circle cx="15" cy="15" r="0.5" fill={isLight ? "#D4A574" : "#D4A574"} opacity="0.3" />
+          <line x1="0" y1="15" x2="5" y2="15" stroke={isRed ? "#FFFFFF" : "#D4A574"} strokeWidth="0.1" strokeDasharray="1,2" />
+          <circle cx="15" cy="15" r="0.5" fill={isRed ? "#FFFFFF" : "#D4A574"} opacity="0.3" />
         </pattern>
         <pattern id="stitch-pattern-2" width="60" height="60" patternUnits="userSpaceOnUse">
-          <line x1="30" y1="0" x2="30" y2="10" stroke={isLight ? "#D4A574" : "#D4A574"} strokeWidth="0.1" strokeDasharray="1,3" />
-          <Heart size={4} className="text-gold/8" style={{ transform: 'translate(28px, 28px)' }} />
+          <line x1="30" y1="0" x2="30" y2="10" stroke={isRed ? "#D4A574" : "#D4A574"} strokeWidth="0.1" strokeDasharray="1,3" />
+          <Heart size={4} className={isRed ? "text-white/10" : "text-gold/8"} style={{ transform: 'translate(28px, 28px)' }} />
         </pattern>
         <pattern id="stitch-pattern-3" width="100" height="100" patternUnits="userSpaceOnUse">
-          <circle cx="50" cy="50" r="0.2" fill={isLight ? "#D4A574" : "#D4A574"} opacity="0.2" />
-          <line x1="0" y1="0" x2="100" y2="100" stroke={isLight ? "#D4A574" : "#D4A574"} strokeWidth="0.05" opacity="0.1" />
+          <circle cx="50" cy="50" r="0.2" fill={isRed ? "#FFFFFF" : "#D4A574"} opacity="0.2" />
+          <line x1="0" y1="0" x2="100" y2="100" stroke={isRed ? "#FFFFFF" : "#D4A574"} strokeWidth="0.05" opacity="0.1" />
         </pattern>
         <rect width="100%" height="100%" fill="url(#stitch-pattern-1)" />
         <rect width="100%" height="100%" fill="url(#stitch-pattern-2)" opacity="0.8" />
@@ -108,7 +110,7 @@ export function SectionDecorations({ variant }: SectionDecorationsProps) {
           }}
           className={`absolute font-display uppercase tracking-[1.5em] pointer-events-none
             ${i % 2 === 0 ? 'vertical-text' : ''}
-            ${isLight ? 'text-grey-900/[0.02]' : 'text-white/[0.02]'}
+            ${isRed ? 'text-white/[0.12]' : isLight ? 'text-grey-900/[0.02]' : 'text-white/[0.02]'}
             ${i % 6 === 0 ? 'text-9xl md:text-[15rem]' : i % 6 === 1 ? 'text-7xl md:text-9xl' : i % 6 === 2 ? 'text-5xl md:text-7xl' : i % 6 === 3 ? 'text-3xl md:text-5xl' : 'text-xl md:text-3xl'}
           `}
         >
