@@ -61,7 +61,6 @@ export function StickyNavigation() {
             href="#"
             className="flex items-center gap-2 group"
             whileHover={{ scale: 1.02 }}
-            data-cursor="hover"
           >
             <span className="font-headline text-3xl tracking-wider transition-colors duration-500 text-white">
               FFL
@@ -76,7 +75,6 @@ export function StickyNavigation() {
                 onClick={() => scrollToSection(link.href)}
                 className="text-sm font-sans tracking-wide transition-colors duration-500 relative group text-white/80 hover:text-white"
                 whileHover={{ y: -2 }}
-                data-cursor="hover"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-crimson group-hover:w-full transition-all duration-300" />
@@ -136,7 +134,6 @@ export function StickyNavigation() {
                   <motion.button
                     onClick={() => setIsMobileMenuOpen(false)}
                     whileTap={{ scale: 0.95 }}
-                    data-cursor="hover"
                   >
                     <X className="w-6 h-6 text-grey-900" />
                   </motion.button>
@@ -151,7 +148,6 @@ export function StickyNavigation() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      data-cursor="hover"
                     >
                       {link.label}
                     </motion.button>
@@ -164,7 +160,6 @@ export function StickyNavigation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  data-cursor="hover"
                 >
                   Reserve Your Seat
                 </motion.button>

@@ -55,9 +55,9 @@ function BackgroundStars() {
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      {/* Deep Space Gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,20,20,1)_0%,rgba(0,0,0,1)_100%)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-crimson/10 via-transparent to-transparent opacity-40" />
+      {/* Pure Pitch Black Background */}
+      <div className="absolute inset-0 bg-black" />
+      <div className="absolute bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-gold/8 via-transparent to-transparent opacity-30" />
       
       {/* Stars */}
       {stars.map((star) => (

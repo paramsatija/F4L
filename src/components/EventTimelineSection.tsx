@@ -19,14 +19,12 @@ const timelineEvents = [
   {
     time: '8:00 PM',
     endTime: '10:00 PM',
-    title: 'Live Performances by Global Music Icons',
-    description: '25Band, Deborah Cox, Maya Diab, Akon',
+    title: 'Live Performances & Celebrity Appearances',
+    description: '25Band, Deborah Cox, Tyra Banks & More',
     icon: Music,
     images: [
       '/performing/25band.png',
       '/performing/deborah-cox.png',
-      '/performing/maya-diab.png',
-      '/performing/akon.avif',
     ],
     color: 'crimson',
     multiImage: true,
@@ -137,7 +135,7 @@ export function EventTimelineSection() {
                   <div className={`relative overflow-hidden ${event.multiImage ? 'h-64 md:h-80' : 'h-96 md:h-[450px]'}`}>
                     {event.multiImage && event.images ? (
                       /* Horizontal Strip of Performers - Better for landscape images */
-                      <div className="grid grid-cols-2 md:grid-cols-4 h-full gap-1">
+                      <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-1">
                         {event.images.map((img, idx) => (
                           <motion.div
                             key={idx}

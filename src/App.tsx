@@ -1,6 +1,6 @@
-import { CustomCursor } from './components/CustomCursor';
 import { StickyNavigation } from './components/StickyNavigation';
 import { Hero } from './components/Hero';
+import { EventPosterSection } from './components/EventPosterSection';
 import { VisionDestinationSection } from './components/VisionDestinationSection';
 import { DesignerTimelineSection } from './components/DesignerTimelineSection';
 import { EventTimelineSection } from './components/EventTimelineSection';
@@ -13,13 +13,13 @@ function App() {
   return (
     <div className="relative">
       <div className="grain-overlay" />
-      <CustomCursor />
       <StickyNavigation />
       <main>
         <Hero />
         <VisionDestinationSection />
         <DesignerTimelineSection />
         <EventTimelineSection />
+        <EventPosterSection />
         <CelebrityGallery />
         <RunwayShowcase />
         <TicketsValentineSection />

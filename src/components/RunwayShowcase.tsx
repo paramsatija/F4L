@@ -41,18 +41,17 @@ const runwayImages = [
 ];
 
 const museumPieces = [
-  { src: '/runway/IMG_8125.jpg', title: 'Beyonce - Renaissance Tour', year: '2023' },
-  { src: '/runway/IMG_8130.jpg', title: 'Jennifer Lopez - Vegas Residency', year: '2022' },
-  { src: '/runway/IMG_8135.jpg', title: 'Britney Spears - Piece of Me', year: '2018' },
-  { src: '/runway/IMG_8140.jpg', title: 'Lady Gaga - Chromatica Ball', year: '2022' },
-  { src: '/runway/IMG_8145.jpg', title: 'Nicki Minaj - World Tour', year: '2024' },
+  { src: '/iconic piece/jennifer main.jpg', title: 'Jennifer Lopez - Vegas Residency', year: '2022' },
+  { src: '/iconic piece/BRITNEY SPEARS MAIN.jpg', title: 'Britney Spears - Piece of Me', year: '2018' },
+  { src: '/iconic piece/nicki-minaj.jpg', title: 'Nicki Minaj - World Tour', year: '2024' },
+  { src: '/iconic piece/Jacob with akon.jpg', title: 'Akon - World Tour', year: '2023' },
 ];
 
 export function RunwayShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section ref={containerRef} className="relative py-16 bg-black overflow-hidden">
+    <section id="runway" ref={containerRef} className="relative py-16 bg-black overflow-hidden">
       <SectionDecorations variant="dark" />
       <FloatingValentineHearts count={25} variant="red" />
       <FashionSketches variant="dark" />
@@ -141,7 +140,7 @@ export function RunwayShowcase() {
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {museumPieces.map((piece, index) => (
               <motion.div
                 key={piece.title}
