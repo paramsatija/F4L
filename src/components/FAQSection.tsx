@@ -122,11 +122,11 @@ export function FAQSection() {
             Still have questions?
           </p>
           <a
-            href="mailto:info@fashionsforlove.com"
+            href="mailto:reservations@forthestarsfashion.com"
             className="text-crimson hover:text-crimson-dark transition-colors font-medium"
             data-cursor="hover"
           >
-            info@fashionsforlove.com
+            reservations@forthestarsfashion.com
           </a>
         </motion.div>
       </div>

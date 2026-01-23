@@ -88,11 +88,11 @@ export function PressMedia() {
               For press credentials and media inquiries:
             </p>
             <a
-              href="mailto:press@fashionsforlove.com"
+              href="mailto:reservations@forthestarsfashion.com"
               className="text-crimson hover:text-crimson-dark transition-colors font-medium text-lg"
               data-cursor="hover"
             >
-              press@fashionsforlove.com
+              reservations@forthestarsfashion.com
             </a>
           </div>
 

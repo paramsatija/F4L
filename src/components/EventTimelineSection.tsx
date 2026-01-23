@@ -59,7 +59,7 @@ export function EventTimelineSection() {
     <section ref={containerRef} className="relative py-20 md:py-32 bg-white overflow-hidden">
       {/* Same Background Design as "One Night One Love" Section */}
       <SectionDecorations variant="light" />
-      <FloatingValentineHearts count={25} variant="red" />
+      <FloatingValentineHearts count={15} variant="red" />
       <FashionSketches variant="dark" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -147,6 +147,8 @@ export function EventTimelineSection() {
                               src={img}
                               alt={`Performer ${idx + 1}`}
                               className="w-full h-full object-cover object-center"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </motion.div>
                         ))}
@@ -159,6 +161,8 @@ export function EventTimelineSection() {
                           src={event.image}
                           alt={event.title}
                           className="w-full h-full object-cover object-center"
+                          loading="lazy"
+                          decoding="async"
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.6 }}
                         />

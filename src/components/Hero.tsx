@@ -173,7 +173,7 @@ export function Hero() {
             className="text-center lg:text-left"
           >
             <motion.p
-              className="font-playfair text-base lg:text-3xl italic text-white/90 mb-3 lg:mb-8 tracking-widest font-semibold"
+              className="font-headline text-base lg:text-3xl text-white/90 mb-3 lg:mb-8 tracking-widest font-semibold"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
@@ -279,6 +279,9 @@ export function Hero() {
                 src="/main-hero.png"
                 alt="Fashions for Love 2026 - Hollywood meets Dubai"
                 className="w-full h-full object-contain"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
             </motion.div>
           </div>

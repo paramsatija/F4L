@@ -46,7 +46,7 @@ export function CelebrityGallery() {
   return (
     <section id="performers" ref={containerRef} className="relative py-16 bg-crimson overflow-hidden">
       <SectionDecorations variant="red" />
-      <FloatingValentineHearts count={120} variant="white" />
+      <FloatingValentineHearts count={30} variant="white" />
       <FashionSketches variant="light" />
 
       {/* Enhanced gradient overlay */}
@@ -116,6 +116,8 @@ export function CelebrityGallery() {
                           src={performer.image}
                           alt={performer.name}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-grey-800 via-grey-900 to-black flex items-center justify-center">

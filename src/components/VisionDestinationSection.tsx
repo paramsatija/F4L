@@ -45,7 +45,7 @@ export function VisionDestinationSection() {
       className="relative py-24 bg-cream overflow-hidden"
     >
       <SectionDecorations variant="light" />
-      <FloatingValentineHearts count={25} variant="red" />
+      <FloatingValentineHearts count={15} variant="red" />
       <FashionSketches variant="dark" />
 
       <div className="absolute inset-0">

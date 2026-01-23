@@ -38,12 +38,12 @@ export function Footer() {
             </h3>
             <div className="space-y-4">
               <a
-                href="mailto:operations@forthestarsfashion.com"
+                href="mailto:reservations@forthestarsfashion.com"
                 className="flex items-center gap-3 text-grey-300 hover:text-crimson transition-colors group"
                 data-cursor="hover"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">operations@forthestarsfashion.com</span>
+                <span className="text-sm">reservations@forthestarsfashion.com</span>
               </a>
               <a
                 href="tel:+971506528691"

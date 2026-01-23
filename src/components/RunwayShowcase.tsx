@@ -110,6 +110,8 @@ export function RunwayShowcase() {
                       src={image.src}
                       alt={image.alt}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-near-black/60 via-transparent to-transparent" />
                   </div>
@@ -159,6 +161,8 @@ export function RunwayShowcase() {
                         src={piece.src}
                         alt={piece.title}
                         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-near-black via-near-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />

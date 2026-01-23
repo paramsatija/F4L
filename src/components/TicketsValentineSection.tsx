@@ -135,23 +135,6 @@ export function TicketsValentineSection() {
         transition={{ delay: isMobile ? 0 : 0.2 + index * 0.1, duration: 0.4 }}
         className={`relative ${isMobile ? 'w-[85vw] flex-shrink-0' : ''} ${isHighlight && !isMobile ? 'md:-mt-8 md:mb-8 md:scale-105' : ''}`}
       >
-        {isHighlight && (
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-            <motion.div 
-              className="bg-gradient-to-r from-crimson via-crimson-light to-crimson text-white text-xs font-sans font-bold tracking-widest px-6 py-2 rounded-full shadow-large"
-              animate={{ 
-                boxShadow: [
-                  '0 4px 20px rgba(220,38,38,0.3)',
-                  '0 4px 30px rgba(220,38,38,0.5)',
-                  '0 4px 20px rgba(220,38,38,0.3)',
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              ⭐ MOST POPULAR - SELLING FAST
-            </motion.div>
-          </div>
-        )}
 
         <motion.div
           className={`relative rounded-2xl overflow-hidden border-4 ${colors.border} ${colors.cardBg} h-full ${colors.glow} ${isHighlight ? 'ring-4 ring-gold/30' : 'ring-2 ring-white/10'}`}
@@ -390,77 +373,13 @@ export function TicketsValentineSection() {
             }}
           />
 
-          {/* Enhanced VVIP Badge for Red Circle */}
-          {tier.id === 'red' && (
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
-              <motion.div 
-                className="relative"
-                animate={{ 
-                  scale: [1, 1.08, 1],
-                  rotate: [0, 5, 0, -5, 0],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                {/* Multiple glow rings */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gold via-crimson to-gold blur-xl opacity-60 animate-pulse" />
-                <div className="absolute inset-2 rounded-full bg-gradient-to-br from-crimson to-gold blur-lg opacity-50" />
-                
-                {/* Badge circle - 3D embossed */}
-                <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-crimson via-[#8B0000] to-crimson-dark border-4 border-gold shadow-2xl flex items-center justify-center"
-                     style={{
-                       boxShadow: `
-                         0 0 30px rgba(212, 165, 116, 0.8),
-                         inset 0 2px 10px rgba(0, 0, 0, 0.3),
-                         inset 0 -2px 10px rgba(255, 255, 255, 0.1)
-                       `
-                     }}>
-                  {/* Rotating shimmer */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background: 'conic-gradient(from 0deg, transparent 0%, rgba(255, 215, 0, 0.4) 10%, transparent 20%, transparent 100%)',
-                    }}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                  />
-                  
-                  {/* Inner decorative rings */}
-                  <div className="absolute inset-2 rounded-full border-2 border-gold/60" />
-                  <div className="absolute inset-3 rounded-full border border-gold/30" />
-                  
-                  {/* VVIP Text - embossed */}
-                  <span className="relative font-headline text-white text-xs font-black tracking-[0.2em] drop-shadow-lg"
-                        style={{
-                          textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(212,165,116,0.8)'
-                        }}>
-                    VVIP
-                  </span>
-                  
-                  {/* Diamond/Jewel accents */}
-                  <div className="absolute -top-1 -left-1 w-3 h-3 bg-gradient-to-br from-gold to-gold-champagne rounded-full shadow-lg" 
-                       style={{ boxShadow: '0 0 10px rgba(212, 165, 116, 0.8)' }} />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-gold to-gold-champagne rounded-full shadow-lg"
-                       style={{ boxShadow: '0 0 10px rgba(212, 165, 116, 0.8)' }} />
-                  <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 bg-gradient-to-br from-gold to-gold-champagne rounded-full shadow-lg"
-                       style={{ boxShadow: '0 0 8px rgba(212, 165, 116, 0.8)' }} />
-                  <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-gradient-to-br from-gold to-gold-champagne rounded-full shadow-lg"
-                       style={{ boxShadow: '0 0 8px rgba(212, 165, 116, 0.8)' }} />
-                  
-                  {/* Top center jewel */}
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-lg"
-                       style={{ boxShadow: '0 0 12px rgba(212, 165, 116, 1)' }} />
-                </div>
-              </motion.div>
-            </div>
-          )}
-
-          <div className="relative p-6 md:p-8">
+          <div className="relative p-5 md:p-6">
             {/* Icon and Tier Name */}
-            <div className="flex items-start justify-between mb-8">
+            <div className="flex items-start justify-between mb-6">
               <div className="flex-1">
                 {/* Enhanced Icon Badge - 3D Embossed */}
                 <motion.div 
-                  className={`relative w-20 h-20 rounded-full ${colors.iconBg} border-4 ${colors.border} flex items-center justify-center mb-5 ${isHighlight ? 'ring-4 ring-gold/30' : 'ring-2 ring-white/20'} shadow-2xl`}
+                  className={`relative w-20 h-20 rounded-full ${colors.iconBg} border-4 ${colors.border} flex items-center justify-center mb-4 ${isHighlight ? 'ring-4 ring-gold/30' : 'ring-2 ring-white/20'} shadow-2xl`}
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6, type: 'spring' }}
                   style={{
@@ -529,7 +448,7 @@ export function TicketsValentineSection() {
             </div>
 
             {/* Luxury Price Box - Premium Tag Style */}
-            <div className={`relative mb-8 p-5 rounded-xl border-4 ${colors.border} ${tier.id === 'red' ? 'bg-black/30' : tier.id === 'gold' ? 'bg-white/30' : tier.id === 'black' ? 'bg-white/15' : tier.id === 'balcony' ? 'bg-white/25' : 'bg-white/30'} backdrop-blur-md shadow-2xl`}
+            <div className={`relative mb-6 p-4 rounded-xl border-4 ${colors.border} ${tier.id === 'red' ? 'bg-black/30' : tier.id === 'gold' ? 'bg-white/30' : tier.id === 'black' ? 'bg-white/15' : tier.id === 'balcony' ? 'bg-white/25' : 'bg-white/30'} backdrop-blur-md shadow-2xl`}
                  style={{
                    boxShadow: `
                      0 10px 40px -10px rgba(0, 0, 0, 0.3),
@@ -588,14 +507,14 @@ export function TicketsValentineSection() {
             </div>
 
             {/* Features List with decorative separator */}
-            <div className={`relative py-4 mb-6 border-t-2 border-b-2 ${colors.border} border-opacity-30`}>
+            <div className={`relative py-3 mb-5 border-t-2 border-b-2 ${colors.border} border-opacity-30`}>
               {/* Decorative dots on borders */}
               <div className={`absolute top-0 left-0 w-2 h-2 rounded-full ${tier.id === 'red' || tier.id === 'black' ? 'bg-gold' : colors.iconColor.replace('text-', 'bg-')} -translate-y-1/2`} />
               <div className={`absolute top-0 right-0 w-2 h-2 rounded-full ${tier.id === 'red' || tier.id === 'black' ? 'bg-gold' : colors.iconColor.replace('text-', 'bg-')} -translate-y-1/2`} />
               <div className={`absolute bottom-0 left-0 w-2 h-2 rounded-full ${tier.id === 'red' || tier.id === 'black' ? 'bg-gold' : colors.iconColor.replace('text-', 'bg-')} translate-y-1/2`} />
               <div className={`absolute bottom-0 right-0 w-2 h-2 rounded-full ${tier.id === 'red' || tier.id === 'black' ? 'bg-gold' : colors.iconColor.replace('text-', 'bg-')} translate-y-1/2`} />
               
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {visibleFeatures.map((feature, idx) => (
                   <motion.li
                     key={feature}
@@ -672,7 +591,7 @@ export function TicketsValentineSection() {
                 <div className={`absolute inset-0 rounded-2xl blur-2xl opacity-0 group-hover:opacity-70 transition-all duration-300 ${tier.id === 'red' || tier.id === 'black' ? 'bg-gold' : tier.id === 'gold' ? 'bg-gold-champagne' : tier.id === 'silver' ? 'bg-grey-400' : 'bg-blue-500'}`} />
                 
                 <button
-                  className={`relative w-full py-6 md:py-7 rounded-2xl font-headline text-base md:text-lg tracking-[0.2em] transition-all shadow-2xl hover:shadow-2xl ${colors.buttonBg} ${colors.buttonHover} ${colors.buttonText} font-black flex items-center justify-center gap-3 border-4 border-white/20 overflow-hidden`}
+                  className={`relative w-full py-5 md:py-6 rounded-2xl font-headline text-base md:text-lg tracking-[0.2em] transition-all shadow-2xl hover:shadow-2xl ${colors.buttonBg} ${colors.buttonHover} ${colors.buttonText} font-black flex items-center justify-center gap-3 border-4 border-white/20 overflow-hidden`}
                   style={{
                     boxShadow: `
                       0 15px 40px -10px rgba(0, 0, 0, 0.4),
@@ -742,7 +661,7 @@ export function TicketsValentineSection() {
             Reserve Your Place in Fashion History
           </h2>
           <p className="text-grey-600 text-base md:text-lg max-w-2xl mx-auto mb-6">
-            Five exclusive tiers designed for every desire. From VVIP luxury to intimate lounge experiences.
+            Five exclusive tiers designed for every desire. From premium luxury to intimate lounge experiences.
           </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto mb-6" />
 
