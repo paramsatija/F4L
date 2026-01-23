@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Black background -->
+  <rect width="100" height="100" fill="#000000"/>
+  
+  <!-- Red heart -->
+  <path d="M50,85 C50,85 15,60 15,40 C15,28 22,20 32,20 C38,20 44,23 50,30 C56,23 62,20 68,20 C78,20 85,28 85,40 C85,60 50,85 50,85 Z" 
+        fill="#CF0F0F" 
+        stroke="#CF0F0F" 
+        stroke-width="1"/>
+</svg>
