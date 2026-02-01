@@ -1,6 +1,6 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Check, Crown, Star, Users, Wine, Eye, Heart, ChevronDown, Mail } from 'lucide-react';
+import { Check, Crown, Star, Users, Wine, Eye, Heart, ChevronDown, Ticket } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { CountdownTimer } from './CountdownTimer';
 import { TICKET_TIERS, VALENTINE_EXPERIENCES } from '../constants/placeholders';
@@ -579,7 +579,9 @@ export function TicketsValentineSection() {
 
             {/* Premium CTA Button - 3D Embossed */}
             <a
-              href={`mailto:reservations@forthestarsfashion.com?subject=Ticket Reservation - ${tier.name} ${tier.subtitle}&body=I would like to reserve tickets for the ${tier.name} (${tier.subtitle}) tier.%0D%0A%0D%0APrice: ${tier.currency} ${tier.price.toLocaleString()} (≈ USD $${tier.priceUSD.toLocaleString()})%0D%0A%0D%0APlease contact me to complete the reservation.`}
+              href="https://events.q-tickets.com/uae/eventdetails/6414851046/fashions-for-love-for-the-stars"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block group"
             >
               <motion.div
@@ -612,12 +614,12 @@ export function TicketsValentineSection() {
                   {/* Stitched effect lines */}
                   <div className="absolute inset-3 border-2 border-dashed border-white/10 rounded-xl" />
                   
-                  <span className="relative z-10 text-shadow-lg">RESERVE {tier.name.split(' ')[0].toUpperCase()}</span>
+                  <span className="relative z-10 text-shadow-lg">BOOK NOW</span>
                   <motion.div
                     whileHover={{ rotate: 12, scale: 1.1 }}
                     className="relative z-10"
                   >
-                    <Mail className="w-6 h-6 drop-shadow-lg" />
+                    <Ticket className="w-6 h-6 drop-shadow-lg" />
                   </motion.div>
                   
                   {/* Enhanced corner decorations */}
@@ -737,16 +739,18 @@ export function TicketsValentineSection() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 mb-4 bg-white border border-grey-200 rounded-full px-6 py-3 shadow-medium">
-            <Mail className="w-5 h-5 text-crimson" />
+            <Ticket className="w-5 h-5 text-crimson" />
             <a 
-              href="mailto:reservations@forthestarsfashion.com"
+              href="https://events.q-tickets.com/uae/eventdetails/6414851046/fashions-for-love-for-the-stars"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-grey-900 font-medium hover:text-crimson transition-colors"
             >
-              reservations@forthestarsfashion.com
+              Book Your Tickets on Q-Tickets
             </a>
           </div>
           <p className="text-grey-600 text-sm mb-2">
-            Click any ticket to email your reservation | Payment plans available
+            Click any ticket to book now | Secure online payment via Q-Tickets
           </p>
           <p className="text-crimson text-sm font-medium">
             Limited to 600 guests. Previous editions sold out in 72 hours.
