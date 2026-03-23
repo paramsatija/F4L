@@ -614,7 +614,7 @@ export function TicketsValentineSection() {
                   {/* Stitched effect lines */}
                   <div className="absolute inset-3 border-2 border-dashed border-white/10 rounded-xl" />
                   
-                  <span className="relative z-10 text-shadow-lg">BOOK NOW</span>
+                  <span className="relative z-10 text-shadow-lg">JOIN WAITLIST</span>
                   <motion.div
                     whileHover={{ rotate: 12, scale: 1.1 }}
                     className="relative z-10"
@@ -657,13 +657,13 @@ export function TicketsValentineSection() {
           className="text-center mb-12"
         >
           <p className="text-crimson text-sm tracking-[0.4em] uppercase mb-3 font-sans font-semibold">
-            Your Invitation Awaits
+            Fashions for Love — Part II
           </p>
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl text-grey-900 mb-4 uppercase font-bold">
-            Reserve Your Place in Fashion History
+            The Next Chapter Is Loading
           </h2>
           <p className="text-grey-600 text-base md:text-lg max-w-2xl mx-auto mb-6">
-            Five exclusive tiers designed for every desire. From premium luxury to intimate lounge experiences.
+            Part I is now history. Part II is on its way — same luxury, a bigger stage. Join the waitlist to be first in line.
           </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-crimson to-transparent mx-auto mb-6" />
 
@@ -679,14 +679,14 @@ export function TicketsValentineSection() {
             className="max-w-md mx-auto"
           >
             <div className="flex items-center justify-between mb-2 text-sm">
-              <span className="text-grey-600 font-medium">73% Reserved</span>
-              <span className="text-crimson font-semibold">Only 162 Seats Remaining</span>
+              <span className="text-grey-600 font-medium">Part I — Sold Out</span>
+              <span className="text-crimson font-semibold">Part II Waitlist Open</span>
             </div>
             <div className="relative h-2 bg-grey-200 rounded-full overflow-hidden">
               <motion.div
                 className="absolute inset-y-0 left-0 bg-gradient-to-r from-crimson to-crimson-light rounded-full"
                 initial={{ width: 0 }}
-                animate={isInView ? { width: '73%' } : {}}
+                animate={isInView ? { width: '100%' } : {}}
                 transition={{ delay: 0.5, duration: 1, ease: 'easeOut' }}
               />
             </div>
@@ -741,19 +741,17 @@ export function TicketsValentineSection() {
           <div className="inline-flex items-center gap-2 mb-4 bg-white border border-grey-200 rounded-full px-6 py-3 shadow-medium">
             <Ticket className="w-5 h-5 text-crimson" />
             <a 
-              href="https://events.q-tickets.com/uae/eventdetails/6414851046/fashions-for-love-for-the-stars"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:reservations@forthestarsfashion.com"
               className="text-grey-900 font-medium hover:text-crimson transition-colors"
             >
-              Book Your Tickets on Q-Tickets
+              Join the Part II Waitlist
             </a>
           </div>
           <p className="text-grey-600 text-sm mb-2">
-            Click any ticket to book now | Secure online payment via Q-Tickets
+            Email us to register your interest | Priority access for Part I alumni
           </p>
           <p className="text-crimson text-sm font-medium">
-            Limited to 600 guests. Previous editions sold out in 72 hours.
+            Part I sold out entirely. Be first to know when Part II tickets go live.
           </p>
         </motion.div>
 
@@ -774,8 +772,7 @@ export function TicketsValentineSection() {
             Where Fashion Meets Love
           </h3>
           <p className="text-grey-600 text-base max-w-3xl mx-auto leading-relaxed">
-            Valentine's Eve in Dubai. The world's most spectacular city transforms into a canvas of romance
-            as the Burj Khalifa glows with ten thousand hearts.
+            Part I delivered it all — rose petal pathways, Dom Pérignon under the stars, a midnight toast at the Burj Khalifa. Part II will go further.
           </p>
         </motion.div>
 

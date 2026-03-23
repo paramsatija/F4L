@@ -59,14 +59,14 @@ export function EventPosterSection() {
             {/* Section Title */}
             <div className="text-center lg:text-left">
               <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3 font-sans font-semibold">
-                Mark Your Calendar
+                Part I — Dubai 2026
               </p>
               <h2 className="font-headline text-4xl lg:text-5xl text-white mb-4 uppercase font-bold"
                 style={{
                   textShadow: '0 4px 20px rgba(212, 165, 116, 0.4)',
                 }}
               >
-                The Event Begins In
+                The Night That Was
               </h2>
             </div>
 
@@ -87,7 +87,7 @@ export function EventPosterSection() {
                 <div>
                   <p className="text-champagne/70 text-xs lg:text-sm font-medium mb-1 uppercase tracking-wider">Date</p>
                   <p className="text-white text-base lg:text-lg font-headline font-bold tracking-wide">
-                    Valentine's Eve - February 13, 2026
+                    February 19, 2026 — Part I
                   </p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export function EventPosterSection() {
             <div className="text-center lg:text-left">
               <a href="#tickets" className="inline-block">
                 <button className="bg-gradient-to-r from-gold via-gold-champagne to-gold text-grey-900 font-headline font-bold text-base lg:text-lg px-8 lg:px-12 py-4 lg:py-5 rounded-xl shadow-2xl tracking-widest">
-                  SECURE YOUR TICKETS
+                  JOIN PART II WAITLIST
                 </button>
               </a>
             </div>

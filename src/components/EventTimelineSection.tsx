@@ -74,14 +74,14 @@ export function EventTimelineSection() {
             <div className="w-1 h-1 rounded-full bg-gold animate-pulse" />
             <Clock className="w-6 h-6 text-gold" />
             <p className="text-gold text-sm tracking-[0.5em] uppercase font-headline">
-              An Unforgettable Evening
+              How the Night Unfolded
             </p>
             <Clock className="w-6 h-6 text-gold" />
             <div className="w-1 h-1 rounded-full bg-gold animate-pulse" />
           </div>
 
           <h3 className="font-headline text-5xl md:text-7xl text-grey-900 mb-4 uppercase tracking-tight font-bold">
-            Friday 13 February 2026
+            Thursday 19 February 2026
           </h3>
 
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -102,7 +102,7 @@ export function EventTimelineSection() {
           >
             <Users className="w-5 h-5 text-crimson" />
             <span className="text-grey-900 text-base font-semibold tracking-wide">
-              Limited to 600 Elite Guests
+              600 Elite Guests in Attendance
             </span>
           </motion.div>
         </motion.div>
@@ -262,15 +262,16 @@ export function EventTimelineSection() {
           className="text-center mt-16"
         >
           <p className="text-grey-700 text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-sans">
-            Seven hours of pure glamour, romance, and world-class entertainment in the heart of Dubai.
+            Seven hours of pure glamour, romance, and world-class entertainment in the heart of Dubai. Part I is history — Part II is coming.
           </p>
           <motion.button
+            onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-12 py-5 text-white font-headline text-lg tracking-wider rounded-full transition-all duration-300 shadow-crimson-intense hover:shadow-crimson font-bold"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
             data-cursor="hover"
           >
-            RESERVE YOUR EVENING
+            JOIN THE PART II WAITLIST
           </motion.button>
         </motion.div>
       </div>

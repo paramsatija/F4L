@@ -1,12 +1,12 @@
 import { StickyNavigation } from './components/StickyNavigation';
 import { Hero } from './components/Hero';
-import { EventPosterSection } from './components/EventPosterSection';
 import { VisionDestinationSection } from './components/VisionDestinationSection';
 import { DesignerTimelineSection } from './components/DesignerTimelineSection';
 import { EventTimelineSection } from './components/EventTimelineSection';
 import { CelebrityGallery } from './components/CelebrityGallery';
+import { EventPhotoCarousels } from './components/EventPhotoCarousels';
 import { RunwayShowcase } from './components/RunwayShowcase';
-import { TicketsValentineSection } from './components/TicketsValentineSection';
+import { PartTwoNotify } from './components/PartTwoNotify';
 import { FAQPressFooterSection } from './components/FAQPressFooterSection';
 
 function App() {
@@ -19,10 +19,10 @@ function App() {
         <VisionDestinationSection />
         <DesignerTimelineSection />
         <EventTimelineSection />
-        <EventPosterSection />
         <CelebrityGallery />
+        <EventPhotoCarousels />
         <RunwayShowcase />
-        <TicketsValentineSection />
+        <PartTwoNotify />
         <FAQPressFooterSection />
       </main>
     </div>

@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'The Vision', href: '#vision' },
+  { label: 'The Night', href: '#vision' },
   { label: 'The Visionary', href: '#designer' },
   { label: 'The Stars', href: '#performers' },
   { label: 'The Show', href: '#runway' },
-  { label: 'Tickets', href: '#tickets' },
+  { label: 'Part II', href: '#tickets' },
 ];
 
 export function StickyNavigation() {
@@ -85,12 +85,12 @@ export function StickyNavigation() {
           <div className="flex items-center gap-4">
             <motion.button
               onClick={() => scrollToSection('#tickets')}
-              className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-crimson text-white text-sm font-headline tracking-wider rounded-full hover:bg-crimson-dark transition-colors shadow-crimson"
+              className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-crimson text-white text-sm font-headline tracking-wider rounded-full hover:bg-crimson-dark transition-colors shadow-crimson animate-pulse-glow"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               data-cursor="hover"
             >
-              Reserve Your Seat
+              Join Part II Waitlist
             </motion.button>
 
             <motion.button
@@ -161,7 +161,7 @@ export function StickyNavigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  Reserve Your Seat
+                  Join Part II Waitlist
                 </motion.button>
               </div>
             </motion.div>

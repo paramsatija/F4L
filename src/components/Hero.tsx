@@ -221,13 +221,10 @@ export function Hero() {
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-2 lg:mb-3">
               <div className="w-8 lg:w-16 h-px bg-gradient-to-r from-transparent to-crimson" />
               <p className="text-[10px] lg:text-sm tracking-[0.25em] uppercase text-white/80 font-sans whitespace-nowrap font-medium">
-                Valentine's Eve
+                Part I — Dubai
               </p>
               <div className="w-8 lg:w-16 h-px bg-gradient-to-l from-transparent to-crimson" />
             </div>
-            <p className="font-headline text-2xl lg:text-5xl tracking-wider font-bold mb-1.5 lg:mb-2.5" style={{ color: '#CF0F0F' }}>
-              13 FEBRUARY 2026
-            </p>
             <p className="text-[10px] lg:text-base tracking-[0.2em] uppercase text-white/75 font-sans font-medium">
               Armani Hotel | Burj Khalifa | Dubai
             </p>
@@ -248,15 +245,18 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.5 }}
           >
-            <button className="bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-12 py-5 text-white font-headline text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense active:scale-95 font-bold">
-              SECURE YOUR INVITATION
+            <button
+              onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-12 py-5 text-white font-headline text-lg tracking-wider transition-all duration-300 hover:scale-105 shadow-crimson-intense active:scale-95 font-bold"
+            >
+              JOIN PART II WAITLIST
             </button>
             <button 
               onClick={() => setIsVideoOpen(true)}
               className="flex items-center justify-center gap-4 px-10 py-5 text-white font-sans text-base tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95 font-medium"
             >
               <Play className="w-6 h-6" />
-              Watch Teaser
+              Watch the Recap
             </button>
           </motion.div>
         </div>
@@ -294,15 +294,18 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.5 }}
         >
-          <button className="w-full bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-6 py-4 text-white font-headline text-sm tracking-wider transition-all duration-300 shadow-crimson-intense active:scale-95 font-bold">
-            SECURE YOUR INVITATION
+          <button
+            onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full bg-gradient-to-r from-crimson to-crimson-light hover:from-crimson-light hover:to-crimson px-6 py-4 text-white font-headline text-sm tracking-wider transition-all duration-300 shadow-crimson-intense active:scale-95 font-bold"
+          >
+            JOIN PART II WAITLIST
           </button>
           <button 
             onClick={() => setIsVideoOpen(true)}
             className="w-full flex items-center justify-center gap-2 px-6 py-4 text-white font-sans text-sm tracking-wider hover:text-crimson border-2 border-white/30 hover:border-crimson/60 transition-all duration-300 bg-white/10 backdrop-blur-sm active:scale-95 font-medium"
           >
             <Play className="w-4 h-4" />
-            Watch Teaser
+            Watch the Recap
           </button>
         </motion.div>
       </div>

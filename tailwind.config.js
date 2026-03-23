@@ -71,8 +71,16 @@ export default {
         'flip': 'flip 0.6s ease-in-out',
         'sparkle': 'sparkle 2s ease-in-out infinite',
         'drift-up': 'driftUp 15s linear infinite',
+        /** Seamless horizontal loops — duplicate content, translate -50% */
+        'marquee-a': 'marqueeScroll 88s linear infinite',
+        'marquee-b': 'marqueeScroll 108s linear infinite',
+        'marquee-c': 'marqueeScroll 96s linear infinite',
       },
       keyframes: {
+        marqueeScroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 20px rgba(224, 17, 95, 0.4), 0 0 40px rgba(224, 17, 95, 0.2)' },
           '50%': { boxShadow: '0 0 30px rgba(224, 17, 95, 0.6), 0 0 60px rgba(224, 17, 95, 0.3)' },

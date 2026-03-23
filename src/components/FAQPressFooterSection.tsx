@@ -7,24 +7,24 @@ import { SectionDecorations } from './SectionDecorations';
 
 const faqs = [
   {
-    question: 'What is the dress code?',
-    answer: 'Black tie with a touch of red or crimson. Think Hollywood glamour meets Valentine\'s romance.',
+    question: 'Will there be a Fashions for Love Part II?',
+    answer: 'Yes — Part II is in motion. Date and venue to be announced. Join the waitlist at reservations@forthestarsfashion.com to get priority access.',
   },
   {
-    question: 'Where exactly is the venue?',
-    answer: 'Armani Hotel Dubai, located inside the Burj Khalifa tower.',
+    question: 'What happened at Part I?',
+    answer: 'Part I took place on February 19, 2026 at Armani Hotel, Burj Khalifa, Dubai. 600+ VIP guests, 80+ international models, live performances by 25Band and Deborah Cox, and a full Jacob Meir couture runway show.',
   },
   {
-    question: 'Is parking available?',
-    answer: 'Valet parking available. Complimentary for Platinum ticket holders.',
+    question: 'How can I get press credentials or media coverage?',
+    answer: 'Email us at reservations@forthestarsfashion.com with your publication details. We work with international press for all future editions.',
   },
   {
-    question: 'Can I bring a plus one?',
-    answer: 'Each ticket is for one guest. We offer couples packages at 10% discount.',
+    question: 'Can I purchase or view the Part I collection?',
+    answer: 'The museum collection pieces from Part I are available for private acquisition. Contact us directly to arrange a viewing.',
   },
   {
-    question: 'What time should I arrive?',
-    answer: 'Doors open at 6:30 PM. Arrive by 7:00 PM for the full red carpet experience.',
+    question: 'How do I stay updated on Part II?',
+    answer: 'Follow us on social media and join our email list. Part II details — date, venue, performers — will be announced exclusively to waitlist members first.',
   },
 ];
 
@@ -51,7 +51,7 @@ export function FAQPressFooterSection() {
             Questions
           </p>
           <h2 className="font-display text-display-md text-white mb-4 uppercase font-bold">
-            Everything You Need to Know
+            Questions About Part II
           </h2>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
         </motion.div>
@@ -118,7 +118,7 @@ export function FAQPressFooterSection() {
           className="text-center mb-4"
         >
           <p className="text-white/70 text-sm mb-2">
-            Still have questions?
+            Press inquiries, Part II waitlist, or collection acquisitions:
           </p>
           <a
             href="mailto:reservations@forthestarsfashion.com"
@@ -175,7 +175,7 @@ export function FAQPressFooterSection() {
               For The Stars Fashion and Entertainment LLC - FZ
             </p>
             <p className="text-white/50 text-xs">
-              Hollywood's Premier Fashion House bringing glamour to Dubai
+              Hollywood's Premier Fashion House — Part I, Dubai 2026. Part II coming soon.
             </p>
           </motion.div>
 
@@ -230,7 +230,7 @@ export function FAQPressFooterSection() {
               </p>
               <p className="text-white/80 text-sm">Armani Hotel, Dubai</p>
               <p className="text-crimson text-sm font-semibold">
-                13 February 2026
+                Part I — 19 February 2026
               </p>
             </div>
           </motion.div>
@@ -243,7 +243,7 @@ export function FAQPressFooterSection() {
             &copy; 2026 For The Stars Fashion and Entertainment LLC - FZ. All rights reserved.
           </p>
           <p className="text-white/60 text-xs">
-            Fashions for Love 2026 - Hollywood Meets Dubai
+            Fashions for Love — Part I, Dubai 2026 · Part II Coming Soon
           </p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import { carouselDurationMultiplier } from '../constants/carousel';
 import { MagneticCard } from './MagneticCard';
 import { FloatingValentineHearts } from './particles/FloatingValentineHearts';
 import { FashionSketches } from './particles/FashionSketches';
@@ -40,6 +41,8 @@ const runwayImages = [
   { src: '/runway/IMG_8156.jpg', alt: 'Couture Piece 32' },
 ];
 
+const RUNWAY_MARQUEE_BASE_DURATION_S = 80;
+
 const museumPieces = [
   { src: '/iconic piece/jennifer main.jpg', title: 'Jennifer Lopez - Vegas Residency', year: '2022' },
   { src: '/iconic piece/BRITNEY SPEARS MAIN.jpg', title: 'Britney Spears - Piece of Me', year: '2018' },
@@ -74,24 +77,25 @@ export function RunwayShowcase() {
           className="text-center mb-10 px-6"
         >
           <p className="text-crimson text-sm tracking-[0.4em] uppercase mb-3">
-            Spectacular
+            Part I — On the Runway
           </p>
           <h2 className="font-display text-headline-xl text-white mb-3 uppercase font-bold">
-            Runway Show
+            The Show
           </h2>
           <p className="text-white/80 text-base max-w-2xl mx-auto">
-            For The Stars Couture by Jacob Meir - 80+ international models
-            showcasing breathtaking designs
+            For The Stars Couture by Jacob Meir — 80+ international models brought the designs to life at Armani Hotel, Dubai
           </p>
         </motion.div>
 
         <div className="relative overflow-hidden py-8">
           <motion.div
             className="flex gap-6 px-6"
+            style={{ willChange: 'transform' }}
             animate={{ x: [0, -4800] }}
             transition={{
               x: {
-                duration: 80,
+                duration:
+                  RUNWAY_MARQUEE_BASE_DURATION_S * carouselDurationMultiplier(),
                 repeat: Infinity,
                 ease: 'linear',
               },
@@ -99,23 +103,21 @@ export function RunwayShowcase() {
           >
             {[...runwayImages, ...runwayImages].map(
               (image, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="flex-shrink-0 w-64 md:w-80"
-                  whileHover={{ scale: 1.05, zIndex: 10 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                  className="group flex-shrink-0 w-64 md:w-80"
                 >
                   <div className="relative aspect-[2/3] rounded-lg overflow-hidden shadow-large">
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                       loading="lazy"
                       decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-near-black/60 via-transparent to-transparent" />
                   </div>
-                </motion.div>
+                </div>
               )
             )}
           </motion.div>

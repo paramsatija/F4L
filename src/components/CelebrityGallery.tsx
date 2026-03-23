@@ -10,13 +10,13 @@ const performers = [
     name: '25Band',
     subtitle: 'Tamin & A-Del',
     image: '/performing/25band.png',
-    role: 'Live Performance',
+    role: 'Performed — Part I',
   },
   {
     name: 'Deborah Cox',
     subtitle: 'R&B Icon',
     image: '/performing/deborah-cox.png',
-    role: 'Live Performance',
+    role: 'Performed — Part I',
   },
   {
     name: 'Tyra Banks',
@@ -86,10 +86,10 @@ export function CelebrityGallery() {
             className="text-center"
           >
             <p className="text-gold text-sm tracking-[0.4em] uppercase mb-3">
-              Confirmed Celebrities
+              Stars of the Night
             </p>
                   <h2 className="font-display text-headline-xl text-white mb-4 uppercase font-bold">
-                    Star-Studded Lineup
+                    The Faces of Part I
                   </h2>
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
           </motion.div>

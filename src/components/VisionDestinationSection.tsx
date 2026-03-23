@@ -7,9 +7,9 @@ import { FashionSketches } from './particles/FashionSketches';
 import { SectionDecorations } from './SectionDecorations';
 
 const stats = [
-  { value: '600+', label: 'VIP Guests', icon: Users },
+  { value: '600+', label: 'VIP Guests Attended', icon: Users },
   { value: '80+', label: 'International Models', icon: Globe },
-  { value: '4', label: 'Grammy Winners', icon: Music },
+  { value: '4', label: 'Grammy Winners on Stage', icon: Music },
   { value: '40', label: 'Years of Legacy', icon: Award },
 ];
 
@@ -65,7 +65,7 @@ export function VisionDestinationSection() {
           className="text-center mb-16"
         >
           <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
-            The Vision
+            The Legacy
           </p>
           <h2 className="font-display text-headline-xl text-grey-900 mb-6 uppercase leading-none font-bold">
             One Night. One Legacy. One Love.
@@ -80,14 +80,14 @@ export function VisionDestinationSection() {
           className="max-w-4xl mx-auto text-center mb-20"
         >
           <p className="text-grey-800 text-xl leading-relaxed mb-6 font-light">
-            On Valentine's Eve 2026, the world's tallest tower becomes fashion's most romantic stage.
+            On February 19, 2026, the world's tallest tower became fashion's most romantic stage.
             <span className="text-crimson font-semibold"> Fashions for Love </span>
-            unites Hollywood's brightest stars with Dubai's elite for an unforgettable celebration
+            united Hollywood's brightest stars with Dubai's elite in an unforgettable celebration
             of couture, music, and the universal language of love.
           </p>
           <p className="text-grey-600 text-lg leading-relaxed">
-            Standing 828 meters above the Arabian desert, this is where four decades of dressing
-            the world's greatest icons culminates in a single, spectacular evening. This is Jacob Meir's masterpiece.
+            Standing 828 meters above the Arabian desert, this was where four decades of dressing
+            the world's greatest icons culminated in a single, spectacular evening. This was Jacob Meir's masterpiece — and Part II is already in motion.
           </p>
         </motion.div>
 
@@ -133,10 +133,10 @@ export function VisionDestinationSection() {
           className="text-center mb-12"
         >
           <p className="text-crimson text-xs tracking-[0.5em] uppercase mb-4 font-sans font-semibold">
-            The Destination
+            The Venue
           </p>
           <h3 className="font-display text-display-md text-grey-900 mb-6 uppercase leading-none font-bold">
-            Where Dreams Touch the Sky
+            Where Dreams Touched the Sky
           </h3>
         </motion.div>
 
